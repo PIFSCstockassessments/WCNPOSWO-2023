@@ -1,0 +1,5 @@
+##ignore all ss.exe files
+*.exe
+##ignore all confidential files
+HI CPUE prep/Confidential Data/
+ERRDAP/
