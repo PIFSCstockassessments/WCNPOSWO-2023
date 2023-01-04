@@ -1,0 +1,45 @@
+Bait,Bait_name,Bait_group
+1,Mixed,Mix
+2,Akule,Other
+3,Spanish Mackeral (Peruvian),Mackeral
+4,Squid,Squid
+5,Akule Feathers (Damashi),Other
+9,Unknown,Other
+10,Saury (Scomberesocidae)(SANMA),Sanma
+12,Scomber Japonicus (SABA),Saba
+15,Kahala,Other
+16,Decapterus (MACKERAL),Mackeral
+17,Lure (Unknown),Other
+20,Squid_Akule,Mix
+22,Dogtooth Tuna,Other
+23,Mackeral (Unknown)(Saba),Mackeral
+26,Unknown,Other
+27,YF (AHI),Other
+28,Akule_Saba,Mix
+30,Opelu,Other
+32,Saba_Squid,Mix
+35,Mullet,Other
+40,Unknown,Other
+42,Tuna Belly,Other
+51,Sardine (Unknown),Sardine
+52,Sanma_Squid,Mix
+53,Sanma_Saba,Mix
+54,Sanma_Saba_Squid,Mix
+55,Squid_Cowhide,Squid
+56,Opelu_Sanma,Mix
+57,Sanma_Milkfish,Mix
+58,Sanma_Sardine,Sanma Sardine Mix
+60,Squid_Sardine,Mix
+61,Mackerel_Sardine,Mix
+62,Sanma_Squid_Sardine,Mix
+63,Akule_Sanma,Mix
+64,Akule_Sanma_Sardine,Mix
+65,Akule_Sardine,Mix
+66,Akule_Sardine_Saba,Mix
+67,Akule_Sardine_Saba_Sanma,Mix
+68,Mackerel_Sanma,Mix
+69,Sanma_Sardine_Herring,Mix
+70,Sardine_Herring,Mix
+71,Herring,Other
+72,Other Bait,Other
+73,Unknown,Other
