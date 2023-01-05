@@ -3,6 +3,9 @@
 
 ## ignore all .Rdata files
 *.Rdata
+
+## ignore all temp files
+~*
 ##ignore all confidential files
 HI CPUE prep/Confidential Data/
 ERRDAP/
