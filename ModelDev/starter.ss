@@ -5,9 +5,9 @@
 #C Michelle Sculley, michelle.sculley@noaa.gov
 #C JIMAR-PFISC
 #C February 2018
-dataV1_10.dat
-controlV1_10.ctl
-1 # 0=use init values in control file; 1=use ss.par
+swo2023_v001.dat
+swo2023_v001.ctl
+0 # 0=use init values in control file; 1=use ss.par
 1 # run display detail (0,1,2)
 1 # detailed age-structured reports in REPORT.SSO (0=low,1=high,2=low for data-limited)
 0 # write detailed checkup.sso file (0,1)
@@ -20,8 +20,8 @@ controlV1_10.ctl
 10 # MCeval burn interval
 2 # MCeval thin interval
 0 # jitter initial parm value by this fraction
-1950 # min yr for sdreport outputs (-1 for styr)
-2016 # max yr for sdreport outputs (-1 for endyr; -2 for endyr+Nforecastyrs
+1975 # min yr for sdreport outputs (-1 for styr)
+2021 # max yr for sdreport outputs (-1 for endyr; -2 for endyr+Nforecastyrs
 0 # N individual STD years
 #vector of year values
 
@@ -33,7 +33,7 @@ controlV1_10.ctl
 4 # SPR_report_basis:  0=skip; 1=(1-SPR)/(1-SPR_tgt); 2=(1-SPR)/(1-SPR_MSY); 3=(1-SPR)/(1-SPR_Btarget); 4=rawSPR
 4 # F_report_units: 0=skip; 1=exploitation(Bio); 2=exploitation(Num); 3=sum(Frates); 4=true F for range of ages
  1 10 #_min and max age over which average F will be calculated
-2 # F_report_basis: 0=raw_F_report; 1=F/Fspr; 2=F/Fmsy ; 3=F/Fbtgt
+0 # F_report_basis: 0=raw_F_report; 1=F/Fspr; 2=F/Fmsy ; 3=F/Fbtgt
 0 # MCMC output detail (0=default; 1=obj func components; 2=expanded; 3=make output subdir for each MCMC vector)
 0 # ALK tolerance (example 0.0001)
 3.30 # check value for end of file and for version control
