@@ -1,9 +1,5 @@
 Warning 1 : Forecast=0 or -1, so rest of forecast file will not be read and can be omitted;
 Warning 2 : A one year forecast using recent F will be done automatically
-Warning 3 : Fleet:_11min bound on parameter for size at peak is 0.1; should be >= midsize bin 2 (17.5)
-Warning 4 : Fleet:_11min bound on parameter for size at peak is 0.1; which is < min databin (10), so illogical.
-Warning 5 : 1st iteration warning: ssb(endyr)/ssb(styr)= 2.03227e-12; suggest start with larger R0 to get near 0.4; or use depletion fleet option
-Warning 6 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
-Warning 7 : Main recdev biasadj is >2 times ratio of rmse to sigmaR
-Warning 8 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
- 8 warnings 
+Warning 3 : Main recdev biasadj is >2 times ratio of rmse to sigmaR
+Warning 4 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
+ 4 warnings 

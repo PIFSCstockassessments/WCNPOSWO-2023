@@ -7,7 +7,7 @@
 #C February 2018
 swo2023_v001.dat
 swo2023_v001.ctl
-0 # 0=use init values in control file; 1=use ss.par
+1 # 0=use init values in control file; 1=use ss.par
 1 # run display detail (0,1,2)
 1 # detailed age-structured reports in REPORT.SSO (0=low,1=high,2=low for data-limited)
 0 # write detailed checkup.sso file (0,1)
