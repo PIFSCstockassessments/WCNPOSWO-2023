@@ -261,7 +261,6 @@
  15 0 0 11 # 25 S6_US_WCNPO_LL_deep
  15 0 0 13 # 26 S7_US_WCNPO_LL_shallow_early
  15 0 0 12 # 27 S8_US_WCNPO_LL_shallow_late
-24 0 0 0 # 28 F11_US_WCNPO_LL_deep_sexsp
 #
 #_age_selex_patterns
 #Pattern:_0; parm=0; selex=1.0 for ages 0 to maxage
@@ -309,7 +308,6 @@
  0 0 0 0 # 25 S6_US_WCNPO_LL_deep
  0 0 0 0 # 26 S7_US_WCNPO_LL_shallow_early
  0 0 0 0 # 27 S8_US_WCNPO_LL_shallow_late
- 0 0 0 0 # 28 F11_US_WCNPO_LL_deep_sexsp
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
 # 1   F1_JPN_WCNPO_OSDWLL_early_Area1 LenSelex
@@ -404,13 +402,6 @@
 # 25   S6_US_WCNPO_LL_deep LenSelex
 # 26   S7_US_WCNPO_LL_shallow_early LenSelex
 # 27   S8_US_WCNPO_LL_shallow_late LenSelex
-# 28   F11_US_WCNPO_LL_deep_sexsp
-            18           250       169.111            90          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
-            -10             3      -3.44686           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
-            -4            12       7.96829             6          0.05             0          4         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
-            -6            15       8.67979           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
-          -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
-          -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
 # 1   F1_JPN_WCNPO_OSDWLL_early_Area1 AgeSelex
 # 2   F2_JPN_WCNPO_OSDWCOLL_late_Area1 AgeSelex
 # 3   F3_JPN_EPO_OSDWLL AgeSelex

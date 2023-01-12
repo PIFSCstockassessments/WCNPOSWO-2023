@@ -4062,18 +4062,18 @@ yr 2021, seas: 4, fleet:12
  finished time series 
 Finished time_series
 Finished survey obj_fun  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1435.66 -34.7373 808.354 -33.8579 -14.4622 -22.5303 -8.13252 -14.4709
-Finished lencomp obj_fun  1077.93 14486.4 221.734 0 1847.5 0 0 7596.31 0 0 4450.57 19456.9 3683.06 0 0 0 0 0 282.102 0 0 0 0 0 0 0 0
+Finished lencomp obj_fun  1077.93 14486.4 221.734 0 1847.5 0 0 7596.31 0 0 4385.11 10934.8 3679.27 0 0 0 0 0 282.102 0 0 0 0 0 0 0 0
  initequ_catch -log(L)  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
  catch -log(L)  87076.8 128798 90566.9 78552.2 133385 82412.8 128787 101186 75652.4 96596.9 119560 59798.7 25299.5 193152 208221 85712.4 128795 208841 212381 0 0 0 0 0 0 0 0
 Finished recruitdev obj_fun -15.3222 29.9949 0.72
- OK with obj_func 2.29998e+06
+ OK with obj_func 2.29139e+06
 Wrote first version of output files (before hessian, benchmark, and forecast)
 Start benchmark and forecast, if requested
-Calculated Fspr 1.70328 0.2
-Calculated Btgt: 1.5753 0.2
-Calculated Fmsy 1.81647 2.05668e+21
+Calculated Fspr 1.70199 0.2
+Calculated Btgt: 1.5741 0.2
+Calculated Fmsy 1.81502 2.05677e+21
 Finished benchmark, forecast, and sdreporting
-Iterations: 966
+Iterations: 983
 Finished forecast
 Writing wtatage.ss_new
 Finished StdDev quantities
