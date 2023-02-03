@@ -1,8 +1,7 @@
 Warning 1 : Forecast=0 or -1, so rest of forecast file will not be read and can be omitted;
 Warning 2 : A one year forecast using recent F will be done automatically
-Warning 3 : 1st iteration warning: ssb(endyr)/ssb(styr)= 1.46192e-09; suggest start with larger R0 to get near 0.4; or use depletion fleet option
+Warning 3 : 1st iteration warning: ssb(endyr)/ssb(styr)= 5.34668e-10; suggest start with larger R0 to get near 0.4; or use depletion fleet option
 Warning 4 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
 Warning 5 : Main recdev biasadj is >2 times ratio of rmse to sigmaR
 Warning 6 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
-Note 1 Information:  N parameters that are on or within 1% of min-max bound: 1; check results, variance may be suspect
- 6 warnings  and 1 note 
+ 6 warnings 

@@ -159,7 +159,7 @@
 #_initial_F_parms; for each fleet x season that has init_catch; nest season in fleet; count = 4
 #_for unconstrained init_F, use an arbitrary initial catch and set lambda=0 for its logL
 #_ LO HI INIT PRIOR PR_SD  PR_type  PHASE
- 0 3 0.8 0.1 99 0 2 # InitF_seas_1_flt_1F1_JPN_WCNPO_OSDWLL_early_Area1
+ 0 3 1 1 99 0 2 # InitF_seas_1_flt_1F1_JPN_WCNPO_OSDWLL_early_Area1
  #
 # F rates by fleet x season
 #_Q_setup for fleets with cpue or survey data
@@ -440,7 +440,7 @@
 4 7 1 1 1
 4 8 1 1 1
 4 9 1 0 0
-9 4 1 0 0
+9 6 1 0 0
  10 1 1 1 1
 -9999  1  1  1  1  #  terminator
 #
