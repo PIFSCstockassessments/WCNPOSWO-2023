@@ -6,6 +6,7 @@
 
 ## ignore all temp files
 ~*
+.tmp
 ##ignore all confidential files
 HI CPUE prep/Confidential Data/
 ERRDAP/
