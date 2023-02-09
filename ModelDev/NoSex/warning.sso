@@ -1,6 +1,13 @@
 Warning 1 : Forecast=0 or -1, so rest of forecast file will not be read and can be omitted;
 Warning 2 : A one year forecast using recent F will be done automatically
-Warning 3 : 1st iteration warning: ssb(endyr)/ssb(styr)= 2.28689e-15; suggest start with larger R0 to get near 0.4; or use depletion fleet option
-Warning 4 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
-Warning 5 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
- 5 warnings 
+Warning 3 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2007 4 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 4 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2008 4 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 5 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2009 4 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 6 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2010 4 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 7 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2016 4 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 8 : 1st iteration warning: ssb(endyr)/ssb(styr)= 2.00774e-17; suggest start with larger R0 to get near 0.4; or use depletion fleet option
+Warning 9 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
+Warning 10 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
+Warning 11 : Final gradient: 0.000107858 is larger than final_conv: 0.0001
+Note 1 Information:  N parameters that are on or within 1% of min-max bound: 1; check results, variance may be suspect
+ 11 warnings  and 1 note 
