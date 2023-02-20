@@ -1,0 +1,61 @@
+
+Initial statistics: 1 variables; iteration 0; function evaluation 0; phase 1
+Function value 2.0859627e+06; maximum gradient component mag 2.3902e+05
+
+ - final statistics:
+1 variables; iteration 6; function evaluation 14
+Function value 1.9586e+06; maximum gradient component mag -1.6995e+00
+Exit code = 1;  converg criter 1.0000e+01
+
+Initial statistics: 8 variables; iteration 0; function evaluation 0; phase 2
+Function value 1.9586426e+06; maximum gradient component mag 8.9055e+04
+  ic > imax  in fminim is answer attained ?
+Function minimizer not making progress ... is minimum attained?
+Minimprove criterion = 0.0000e+00
+
+ - final statistics:
+8 variables; iteration 17; function evaluation 61
+Function value 1.8638e+06; maximum gradient component mag -8.5372e+02
+Exit code = 1;  converg criter 1.0000e+01
+
+Initial statistics: 75 variables; iteration 0; function evaluation 0; phase 3
+Function value 1.8638087e+06; maximum gradient component mag -1.9304e+05
+  ic > imax  in fminim is answer attained ?
+Function minimizer not making progress ... is minimum attained?
+Minimprove criterion = 0.0000e+00
+
+ - final statistics:
+75 variables; iteration 1; function evaluation 30
+Function value 1.8638e+06; maximum gradient component mag -1.9304e+05
+Exit code = 1;  converg criter 1.0000e+00
+
+Initial statistics: 91 variables; iteration 0; function evaluation 0; phase 4
+Function value 1.8638080e+06; maximum gradient component mag -1.9287e+05
+  ic > imax  in fminim is answer attained ?
+Function minimizer not making progress ... is minimum attained?
+Minimprove criterion = 0.0000e+00
+
+ - final statistics:
+91 variables; iteration 1; function evaluation 30
+Function value 1.8638e+06; maximum gradient component mag -1.9287e+05
+Exit code = 1;  converg criter 1.0000e-04
+
+Initial statistics: 92 variables; iteration 0; function evaluation 0; phase 5
+Function value 1.8638080e+06; maximum gradient component mag -1.9287e+05
+  ic > imax  in fminim is answer attained ?
+Function minimizer not making progress ... is minimum attained?
+Minimprove criterion = 0.0000e+00
+Warning: the following parameters had issues
+  init_F[1] is within 0.1% of lower bound: 0.0000e+00 < 3.5089e-06 < 3.0000e+00
+  selparm[1] is within 1% of upper bound: 5.3000e+01 < 2.5627e+02 < 2.5700e+02
+  selparm[7] is within 0.1% of upper bound: 5.3000e+01 < 2.5700e+02 < 2.5700e+02
+
+
+ - final statistics:
+92 variables; iteration 1; function evaluation 30
+Function value 1.8638e+06; maximum gradient component mag -1.9287e+05
+Exit code = 1;  converg criter 1.0000e-04
+size of file gradfil1.tmp = 0
+size of file gradfil2.tmp = 0
+size of file varssave.tmp = 0
+size of file cmpdiff.tmp = 0

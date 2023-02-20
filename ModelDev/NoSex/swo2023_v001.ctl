@@ -23,16 +23,18 @@
 #_Cond 1.0 # first age that moves (real age at begin of season, not integer) also cond on do_migration>0
 #_Cond 1 1 1 2 4 10 # example move definition for seas=1, morph=1, source=1 dest=2, age1=4, age2=10
 #
-2 #_Nblock_Patterns
-1 1 #_Cond 0 #_blocks_per_pattern 
-2004 2009 # begin and end years of blocks
-1995 1999
+0 #_Nblock_Patterns
+#1 1 1 1 #_Cond #_blocks_per_pattern 
+#2004 2009 # begin and end years of blocks
+#1990 1999 #2000 2004
+#2004 2006
+#1994 1996`
 #
 # controls for all timevary parameters 
 1 #_time-vary parm bound check (1=warn relative to base parm bounds; 3=no bound check); Also see env (3) and dev (5) options to constrain with base bounds
 #
 # AUTOGEN
- 0 0 0 0 1 # autogen: 1st element for biology, 2nd for SR, 3rd for Q, 4th reserved, 5th for selex
+ 0 0 0 0 0 # autogen: 1st element for biology, 2nd for SR, 3rd for Q, 4th reserved, 5th for selex
 # where: 0 = autogen time-varying parms of this category; 1 = read each time-varying parm line; 2 = read then autogen if parm min==-12345
 #
 #_Available timevary codes
@@ -125,17 +127,17 @@
 1 #do_recdev:  0=none; 1=devvector (R=F(SSB)+dev); 2=deviations (R=F(SSB)+dev); 3=deviations (R=R0*dev; dev2=R-f(SSB)); 4=like 3 with sum(dev2) adding penalty
 1975 # first year of main recr_devs; early devs can preceed this era
 2021 # last year of main recr_devs; forecast devs start in following year
-4 #_recdev phase 
+3 #_recdev phase 
 1 # (0/1) to read 13 advanced options
  1960 #_recdev_early_start (0=none; neg value makes relative to recdev_start)
- 5 #_recdev_early_phase
+ 4 #_recdev_early_phase
  0 #_forecast_recruitment phase (incl. late recr) (0 value resets to maxphase+1)
  1 #_lambda for Fcast_recr_like occurring before endyr+1
- 1970.4 #_last_yr_nobias_adj_in_MPD; begin of ramp
- 1984.3 #_first_yr_fullbias_adj_in_MPD; begin of plateau
- 2021.2 #_last_yr_fullbias_adj_in_MPD
- 2021.7 #_end_yr_for_ramp_in_MPD (can be in forecast to shape ramp, but SS3 sets bias_adj to 0.0 for fcast yrs)
- 0.9202 #_max_bias_adj_in_MPD (typical ~0.8; -3 sets all years to 0.0; -2 sets all non-forecast yrs w/ estimated recdevs to 1.0; -1 sets biasadj=1.0 for all yrs w/ recdevs)
+  1967.7752 #_last_early_yr_nobias_adj_in_MPD                   
+ 1995.2499 #_first_yr_fullbias_adj_in_MPD                      
+ 2020.8972 #_last_yr_fullbias_adj_in_MPD                       
+ 2021.7304 #_first_recent_yr_nobias_adj_in_MPD                 
+    0.9366 #_max_bias_adj_in_MPD (1.0 to mimic pre-2009 models)
  0 #_period of cycles in recruitment (N parms read below)
  -5 #min rec_dev
  5 #max rec_dev
@@ -292,22 +294,22 @@
 # 2   F1_JPN_WCNPO_OSDWCOLL_late_Area1 LenSelex
             53           257       147.296000           90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
             -10             3      -9.688310           0.1          0.05             0         -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
-            -4            12       7.430470             6          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
-            -2            10       7.858270          0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
+            -4            12       7.430470             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
+            -2            10       7.858270          0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F2_JPN_WCNPO_OSDWCOLL_late_Area1(2)
 # 8   F8_TWN_WCNPO_DWLL_late LenSelex
             53           257       162.080000            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F8_TWN_WCNPO_DWLL_late(8)
             -10             3      -9.33759          0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F8_TWN_WCNPO_DWLL_late(8)
-            -4            12       6.689140             6          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F8_TWN_WCNPO_DWLL_late(8)
-            -2            10      8.625500	           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F8_TWN_WCNPO_DWLL_late(8)
+            -4            12       6.689140             6          0.05             0          3          0          0          0          0          0         0          0  #  Size_DblN_ascend_se_F8_TWN_WCNPO_DWLL_late(8)
+            -2            10      8.625500	           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F8_TWN_WCNPO_DWLL_late(8)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F8_TWN_WCNPO_DWLL_late(8)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F8_TWN_WCNPO_DWLL_late(8)
 # 12   F12_US_WCNPO_LL_shallow_late LenSelex
             53           250       154.751000            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F12_US_WCNPO_LL_shallow_late(12)
             -10             3      -9.510700           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F12_US_WCNPO_LL_shallow_late(12)
-            -4            12       7.8             6          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F12_US_WCNPO_LL_shallow_late(12)
-            -6            10       7.8           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F12_US_WCNPO_LL_shallow_late(12)
+            -4            12       7.8             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F12_US_WCNPO_LL_shallow_late(12)
+            -6            10       7.8           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F12_US_WCNPO_LL_shallow_late(12)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F12_US_WCNPO_LL_shallow_late(12)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F12_US_WCNPO_LL_shallow_late(12)
 # 19   F19_IATTC LenSelex
@@ -322,24 +324,24 @@
 # 1   F1_JPN_WCNPO_OSDWLL_early_Area1 LenSelex
             53           257       123.913            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
             -10             3      -8.4653600           0.1          0.05             0         -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
-            -4            12       7.4             6          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
-            -2            10       7.8           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
+            -4            12       7.4             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
+            -2            10       7.8           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
 # 3   F3_JPN_EPO_OSDWLL LenSelex
 # 4   F4_JPN_WCNPO_OSDF LenSelex
 # 5   F5_JPN_WCNPO_CODF LenSelex
             50           257       182            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F5_JPN_WCNPO_CODF(5)
-            -10             3      -0.104           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F5_JPN_WCNPO_CODF(5)
-            -4            12       7.70468             6          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F5_JPN_WCNPO_CODF(5)
-            -2            15       6.77           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F5_JPN_WCNPO_CODF(5)
+            -10             3      -0.104           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F5_JPN_WCNPO_CODF(5)
+            -4            12       7.70468             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F5_JPN_WCNPO_CODF(5)
+            -2            15       6.77           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F5_JPN_WCNPO_CODF(5)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F5_JPN_WCNPO_CODF(5)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F5_JPN_WCNPO_CODF(5)
 # 13   F13_US_WCNPO_LL_shallow_early LenSelex
             53           250       141            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F13_US_WCNPO_LL_shallow_early(13)
-            -10             3      -3.44686           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F13_US_WCNPO_LL_shallow_early(13)
-            -4            12       7.96829             6          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F13_US_WCNPO_LL_shallow_early(13)
-            -6            10       7.8979           0.1          0.05             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F13_US_WCNPO_LL_shallow_early(13)
+            -10             3      -3.44686           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F13_US_WCNPO_LL_shallow_early(13)
+            -4            12       7.96829             6          0.05             0          3          0          0          0          0          0         0           0  #  Size_DblN_ascend_se_F13_US_WCNPO_LL_shallow_early(13)
+            -6            10       7.8979           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F13_US_WCNPO_LL_shallow_early(13)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F13_US_WCNPO_LL_shallow_early(13)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F13_US_WCNPO_LL_shallow_early(13)
 # 6   F6_JPN_WCNPO_Other_early LenSelex
@@ -357,12 +359,12 @@
 #            -9             7            -1             0             1             0        -99          0          0          0          0          0          0          0  #  SizeSpline_Val_2_F11_US_WCNPO_LL_deep(11)
 #            -9             7      -2.54342             0         1             0          2          0          0          0          0          0          0          0  #  SizeSpline_Val_3_F11_US_WCNPO_LL_deep(11)
 #            -9             7      -2.54342             0         1             0          2          0          0          0          0          0          0          0  #  SizeSpline_Val_3_F11_US_WCNPO_LL_deep(11)
-            18           250       55.111            90          0.05             0          3          0          0          0          0          0          2          2  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
-            -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          2          2  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
-            -10            12       7.96829             6          0.05             0          4         0          0          0          0          0          2          2  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
-            -6            15       8.67979           0.1          0.05             0          4          0          0          0          0          0          2          2  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
-          -999           999          -999          -999            99             0         -2          0          0          0          0          0          2          2  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
-          -10           10           0.25         -999            99             0         4          0          0          0          0          0          2          2  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
+            18           250       55.111            90          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+            -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
+            -10            12       7.96829             6          0.05             0          3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
+            -6            15       8.67979           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
+          -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
+          -10           10           0.25         -999            99             0         4          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
 # 14   F14_US_WCNPO_GN LenSelex
 # 15   F15_US_WCNPO_Other LenSelex
 # 16   F16_JPN_WCNPO_OSDWLL_early_Area2 LenSelex
@@ -409,13 +411,12 @@
 #            -10             3      -9.33759           0.1          0.05            0          -4      #  Size_DblN_top_logit_F8_TWN_WCNPO_DWLL_late(8)
 #            -4            12       6.70468             6          0.05             0          4      #  Size_DblN_ascend_se_F8_TWN_WCNPO_DWLL_late(8)
 #            -2            10       7.728387           0.1          0.05             0          4      #  Size_DblN_descend_se_F8_TWN_WCNPO_DWLL_late(8)
-            18           250       55.111            90          0.05             0          4     #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
-            -10             3      -9.44686           0.1          0.05             0          -4   #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
-            -10            12       7.96829             6          0.05             0          5    #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
-            -6            15       8.67979           0.1          0.05             0          5    #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
-          -999           999          -999          -999            99             0         -2     #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
-          -100           10           0.25         -999            99             0         5      #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
-
+#            18           250       55.111            90          0.05             0          4     #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+#            -10             3      -9.44686           0.1          0.05             0          -4   #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
+#            -10            12       7.96829             6          0.05             0          5    #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
+#            -6            15       8.67979           0.1          0.05             0          5    #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
+#          -999           999          -999          -999            99             0         -2     #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
+#          -100           10           0.25         -999            99             0         5      #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
 #
 0   #  use 2D_AR1 selectivity(0/1)
 #_no 2D_AR1 selex offset used
@@ -436,6 +437,7 @@
  #_6=mult_by_size-at-age_N
  #_7=mult_by_generalized_sizecomp
 #_Factor  Fleet  Value
+1 24 0.11
  -9999   1    0  # terminator
 #
 3 #_maxlambdaphase
