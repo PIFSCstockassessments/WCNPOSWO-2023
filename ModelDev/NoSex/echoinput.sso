@@ -84,13 +84,13 @@ Parse into: depletion_log(ratio): 0 depletion_multi-yr: 0 depletion_basis: 1
 Will be checked against maxage later 
 0  F_std basis as read
 Parse into: F_std_log(ratio): 0 F_std_multi: 0 F_std_basis: 0
-For Kobe plot, set depletion_basis=2; depletion_level=1.0; F_reporting=your choose; F_std_basis=2
+For Kobe plot, set depletion_basis=2; depletion_level=1.0; F_reporting=your choice; F_std_basis=2
 Read files in 3.30 format
 SS will continue reading from starter.ss until it reads 3.30
 read MCMC_output_detail.MCMC_bump as a single real number;  separate values will be parsed from integer and fraction
 MCMC output detail(1=more_detail_to_posts; 2=write_report_for_each_mceval):  0
 MCMC bump to R0:  0
-Now get ALK tolerance (0.0 is OK for no compression; 0.1 is too big;  suggest 0.0001)
+Now read ALK tolerance which is deprecated. If not 0, it will be reset to 0.
 ALK tolerance:  0
 Now get random number seed; enter -1 to use long(time) as the seed
   finish reading starter.ss
@@ -583,41 +583,98 @@ Successful pre-processing of mean-bodysize data
 2 LenBin_option:  1=set to data bins; 2 generate uniform; 3 = read custom
  5 10 260 input for setup of pop length bins 
 1 indicator for length data  
-#_now read for each fleet info for processing the length comps:
+#_now read controls for processing the length comps:
+Use_length_data == 1: invokes original input format starting with mintailcomp, one row for each fleet
+Use_length_data == 2: invokes list format with fleet and partition preceding controls
 #_mintailcomp: upper and lower distribution for females and males separately are accumulated until exceeding this level.
 #_addtocomp:  after accumulation of tails; this value added to all bins
 #_males and females treated as combined gender below this bin number 
 #_compressbins: accumulate upper tail by this number of bins; acts simultaneous with mintailcomp; set=0 for no forced accumulation
 #_Comp_Error:  0=multinomial, 1=dirichlet using theta * n, 2=dirichlet using beta, 3=MV_Tweedie with phi and power
 #_Comp_ERR-2:  consecutive index of error def to use
-#_minsamplesize: minimum sample size; set to 1 to match 3.24, set to 0 for no minimum
--0.005 0.001 0 0 0 0 0.1  #_fleet: 1 F1_JPN_WCNPO_OSDWCOLL_late_Area1
--0.005 0.001 0 0 0 0 0.1  #_fleet: 2 F2_TWN_WCNPO_DWLL_late
--0.005 0.001 0 0 0 0 0.1  #_fleet: 3 F3_US_WCNPO_LL_shallow_late
--0.005 0.001 0 0 0 0 0.1  #_fleet: 4 F4_IATTC
--0.005 0.001 0 0 0 0 0.1  #_fleet: 5 F5_JPN_EPO_OSDWLL
--0.005 0.001 0 0 0 0 0.1  #_fleet: 6 F6_JPN_WCNPO_OSDWLL_early_Area1
--0.005 0.001 0 0 0 0 0.1  #_fleet: 7 F7_JPN_WCNPO_CODF
--0.005 0.001 0 0 0 0 0.1  #_fleet: 8 F8_US_WCNPO_LL_shallow_early
--0.005 0.001 0 0 0 0 0.1  #_fleet: 9 F9_US_WCNPO_LL_deep
--0.005 0.001 0 0 0 0 0.1  #_fleet: 10 F10_JPN_WCNPO_OSDF
--0.005 0.001 0 0 0 0 0.1  #_fleet: 11 F11_JPN_WCNPO_Other_early
--0.005 0.001 0 0 0 0 0.1  #_fleet: 12 F12_JPN_WCNPO_Other_late
--0.005 0.001 0 0 0 0 0.1  #_fleet: 13 F13_TWN_WCNPO_DWLL_early
--0.005 0.001 0 0 0 0 0.1  #_fleet: 14 F14_TWN_WCNPO_Other
--0.005 0.001 0 0 0 0 0.1  #_fleet: 15 F15_US_WCNPO_GN
--0.005 0.001 0 0 0 0 0.1  #_fleet: 16 F16_US_WCNPO_Other
--0.005 0.001 0 0 0 0 0.1  #_fleet: 17 F17_JPN_WCNPO_OSDWLL_early_Area2
--0.005 0.001 0 0 0 0 0.1  #_fleet: 18 F18_JPN_WCNPO_OSDWLL_late_Area2
--0.005 0.001 0 0 0 0 0.1  #_fleet: 19 F19_WCPFC
--0.005 0.001 0 0 0 0 0.1  #_fleet: 20 S1_JPN_WCNPO_OSDWLL_early_Area1
--0.005 0.001 0 0 0 0 0.1  #_fleet: 21 S2_JPN_WCNPO_OSDWCOLL_late_Area1
--0.005 0.001 0 0 0 0 0.1  #_fleet: 22 S3_JPN_WCNPO_OSDWLL_early_Area2
--0.005 0.001 0 0 0 0 0.1  #_fleet: 23 S4_JPN_WCNPO_OSDWLL_late_Area2
--0.005 0.001 0 0 0 0 0.1  #_fleet: 24 S5_TWN_WCNPO_DWLL_late
--0.005 0.001 0 0 0 0 0.1  #_fleet: 25 S6_US_WCNPO_LL_deep
--0.005 0.001 0 0 0 0 0.1  #_fleet: 26 S7_US_WCNPO_LL_shallow_early
--0.005 0.001 0 0 0 0 0.1  #_fleet: 27 S8_US_WCNPO_LL_shallow_late
+#_minsamplesize: minimum sample size; set to 1 to match 3.24, minimum value is 0.001
+fleet partition mintailcomp addtocomp combM+F CompressBins CompError ParmSelect minsamplesize
+1 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 1 F1_JPN_WCNPO_OSDWCOLL_late_Area1
+1 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 1 F1_JPN_WCNPO_OSDWCOLL_late_Area1
+1 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 1 F1_JPN_WCNPO_OSDWCOLL_late_Area1
+2 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 2 F2_TWN_WCNPO_DWLL_late
+2 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 2 F2_TWN_WCNPO_DWLL_late
+2 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 2 F2_TWN_WCNPO_DWLL_late
+3 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 3 F3_US_WCNPO_LL_shallow_late
+3 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 3 F3_US_WCNPO_LL_shallow_late
+3 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 3 F3_US_WCNPO_LL_shallow_late
+4 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 4 F4_IATTC
+4 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 4 F4_IATTC
+4 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 4 F4_IATTC
+5 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 5 F5_JPN_EPO_OSDWLL
+5 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 5 F5_JPN_EPO_OSDWLL
+5 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 5 F5_JPN_EPO_OSDWLL
+6 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 6 F6_JPN_WCNPO_OSDWLL_early_Area1
+6 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 6 F6_JPN_WCNPO_OSDWLL_early_Area1
+6 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 6 F6_JPN_WCNPO_OSDWLL_early_Area1
+7 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 7 F7_JPN_WCNPO_CODF
+7 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 7 F7_JPN_WCNPO_CODF
+7 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 7 F7_JPN_WCNPO_CODF
+8 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 8 F8_US_WCNPO_LL_shallow_early
+8 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 8 F8_US_WCNPO_LL_shallow_early
+8 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 8 F8_US_WCNPO_LL_shallow_early
+9 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 9 F9_US_WCNPO_LL_deep
+9 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 9 F9_US_WCNPO_LL_deep
+9 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 9 F9_US_WCNPO_LL_deep
+10 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 10 F10_JPN_WCNPO_OSDF
+10 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 10 F10_JPN_WCNPO_OSDF
+10 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 10 F10_JPN_WCNPO_OSDF
+11 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 11 F11_JPN_WCNPO_Other_early
+11 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 11 F11_JPN_WCNPO_Other_early
+11 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 11 F11_JPN_WCNPO_Other_early
+12 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 12 F12_JPN_WCNPO_Other_late
+12 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 12 F12_JPN_WCNPO_Other_late
+12 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 12 F12_JPN_WCNPO_Other_late
+13 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 13 F13_TWN_WCNPO_DWLL_early
+13 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 13 F13_TWN_WCNPO_DWLL_early
+13 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 13 F13_TWN_WCNPO_DWLL_early
+14 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 14 F14_TWN_WCNPO_Other
+14 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 14 F14_TWN_WCNPO_Other
+14 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 14 F14_TWN_WCNPO_Other
+15 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 15 F15_US_WCNPO_GN
+15 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 15 F15_US_WCNPO_GN
+15 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 15 F15_US_WCNPO_GN
+16 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 16 F16_US_WCNPO_Other
+16 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 16 F16_US_WCNPO_Other
+16 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 16 F16_US_WCNPO_Other
+17 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 17 F17_JPN_WCNPO_OSDWLL_early_Area2
+17 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 17 F17_JPN_WCNPO_OSDWLL_early_Area2
+17 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 17 F17_JPN_WCNPO_OSDWLL_early_Area2
+18 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 18 F18_JPN_WCNPO_OSDWLL_late_Area2
+18 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 18 F18_JPN_WCNPO_OSDWLL_late_Area2
+18 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 18 F18_JPN_WCNPO_OSDWLL_late_Area2
+19 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 19 F19_WCPFC
+19 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 19 F19_WCPFC
+19 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 19 F19_WCPFC
+20 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 20 S1_JPN_WCNPO_OSDWLL_early_Area1
+20 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 20 S1_JPN_WCNPO_OSDWLL_early_Area1
+20 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 20 S1_JPN_WCNPO_OSDWLL_early_Area1
+21 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 21 S2_JPN_WCNPO_OSDWCOLL_late_Area1
+21 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 21 S2_JPN_WCNPO_OSDWCOLL_late_Area1
+21 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 21 S2_JPN_WCNPO_OSDWCOLL_late_Area1
+22 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 22 S3_JPN_WCNPO_OSDWLL_early_Area2
+22 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 22 S3_JPN_WCNPO_OSDWLL_early_Area2
+22 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 22 S3_JPN_WCNPO_OSDWLL_early_Area2
+23 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 23 S4_JPN_WCNPO_OSDWLL_late_Area2
+23 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 23 S4_JPN_WCNPO_OSDWLL_late_Area2
+23 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 23 S4_JPN_WCNPO_OSDWLL_late_Area2
+24 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 24 S5_TWN_WCNPO_DWLL_late
+24 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 24 S5_TWN_WCNPO_DWLL_late
+24 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 24 S5_TWN_WCNPO_DWLL_late
+25 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 25 S6_US_WCNPO_LL_deep
+25 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 25 S6_US_WCNPO_LL_deep
+25 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 25 S6_US_WCNPO_LL_deep
+26 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 26 S7_US_WCNPO_LL_shallow_early
+26 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 26 S7_US_WCNPO_LL_shallow_early
+26 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 26 S7_US_WCNPO_LL_shallow_early
+27 0 -0.005 0.001 0 0 0 0 0.1  #_fleet: 27 S8_US_WCNPO_LL_shallow_late
+27 1 -0.005 0.001 0 0 0 0 0.1  #_fleet: 27 S8_US_WCNPO_LL_shallow_late
+27 2 -0.005 0.001 0 0 0 0 0.1  #_fleet: 27 S8_US_WCNPO_LL_shallow_late
 number of D-M definitions needed for length comp data: 0
 
 51 nlen_bin_for_data 

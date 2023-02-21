@@ -1,8 +1,8 @@
  index   name                value      std.dev
      1   SR_parm[1]          7.0802e+00 1.5430e-01
      2   recdev_early       -2.1225e-03 4.1959e-01
-     3   recdev_early       -7.2933e-04 4.1985e-01
-     4   recdev_early       -9.3655e-04 4.1981e-01
+     3   recdev_early       -7.2932e-04 4.1985e-01
+     4   recdev_early       -9.3656e-04 4.1981e-01
      5   recdev_early       -1.2068e-03 4.1976e-01
      6   recdev_early       -1.5597e-03 4.1969e-01
      7   recdev_early       -1.9812e-03 4.1961e-01
@@ -336,7 +336,7 @@
    335   Mgmt_quant          2.3439e+05 3.6167e+04
    336   Mgmt_quant          1.1882e+03 1.8334e+02
    337   Mgmt_quant          2.5682e+04 3.9627e+03
-   338   Mgmt_quant          2.2222e-01 1.2520e-17
+   338   Mgmt_quant          2.2222e-01 6.2997e-18
    339   Mgmt_quant          1.7558e-01 4.6188e-03
    340   Mgmt_quant          1.8117e+04 2.5388e+03
    341   Mgmt_quant          2.2747e+04 3.5098e+03

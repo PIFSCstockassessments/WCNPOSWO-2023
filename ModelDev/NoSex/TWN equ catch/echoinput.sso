@@ -1500,8 +1500,8 @@ Recalc_flag_for_age_selex_recalc_by_year
  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-3 max_lambda_phase 
-1 sd_offset (adds log(s)); needed if variance parameters are estimated 
+4 max_lambda_phase 
+0 sd_offset (adds log(s)); needed if variance parameters are estimated 
  read lambda changes list until -9999
  number of lambda change records = 12
 12 N lambda changes 
@@ -1516,7 +1516,7 @@ Recalc_flag_for_age_selex_recalc_by_year
  4 7 1 1 1
  4 8 1 1 1
  4 9 1 1 1
- 9 10 1 0 1
+ 9 10 2 0 0
  10 1 1 1 1
 0 # extra stdev reporting: 0 = skip, 1 = read specs for reporting stdev for selectivity, size, and numbers, 2 = add option for M, dyn. Bzero & Smrybio 
 End of control file successful! 999
@@ -4062,9 +4062,9 @@ yr 2021, seas: 4, fleet:9
  sampled  age   0.00103343 3.94989e-07 1.82451e-16 4.07598e-31 2.24088e-47 2.57816e-63 1.32308e-78 7.93396e-93 7.11483e-106 7.84166e-118 6.89017e-129 2.64655e-139 1.92381e-149 1.78862e-159 2.28175e-169 5.76858e-179 0.00104003 3.35292e-07 2.72847e-16 2.98047e-30 2.67282e-46 9.05504e-63 3.24956e-79 4.99431e-95 4.27591e-110 2.27422e-124 5.76113e-138 4.53528e-151 5.42057e-164 7.51377e-177 1.27837e-189 3.44658e-202
  finished time series 
 Finished time_series
-Finished survey obj_fun  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2464.49 87.2807 2541.74 91.3201 -14.3647 -26.9558 52.6347 -18.2912
+Finished survey obj_fun  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2493.79 132.357 2570.57 136.703 11.0927 16.504 62.2913 9.06922
 Finished lencomp obj_fun  14472.8 6842.7 7845.8 367.851 0 1259.88 1800.25 3696.25 4881.03 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
- initequ_catch -log(L)  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ initequ_catch -log(L)  0 0 0 0 0 0 0 0 0 inf 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
  catch -log(L)  128787 101198 59778.3 203397 68951.4 75271.1 133393 25284.3 108031 71276.3 75129.2 128777 70081 96597.5 193195 205068 74579.4 128633 204614 0 0 0 0 0 0 0 0
-Finished recruitdev obj_fun -32.3894 37.3365 0.3528
- OK with obj_func 2.19835e+06
+Finished recruitdev obj_fun 0 0 0.3528
+ OK with obj_func inf
