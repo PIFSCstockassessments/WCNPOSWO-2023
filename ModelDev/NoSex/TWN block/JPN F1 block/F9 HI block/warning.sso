@@ -1,5 +1,5 @@
 Warning 1 : Forecast=0 or -1, so rest of forecast file will not be read and can be omitted;
 Warning 2 : A one year forecast using recent F will be done automatically
-Warning 3 : Main recdev biasadj is >2 times ratio of rmse to sigmaR
+Warning 3 : Fleet:_9min bound on parameter for size at peak is 13; should be >= midsize bin 2 (17.5)
 Warning 4 : Reminder: Number of lamdas !=0.0 and !=1.0:  1
  4 warnings 

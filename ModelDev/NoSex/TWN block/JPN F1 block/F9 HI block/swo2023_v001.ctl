@@ -24,12 +24,12 @@
 #_Cond 1 1 1 2 4 10 # example move definition for seas=1, morph=1, source=1 dest=2, age1=4, age2=10
 #
 3 #_Nblock_Patterns
-1 1 1 #1 1 #_Cond #_blocks_per_pattern 
+1 1 2 #1 1 #_Cond #_blocks_per_pattern 
 2004 2009 # begin and end years of blocks
 #2000 2004 #1990 1999 #
 #2004 2006
 1994 1997
-1995 1999
+1995 1999 2006 2021
 #
 # controls for all timevary parameters 
 1 #_time-vary parm bound check (1=warn relative to base parm bounds; 3=no bound check); Also see env (3) and dev (5) options to constrain with base bounds
@@ -349,7 +349,7 @@
 # 7   F7_JPN_WCNPO_Other_late LenSelex
 # 10   F10_TWN_WCNPO_Other LenSelex
 # 11   F11_US_WCNPO_LL_deep LenSelex
-    18   250   55.111    90  0.05     0  2  0  0  0  0  0  3  2  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+    13  250   55.111    90  0.05     0  2  0  0  0  0  0  3  2  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
     -10     3  -9.44686   0.1  0.05     0  -4  0  0  0  0  0  3  2  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
     -10    12   7.96829     6  0.05     0  3     0  0  0  0  0  3  2  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
     -6    15   8.67979   0.1  0.05     0  3  0  0  0  0  0  3  2  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
@@ -405,11 +405,16 @@
     -10     3  -9.688310   0.1  0.05     0     -4 #F1 JPN
     -4    12   7.430470     6  0.05     0  3  #F1 JPN
     -2    20   7.858270  0.1  0.05     0  3  #F1 JPN
-        18   250   55.111    90  0.05     0  2 
+  13   250   55.111    90  0.05     0  2 
+  13   250   55.111    90  0.05     0  2 
+    -10     3  -9.44686   0.1  0.05     0  -4 
     -10     3  -9.44686   0.1  0.05     0  -4 
     -10    12   7.96829     6  0.05     0  3 
+    -10    12   7.96829     6  0.05     0  3 
+    -6    15   8.67979   0.1  0.05     0  3 
     -6    15   8.67979   0.1  0.05     0  3 
   -20   10   0.25     -999    99     0     3 
+-20   10   0.25     -999    99     0     3 
 0   #  use 2D_AR1 selectivity(0/1)
 #_no 2D_AR1 selex offset used
 #
