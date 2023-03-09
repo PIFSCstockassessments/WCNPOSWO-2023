@@ -26,10 +26,9 @@
 3 #_Nblock_Patterns
 1 1 2 #1 1 #_Cond #_blocks_per_pattern 
 2004 2009 # begin and end years of blocks
-#2000 2004 #1990 1999 #
-#2004 2006
-1994 1997
+1998 2005 #1994 1997 
 1995 1999 2006 2021
+
 #
 # controls for all timevary parameters 
 1 #_time-vary parm bound check (1=warn relative to base parm bounds; 3=no bound check); Also see env (3) and dev (5) options to constrain with base bounds
@@ -398,9 +397,13 @@
 #_No_Dirichlet parameters
 #_no timevary selex parameters
     53   257   162.080000    90  0.05     0  2 # F2 TWN
+ #      53   257   162.080000    90  0.05     0  2 # F2 TWN
     -10     3  -9.33759  0.1  0.05     0  -4 #F2 TWN
+ #  -10     3  -9.33759  0.1  0.05     0  -4 #F2 TWN
     -4    12   6.689140     6  0.05     0  3 #F2 TWN
+#    -4    12   6.689140     6  0.05     0  3 #F2 TWN
     -2   20  8.625500	   0.1  0.05     0  3 #F2 TWN
+#    -2   20  8.625500	   0.1  0.05     0  3 #F2 TWN
    53   257   147.296000   90  0.05     0  2  #F1 JPN
     -10     3  -9.688310   0.1  0.05     0     -4 #F1 JPN
     -4    12   7.430470     6  0.05     0  3  #F1 JPN
