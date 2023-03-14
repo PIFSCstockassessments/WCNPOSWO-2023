@@ -1,8 +1,8 @@
 #V3.30.20.00;_safe;_compile_date:_Sep 30 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.0
 swo2023_v003.dat #_DataFile 
 swo2023_v001.ctl #_Control 
-Run_Date: Thu Mar  2 14:59:59 2023
-Final_phase: 5  N_iterations: 579
+Run_Date: Thu Mar  9 10:49:03 2023
+Final_phase: 5  N_iterations: 368
 #_LIKELIHOOD 
 Label logL*Lambda
 TOTAL_LogL 1871.72
@@ -11,7 +11,7 @@ Equil_catch 0
 Survey -194.953
 Length_comp 2091.88
 Recruitment -25.2192
-InitEQ_regime 5.71777e-31
+InitEQ_regime 0
 Sum_recdevs -0.189589
 Forecast_Recruitment 0
 Parm_priors 0
@@ -420,7 +420,7 @@ Totbio_unfished 372348 134087
 SmryBio_unfished 372348 134087
 Recr_unfished 1887.51 679.717
 SSB_Btgt 40797.4 14691.7
-SPR_Btgt 0.222222 2.76516e-17
+SPR_Btgt 0.222222 2.0043e-17
 annF_Btgt 0.187426 0.0040259
 Dead_Catch_Btgt 27780.9 9680.81
 SSB_SPR 36134.8 13012.6

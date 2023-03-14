@@ -30,7 +30,7 @@ library('foreach')
 #library('doMC') # Comment out for windows
  library('doSNOW') # Uncomment for Windows
 
-parm.min <- 6.0
+parm.min <- 6.2
 parm.max <-8.0
 parm.step <- 0.1
 parmstr.parfile <- '# SR_parm\\[1]:' # Note that you need to add double backslash for escape character for grep

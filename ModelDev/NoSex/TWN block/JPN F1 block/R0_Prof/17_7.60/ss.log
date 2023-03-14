@@ -1,0 +1,54 @@
+
+ - final statistics:
+1 variables; iteration 0; function evaluation 0
+Function value 1.8720e+03; maximum gradient component mag 2.2495e-01
+Exit code = 0;  converg criter 1.0000e+01
+
+Initial statistics: 10 variables; iteration 0; function evaluation 0; phase 2
+Function value 1.8719792e+03; maximum gradient component mag 1.0390e+02
+
+ - final statistics:
+10 variables; iteration 12; function evaluation 20
+Function value 1.8718e+03; maximum gradient component mag 7.8322e-03
+Exit code = 1;  converg criter 1.0000e+01
+
+Initial statistics: 72 variables; iteration 0; function evaluation 0; phase 3
+Function value 1.8717647e+03; maximum gradient component mag 1.8571e+02
+
+Intermediate statistics: 72 variables; iteration 20; function evaluation 26; phase 3
+Function value 1.8717377e+03; maximum gradient component mag 2.4490e+01
+72 variables; iteration 40; function evaluation 46; phase 3
+Function value 1.8717360e+03; maximum gradient component mag 1.9632e+01
+72 variables; iteration 60; function evaluation 69; phase 3
+Function value 1.8717308e+03; maximum gradient component mag 3.2595e+00
+
+ - final statistics:
+72 variables; iteration 74; function evaluation 84
+Function value 1.8717e+03; maximum gradient component mag 3.3781e-01
+Exit code = 1;  converg criter 1.0000e+00
+
+Initial statistics: 87 variables; iteration 0; function evaluation 0; phase 4
+Function value 1.8717304e+03; maximum gradient component mag 4.4293e-01
+
+Intermediate statistics: 87 variables; iteration 20; function evaluation 27; phase 4
+Function value 1.8717302e+03; maximum gradient component mag 1.0266e+01
+87 variables; iteration 40; function evaluation 47; phase 4
+Function value 1.8717301e+03; maximum gradient component mag 1.7456e+00
+87 variables; iteration 60; function evaluation 69; phase 4
+Function value 1.8717301e+03; maximum gradient component mag 1.6121e-01
+87 variables; iteration 80; function evaluation 91; phase 4
+Function value 1.8717301e+03; maximum gradient component mag -5.5316e-02
+
+ - final statistics:
+87 variables; iteration 91; function evaluation 107
+Function value 1.8717e+03; maximum gradient component mag -1.5270e-05
+Exit code = 1;  converg criter 1.0000e-04
+
+ - final statistics:
+88 variables; iteration 0; function evaluation 0
+Function value 1.8717e+03; maximum gradient component mag -1.5267e-05
+Exit code = 0;  converg criter 1.0000e-04
+size of file gradfil1.tmp = 0
+size of file gradfil2.tmp = 0
+size of file varssave.tmp = 0
+size of file cmpdiff.tmp = 0

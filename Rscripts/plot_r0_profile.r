@@ -6,8 +6,8 @@ setwd("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\send20220204\\ML
 setwd("G:\\R0_Prof")
 ### Functions ####
 # from run_r0
-parm.min <- 5.0
-parm.max <-7.0
+parm.min <- 6.0
+parm.max <-8.0
 parm.step <- 0.1
 
 origwd <- getwd()
