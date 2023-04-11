@@ -6,7 +6,7 @@ setwd("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\send20220204\\ML
 setwd("G:\\R0_Prof")
 ### Functions ####
 # from run_r0
-parm.min <- 6.0
+parm.min <- 6.2
 parm.max <-8.0
 parm.step <- 0.1
 
@@ -25,7 +25,7 @@ pdf.filename <- paste('r0profile',format(Sys.time(), "%Y%m%d_%H%M.pdf"),sep='_')
 png.filename <- paste('r0profile',format(Sys.time(), "%Y%m%d_%H%M"),sep='_')
 csv.filename <- paste('r0profile',format(Sys.time(), "%Y%m%d_%H%M.csv"),sep='_')
 
-mainlike_components <- c('TOTAL','Survey','Length_comp','Recruitment','Catch')
+mainlike_components <- c('TOTAL','Survey','Length_comp','Recruitment','Catch','Equil_catch')
 #mainlike_components <- c('TOTAL','Survey','SizeFreq','Recruitment','Catch')
 #fleetlike_components <- c('Surv_like','Length_like','SizeFreq_like:_1','SizeFreq_like:_2','SizeFreq_like:_3','Age_like')
 #fleetlike_components_labels <- c('survey likelihood','2 cm bin likelihood', '7 cm bin likelihood','2 cm bin - Age-0 likelihood', '7 cm bin - Age-0 likelihood','Cond-Age-at-len likelihood')
@@ -38,7 +38,7 @@ profile.label <- expression(log(italic(R)[0]))
 setwd(mainfolder)
 dirvec <- dir(pattern=ssdirpattern)
 SSreps <- SSgetoutput(dirvec=dirvec,getcovar=F, forecast=FALSE)
-summaryoutput <- SSsummarize(SSreps)
+summaryoutput <- SSsummarize(SSreps[c(1,5:15)])
 lbf  <- summaryoutput$likelihoods_by_fleet
 FleetNames <- summaryoutput$FleetNames[[1]]
 

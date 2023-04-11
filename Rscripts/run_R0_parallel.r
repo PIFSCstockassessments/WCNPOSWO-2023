@@ -1,7 +1,7 @@
 ##plot APSM results using r4ss
 #set working directory
  wd=c("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\send20220204\\MLS_2022SA_000\\US Time Block\\R0_Prof")
- setwd(paste0(current.dir,"\\R0_Prof"))
+ setwd(paste0(base.dir,"\\ModelDev\\NoSex\\TWN block\\JPN F1 block\\DW Size comp\\R0_Prof"))
 # ## devtools::install_github("r4ss/r4ss") # to update r4ss
 # ## load r4ss
  library(r4ss)

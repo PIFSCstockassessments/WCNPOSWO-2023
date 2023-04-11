@@ -77,7 +77,7 @@
  100 300 226.3 226.3 99 0 -2 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
  0.05 0.3 0.246 0.25 99 0 -4 0 0 0 0 0 0 0 # VonBert_K_Fem_GP_1
  0.01 0.5 0.1 0.1 99 0 -3 0 0 0 0 0 0 0 # CV_young_Fem_GP_1
- 0.01 0.5 0.15 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Fem_GP_1
+ 0.01 0.5 0.1 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Fem_GP_1
 # Sex: 1  BioPattern: 1  WtLen
  0 3 1.3e-05 1.3e-05 99 0 -3 0 0 0 0 0 0 0 # Wtlen_1_Fem_GP_1
  0 4 3.07 3.07 99 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Fem_GP_1
@@ -92,7 +92,7 @@
  100 250 206.4 206.4 99 0 -2 0 0 0 0 0 0 0 # L_at_Amax_Mal_GP_1
  0.05 0.3 0.271 0.271 99 0 -4 0 0 0 0 0 0 0 # VonBert_K_Mal_GP_1
  0.01 0.5 0.1 0.1 99 0 -3 0 0 0 0 0 0 0 # CV_young_Mal_GP_1
- 0.01 0.5 0.15 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Mal_GP_1
+ 0.01 0.5 0.1 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Mal_GP_1
 # Sex: 2  BioPattern: 1  WtLen
  0 3 1.3e-05 1.3e-05 99 0 -3 0 0 0 0 0 0 0 # Wtlen_1_Mal_GP_1
  0 4 3.07 3.07 99 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Mal_GP_1
@@ -242,7 +242,9 @@
 15	0	0	9	#	25	S6_US_WCNPO_LL_deep
 15	0	0	8	#	26	S7_US_WCNPO_LL_shallow_early
 15	0	0	3	#	27	S8_US_WCNPO_LL_shallow_late
-15  0 0 8 # 28 F28_US_WCNPO_LL_deep_Q2
+24  0 0 0 # 28 F28_US_WCNPO_LL_deep_Q2
+24  0 0 0 # 28 F28_US_WCNPO_LL_deep_Q2
+24  0 0 0 # 28 F28_US_WCNPO_LL_deep_Q2
 #
 #_age_selex_patterns
 #Pattern:_0; parm=0; selex=1.0 for ages 0 to maxage
@@ -290,6 +292,8 @@
  0 0 0 0 # 25 S6_US_WCNPO_LL_deep
  0 0 0 0 # 26 S7_US_WCNPO_LL_shallow_early
  0 0 0 0 # 27 S8_US_WCNPO_LL_shallow_late
+ 0 0 0 0 # 11 F11_US_WCNPO_LL_deep
+ 0 0 0 0 # 11 F11_US_WCNPO_LL_deep
  0 0 0 0 # 11 F11_US_WCNPO_LL_deep
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
@@ -358,12 +362,28 @@
           -20           10           0.25         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
 # 
 # 11   F11_US_WCNPO_LL_deep_Q4 LenSelex
- #           18           250       55.111            90          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
- #           -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
-#            -10            12       7.96829             6          0.05             0          -3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
- #           -15           15       8.67979           0.1          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
-  #        -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
-   #       -10           10           0.25         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
+            18           250       55.111            90          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+           -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
+           -10            12       7.96829             6          0.05             0          -3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
+           -15           15       8.67979           0.1          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
+         -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
+        -10           10           0.25         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
+# 
+# 11   F11_US_WCNPO_LL_deep_Q3 LenSelex
+            18           250       55.111            90          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+            -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
+            -10            12       7.96829             6          0.05             0          -3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
+            -15            15       8.67979           0.1          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
+          -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
+          -20           10           0.25         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
+# 
+# 11   F11_US_WCNPO_LL_deep_Q4 LenSelex
+            18           250       55.111            90          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+           -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
+           -10            12       7.96829             6          0.05             0          -3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
+           -15           15       8.67979           0.1          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
+         -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
+        -10           10           0.25         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
 # 
 # 14   F14_US_WCNPO_GN LenSelex
 # 15   F15_US_WCNPO_Other LenSelex
@@ -452,8 +472,10 @@
 4 6 1 0.5 1
 4 7 1 0.5 1
 4 8 1 0.5 1
-4 28 1 0 1
+4 28 1 0.5 1
 4 9 1 0.5 1
+4 29 1 0.5 1
+4 30 1 0.5 1
 9 6 1 0 0
  10 1 1 1 1
 -9999  1  1  1  1  #  terminator

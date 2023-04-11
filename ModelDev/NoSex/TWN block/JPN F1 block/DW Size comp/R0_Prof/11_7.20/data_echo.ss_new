@@ -5,7 +5,7 @@
 #_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
-#_Start_time: Mon Mar 13 15:05:35 2023
+#_Start_time: Mon Apr 10 16:16:44 2023
 #_echo_input_data
 
 #V3.30.20.00;_safe;_compile_date:_Sep 30 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.0
@@ -1024,7 +1024,7 @@
 2021 2 5 0 0.01
 2021 3 5 0 0.01
 2021 4 5 0 0.01
--999 1 6 20 0.05
+-999 1 6 250 0.05
 -999 2 6 0 0.05
 -999 3 6 0 0.05
 -999 4 6 0 0.05
@@ -4434,30 +4434,30 @@
 #
 #_mintailcomp addtocomp combM+F CompressBins CompError ParmSelect minsamplesize
 # 0 0 0 0 0 0 0 #_fleet:1_F1_JPN_WCNPO_OSDWCOLL_late_Area1
-# 0 0 0 0 0 0 0 #_fleet:2_F2_TWN_WCNPO_DWLL_late
+# 0 0 1 0 0 0 0 #_fleet:2_F2_TWN_WCNPO_DWLL_late
 # 0 0 0 0 0 0 0 #_fleet:3_F3_US_WCNPO_LL_shallow_late
-# 0 0 0 0 0 0 0 #_fleet:4_F4_IATTC
+# 0 0 1 0 0 0 0 #_fleet:4_F4_IATTC
 # 0 0 0 0 0 0 0 #_fleet:5_F5_JPN_EPO_OSDWLL
 # 0 0 0 0 0 0 0 #_fleet:6_F6_JPN_WCNPO_OSDWLL_early_Area1
-# 0 0 0 0 0 0 0 #_fleet:7_F7_JPN_WCNPO_CODF
+# 0 0 1 0 0 0 0 #_fleet:7_F7_JPN_WCNPO_CODF
 # 0 0 0 0 0 0 0 #_fleet:8_F8_US_WCNPO_LL_shallow_early
 # 0 0 0 0 0 0 0 #_fleet:9_F9_US_WCNPO_LL_deep
-# 0 0 0 0 0 0 0 #_fleet:10_F10_JPN_WCNPO_OSDF
-# 0 0 0 0 0 0 0 #_fleet:11_F11_JPN_WCNPO_Other_early
-# 0 0 0 0 0 0 0 #_fleet:12_F12_JPN_WCNPO_Other_late
-# 0 0 0 0 0 0 0 #_fleet:13_F13_TWN_WCNPO_DWLL_early
-# 0 0 0 0 0 0 0 #_fleet:14_F14_TWN_WCNPO_Other
-# 0 0 0 0 0 0 0 #_fleet:15_F15_US_WCNPO_GN
-# 0 0 0 0 0 0 0 #_fleet:16_F16_US_WCNPO_Other
+# 0 0 1 0 0 0 0 #_fleet:10_F10_JPN_WCNPO_OSDF
+# 0 0 1 0 0 0 0 #_fleet:11_F11_JPN_WCNPO_Other_early
+# 0 0 1 0 0 0 0 #_fleet:12_F12_JPN_WCNPO_Other_late
+# 0 0 1 0 0 0 0 #_fleet:13_F13_TWN_WCNPO_DWLL_early
+# 0 0 1 0 0 0 0 #_fleet:14_F14_TWN_WCNPO_Other
+# 0 0 1 0 0 0 0 #_fleet:15_F15_US_WCNPO_GN
+# 0 0 1 0 0 0 0 #_fleet:16_F16_US_WCNPO_Other
 # 0 0 0 0 0 0 0 #_fleet:17_F17_JPN_WCNPO_OSDWLL_early_Area2
 # 0 0 0 0 0 0 0 #_fleet:18_F18_JPN_WCNPO_OSDWLL_late_Area2
-# 0 0 0 0 0 0 0 #_fleet:19_F19_WCPFC
+# 0 0 1 0 0 0 0 #_fleet:19_F19_WCPFC
 # 0 0 0 0 0 0 0 #_fleet:20_S1_JPN_WCNPO_OSDWLL_early_Area1
 # 0 0 0 0 0 0 0 #_fleet:21_S2_JPN_WCNPO_OSDWCOLL_late_Area1
 # 0 0 0 0 0 0 0 #_fleet:22_S3_JPN_WCNPO_OSDWLL_early_Area2
 # 0 0 0 0 0 0 0 #_fleet:23_S4_JPN_WCNPO_OSDWLL_late_Area2
 # 0 0 0 0 0 0 0 #_fleet:24_S5_TWN_WCNPO_DWLL_late
-# 0 0 0 0 0 0 0 #_fleet:25_S6_US_WCNPO_LL_deep
+# 0 0 31 0 0 0 0 #_fleet:25_S6_US_WCNPO_LL_deep
 # 0 0 0 0 0 0 0 #_fleet:26_S7_US_WCNPO_LL_shallow_early
 # 0 0 0 0 0 0 0 #_fleet:27_S8_US_WCNPO_LL_shallow_late
 # 0 #_Lbin_method_for_Age_Data: 1=poplenbins; 2=datalenbins; 3=lengths
