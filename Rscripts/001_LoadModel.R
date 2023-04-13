@@ -7,7 +7,7 @@ library(ggplot2, quietly=T, warn.conflicts=F)
 
 base.dir<-"C://users//michelle.sculley//documents//2023 SWO ASSESS"
 current.dir<-paste0(base.dir, "//ModelDev//Current Best")#//F9 Cubic Spline")
-current.dir<-paste0(base.dir,"//ModelDev//NoSex//TWN block//JPN F1 block//DW Size Comp")
+#current.dir<-paste0(base.dir,"//ModelDev//NoSex//TWN block//JPN F1 block//DW Size Comp")
 setwd(base.dir)
 plotdir<-paste0(current.dir,"//plots")
 
@@ -18,7 +18,7 @@ startyear = 1975
 endyear = 2021
 rnames <- base.model$derived_quants$Label
 
-SS_plots(base.model, html = TRUE, png = TRUE, pdf=FALSE, catchasnumbers = TRUE)
+#SS_plots(base.model, html = TRUE, png = TRUE, pdf=FALSE, catchasnumbers = TRUE)
 
 
 # # For cpue

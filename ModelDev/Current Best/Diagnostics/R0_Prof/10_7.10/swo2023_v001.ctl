@@ -77,7 +77,7 @@
  100 300 226.3 226.3 99 0 -2 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
  0.05 0.3 0.246 0.25 99 0 -4 0 0 0 0 0 0 0 # VonBert_K_Fem_GP_1
  0.01 0.5 0.1 0.1 99 0 -3 0 0 0 0 0 0 0 # CV_young_Fem_GP_1
- 0.01 0.5 0.15 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Fem_GP_1
+ 0.01 0.5 0.1 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Fem_GP_1
 # Sex: 1  BioPattern: 1  WtLen
  0 3 1.3e-05 1.3e-05 99 0 -3 0 0 0 0 0 0 0 # Wtlen_1_Fem_GP_1
  0 4 3.07 3.07 99 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Fem_GP_1
@@ -92,7 +92,7 @@
  100 250 206.4 206.4 99 0 -2 0 0 0 0 0 0 0 # L_at_Amax_Mal_GP_1
  0.05 0.3 0.271 0.271 99 0 -4 0 0 0 0 0 0 0 # VonBert_K_Mal_GP_1
  0.01 0.5 0.1 0.1 99 0 -3 0 0 0 0 0 0 0 # CV_young_Mal_GP_1
- 0.01 0.5 0.15 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Mal_GP_1
+ 0.01 0.5 0.1 0.15 99 0 -3 0 0 0 0 0 0 0 # CV_old_Mal_GP_1
 # Sex: 2  BioPattern: 1  WtLen
  0 3 1.3e-05 1.3e-05 99 0 -3 0 0 0 0 0 0 0 # Wtlen_1_Mal_GP_1
  0 4 3.07 3.07 99 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Mal_GP_1
@@ -129,7 +129,7 @@
 2021 # last year of main recr_devs; forecast devs start in following year
 3 #_recdev phase 
 1 # (0/1) to read 13 advanced options
- 1970 #_recdev_early_start (0=none; neg value makes relative to recdev_start)
+ 1965 #_recdev_early_start (0=none; neg value makes relative to recdev_start)
  4 #_recdev_early_phase
  0 #_forecast_recruitment phase (incl. late recr) (0 value resets to maxphase+1)
  1 #_lambda for Fcast_recr_like occurring before endyr+1
@@ -454,7 +454,7 @@
 4 8 1 0.5 1
 4 9 1 0.5 1
 9 6 1 0 0
- 10 1 1 1 1
+10 1 1 1 1
 -9999  1  1  1  1  #  terminator
 #
 # lambdas (for info only; columns are phases)

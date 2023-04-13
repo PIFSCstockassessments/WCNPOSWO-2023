@@ -35,8 +35,8 @@ library(ggplot2,quietly = T, warn.conflicts = F)
    geom_line(aes(x=Year,y=Value), data=SumBioSpawn,size=1)+
    geom_point(aes(x=Year,y=Value), data=ASPMSumBioSpawn,size=1, shape=17)+
    geom_line(aes(x=Year,y=Value), data=ASPMSumBioSpawn,size=1, linetype="dashed")+
-   geom_ribbon(aes(x=Year,ymin=max(Value-1.96*StdDev,0),ymax=Value+1.96*StdDev),data=SumBioSpawn,alpha=0.2)+
-   geom_ribbon(aes(x=Year,ymin=max(Value-1.96*StdDev,0),ymax=Value+1.96*StdDev),data=ASPMSumBioSpawn,alpha=0.2)+
+   geom_ribbon(aes(x=Year,ymin=Value-1.96*StdDev,ymax=Value+1.96*StdDev),data=SumBioSpawn,alpha=0.2)+
+   geom_ribbon(aes(x=Year,ymin=Value-1.96*StdDev,ymax=Value+1.96*StdDev),data=ASPMSumBioSpawn,alpha=0.2)+
    ylab("Spawning Biomass (mt)") +
    xlab("Year")+
    theme(axis.text.x=element_text(size=8), axis.title.x=element_text(size=12),

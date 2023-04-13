@@ -49,7 +49,7 @@ BioSumFig<-ggplot()+
 
 SSB_Fig<-ggplot()+
   geom_point(aes(x=Year,y=Value), data=SumBioSpawn,size=1)+
-  geom_errorbar(aes(x=Year,ymin=max(Value-1.96*StdDev,0),ymax=Value+1.96*StdDev),data=SumBioSpawn,size=1)+
+  geom_errorbar(aes(x=Year,ymin=Value-1.96*StdDev,ymax=Value+1.96*StdDev),data=SumBioSpawn,size=1)+
   geom_line(aes(x=Year,y=Value),data=SumBioSpawn,size=1)+
   geom_hline(yintercept=0.9*base.model$derived_quants[which(base.model$derived_quants[,1]=="SSB_MSY"),2],color="green",linetype = 2, size=1)+
   ylab("Female Spawning Biomass (mt)") +

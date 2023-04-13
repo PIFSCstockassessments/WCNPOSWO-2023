@@ -2,7 +2,7 @@
 title: "A Preliminary Base-case model in SS3.30 for the 2023 North Pacific Swordfish Assessment"
 date: "April 2023"
 author: "Michelle L Sculley"
-format: docx
+format: pptx
 editor: visual
 ---
 
@@ -309,11 +309,11 @@ Rec_Fig
 
 Profiling on R~0~ showed that the recruitment estimates were highly influential in the model results, but there was relative agreement between the CPUE indices and the length composition data on the lower bound of R0 (@fig-26 - @fig28). The US data (CPUE and length comp) drive the model dynamics suggesting an ln(R~0~) below 6.0, and Chinese Taipei data and Japanese size composition data suggesting an ln(R~0~) around 7. Japanese CPUE data suggest an ln(R~0~) around 6.1` (Tables 4-5).
 
-![Likelihood profile over R0 for the base-case model: total likelihood (black circles), recruitment (blue triangles), length composition data (light blue crosses), and survey/CPUE indices (yellow x).](ModelDev/Current%20Best/plots/r0profile_20230313_1248_1.png){#fig-26}
+![Likelihood profile over R0 for the base-case model: total likelihood (black circles), recruitment (blue triangles), length composition data (light blue crosses), and survey/CPUE indices (yellow x).](ModelDev/Current%20Best/plots/Overall_Likelihood.png){#fig-26}
 
-![Likelihood profile over R0 by CPUE index for the base-case model.](ModelDev/Current%20Best/plots/r0profile_20230313_1248_2.png){#fig-27}
+![Likelihood profile over R0 by CPUE index for the base-case model.](ModelDev/Current%20Best/plots/CPUE_Likelihood.png){#fig-27}
 
-![Likelihood profile over R0 for each length composition time series for the base-case model.](ModelDev/Current%20Best/plots/r0profile_20230313_1248_4.png){#fig-28}
+![Likelihood profile over R0 for each length composition time series for the base-case model.](ModelDev/Current%20Best/plots/Size_Likelihood.png){#fig-28}
 
 Results from the ASPM model showed the same population trend as the full model during 1975-1993, which is the time period without any size composition data. After 1994, the ASPM biomass increases drastically and deviates completely from the base-case model (Figures 29 and 30). Further investigation running an ASPM with a single early and late index at a time indicates a similar pattern for all CPUE indices (Figure 31). The most likely explanation for this is that the population dynamics prior to 1994 are being driven by the two CPUE indices available (Figure 32). After 1994 catch decreases and CPUE for all fleets flattens out which would indicate that a stock is recovering. However, the size composition data indicate that the majority of the catch is juvenile fish. Continued removals of individuals before they have a chance to reproduce would continue to cause the stock to decline below MSY levels. This indicates that the size composition data are an integral component of the model, without which we would not have a full picture of the fishing effect on the stock.
 
