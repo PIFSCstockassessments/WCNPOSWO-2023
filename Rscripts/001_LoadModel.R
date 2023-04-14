@@ -6,22 +6,24 @@ library(reshape2, quietly=T, warn.conflicts=F)
 library(ggplot2, quietly=T, warn.conflicts=F)
 
 base.dir<-"C://users//michelle.sculley//documents//2023 SWO ASSESS"
+current.dir<-paste0(base.dir,"//SA Meeting Runs//3_both 1 and 2")
 current.dir<-paste0(base.dir, "//ModelDev//Current Best")#//F9 Cubic Spline")
-#current.dir<-paste0(base.dir,"//ModelDev//NoSex//TWN block//JPN F1 block//DW Size Comp")
+current.dir<-paste0(base.dir,"//ModelDev//NoSex//TWN block//JPN F1 block//DW Size Comp//Split F9 size")
 setwd(base.dir)
 plotdir<-paste0(current.dir,"//plots")
 
 
-base.model<-SS_output(current.dir, printstats = FALSE, verbose=FALSE)
+base.model<-SS_output(current.dir)#, printstats = FALSE, verbose=FALSE)
+
 
 startyear = 1975
 endyear = 2021
 rnames <- base.model$derived_quants$Label
 
-#SS_plots(base.model, html = TRUE, png = TRUE, pdf=FALSE, catchasnumbers = TRUE)
+SS_plots(base.model, html = TRUE, png = TRUE, pdf=FALSE, catchasnumbers = TRUE)
 
 
-# # For cpue
+                                                                          # # For cpue
 # png(paste0(plotdir,"//CPUERunsTest.png"),height=8,width=8, units="in",res=200)
 # sspar(mfrow=c(4,2),plot.cex = 0.8)
 # SSplotRunstest(base.model,subplots="cpue",add=T,cex.main = 0.8) # use add=T to maintain plot set up

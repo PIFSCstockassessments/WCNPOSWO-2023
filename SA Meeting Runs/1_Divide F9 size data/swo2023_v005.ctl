@@ -118,7 +118,7 @@
 1  # 0/1 to use steepness in initial equ recruitment calculation
 1  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
-             3            8       4.5          7.0            0.01             6          1          0          0          0          0          0          0          0 # SR_LN(R0)
+             3           60      4.5          7.0            0.2             6          1          0          0          0          0          0          0          0 # SR_LN(R0)
            0.2             1           0.9           0.9            99             0         -4          0          0          0          0          0          0          0 # SR_BH_steep
              0             2           0.42           0.6            99             0         -3          0          0          0          0          0          0          0 # SR_sigmaR
             -5             5             0             0            99             0         -1          0          0          0          0          0          0          0 # SR_regime
@@ -189,12 +189,11 @@
            -15             0       -7.88413            -1            99             0         -1          0          0          0          0          0          0          0  #  LnQ_base_S2_JPN_WCNPO_OSDWCOLL_late_Area1(21)
            -15             0       -6.25045            -1            99             0         -1          0          0          0          0          0          0          0  #  LnQ_base_S3_JPN_WCNPO_OSDWLL_early_Area2(22)
            -15             0       -6.85719            -1            99             0         -1          0          0          0          0          0          0          0  #  LnQ_base_S4_JPN_WCNPO_OSDWLL_late_Area2(23)
-           -15             0       -6.9952            -1            99             0         -1          0          0          0          0          0          0          0  #  LnQ_base_S5_TWN_WCNPO_DWLL_late(24)
+           -15             0       -6.9952            -1            99             0         -1          0          0          0          0          0          1          2  #  LnQ_base_S5_TWN_WCNPO_DWLL_late(24)
            -15             0       -7.45512             -1            99             0         -1          0          0          0          0          0          0          0  #  LnQ_base_S6_US_WCNPO_LL_deep(25)
            -15             0        -7.139             -1            99             0         -1          0          0          0          0          0          0          0  #  LnQ_base_S7_US_WCNPO_LL_shallow_early(26)
            -15             0       -7.5332             -1            99             0         -1          0          0          0          0          0          0          0  #  LnQ_base_S8_US_WCNPO_LL_shallow_late(27)
 #_no timevary Q parameters
-#
 #_size_selex_patterns
 #Pattern:_0;  parm=0; selex=1.0 for all sizes
 #Pattern:_1;  parm=2; logistic; with 95% width specification
@@ -311,13 +310,13 @@
             53           250       154.751000            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F12_US_WCNPO_LL_shallow_late(12)
             -10             3      -9.510700           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F12_US_WCNPO_LL_shallow_late(12)
             -4            12       7.8             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F12_US_WCNPO_LL_shallow_late(12)
-            -6            10       7.8           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F12_US_WCNPO_LL_shallow_late(12)
+            -6            20       7.8           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F12_US_WCNPO_LL_shallow_late(12)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F12_US_WCNPO_LL_shallow_late(12)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F12_US_WCNPO_LL_shallow_late(12)
 # 19   F19_IATTC LenSelex
 # 10 150 79 70 0.01 0 3 0 0 0 0 0 0 0 # SizeSel_P1_F18_IATTC_LL_Overlap(18)
 # 0.01 150 16 15 0.01 0 3 0 0 0 0 0 0 0 # SizeSel_P2_F18_IATTC_LL_Overlap(18)
-            53           250       169.111            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F19_IATTC(19)
+            53           270       169.111            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F19_IATTC(19)
             -5             3      -3.44686           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F19_IATTC(19)
             -4            12       7.96829             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F19_IATTC(19)
             -6            10       8.67979           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F19_IATTC(19)
@@ -327,13 +326,13 @@
             53           257       123.913            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
             -10             3      -8.4653600           0.1          0.05             0         -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
             -4            12       7.4             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
-            -2            10       7.8           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
+            -2            20       7.8           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F1_JPN_WCNPO_OSDWLL_early_Area1(1)
 # 3   F3_JPN_EPO_OSDWLL LenSelex
 # 4   F4_JPN_WCNPO_OSDF LenSelex
 # 5   F5_JPN_WCNPO_CODF LenSelex
-            50           257       182            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F5_JPN_WCNPO_CODF(5)
+            50           277       182            90          0.05             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_F5_JPN_WCNPO_CODF(5)
             -10             3      -0.104           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F5_JPN_WCNPO_CODF(5)
             -4            12       7.70468             6          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F5_JPN_WCNPO_CODF(5)
             -2            15       6.77           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F5_JPN_WCNPO_CODF(5)
@@ -349,21 +348,21 @@
 # 6   F6_JPN_WCNPO_Other_early LenSelex
 # 7   F7_JPN_WCNPO_Other_late LenSelex
 # 10   F10_TWN_WCNPO_Other LenSelex
-# 11   F11_US_WCNPO_LL_deep_Q3 LenSelex
-            18           250       55.111            90          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+# 11   F11_US_WCNPO_LL_deep_Q12 LenSelex
+            18           250       150            90          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
             -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
-            -10            12       7.96829             6          0.05             0          -3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
-            -15            15       8.67979           0.1          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
+            -10            12       7.96829             6          0.05             0          3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
+            -15            15       8.67979           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
           -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
-          -20           10           0.25         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
+          -999           999           -999         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
 # 
-# 11   F11_US_WCNPO_LL_deep_Q4 LenSelex
-            18           250       55.111            90          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
+# 11   F11_US_WCNPO_LL_deep_Q34 LenSelex
+            18           250       22            90          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_peak_F11_US_WCNPO_LL_deep(11)
            -10             3      -9.44686           0.1          0.05             0          -4          0          0          0          0          0          0          0  #  Size_DblN_top_logit_F11_US_WCNPO_LL_deep(11)
-           -10            12       7.96829             6          0.05             0          -3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
-           -15           15       8.67979           0.1          0.05             0          -3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
+           -10            12       7.96829             6          0.05             0          3         0          0          0          0          0          0          0  #  Size_DblN_ascend_se_F11_US_WCNPO_LL_deep(11)
+           -15           15       8.67979           0.1          0.05             0          3          0          0          0          0          0          0          0  #  Size_DblN_descend_se_F11_US_WCNPO_LL_deep(11)
          -999           999          -999          -999            99             0         -2          0          0          0          0          0          0          0  #  Size_DblN_start_logit_F11_US_WCNPO_LL_deep(11)
-        -10           10           0.25         -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
+        -999          999           -999        -999            99             0         -3          0          0          0          0          0          0          0  #  Size_DblN_end_logit_F11_US_WCNPO_LL_deep(11)
 # 
 # 
 # 14   F14_US_WCNPO_GN LenSelex
@@ -457,6 +456,8 @@
 4 9 1 0.5 1
 9 6 1 0 0
  10 1 1 1 1
+ 1 24 1 1 1
+ 1 27 1 1 1
 -9999  1  1  1  1  #  terminator
 #
 # lambdas (for info only; columns are phases)
