@@ -6,7 +6,11 @@ library(reshape2, quietly=T, warn.conflicts=F)
 library(ggplot2, quietly=T, warn.conflicts=F)
 
 base.dir<-"C://users//michelle.sculley//documents//2023 SWO ASSESS"
-current.dir<-paste0(base.dir,"//SA Meeting Runs//3_both 1 and 2")
+model.list<-c("3_both 1 and 2","4_change Lmin","5_change settlement month","6_increase CV Lmin",
+              "7_lognormal selec", "8_7 2 and 4","9_3 and 7")
+
+current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[3])
+
 current.dir<-paste0(base.dir, "//ModelDev//Current Best")#//F9 Cubic Spline")
 current.dir<-paste0(base.dir,"//ModelDev//NoSex//TWN block//JPN F1 block//DW Size Comp//Split F9 size")
 setwd(base.dir)
