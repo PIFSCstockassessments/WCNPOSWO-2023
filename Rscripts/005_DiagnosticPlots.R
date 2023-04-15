@@ -23,20 +23,20 @@ library(ggplot2,quietly = T, warn.conflicts = F)
  
 
  ##ASPM Model
- ASPMDir<-paste0(current.dir,"\\Diagnostics\\ASPM")
+ ASPMDir<-paste0(current.dir,"\\ASPM")
  
  ASPM<-SS_output(ASPMDir, verbose=FALSE,printstats = FALSE)
  ASPMSumBioSpawn<-ASPM$derived_quants[which(ASPM$derived_quants==paste0("SSB_",startyear)):which(ASPM$derived_quants==paste0("SSB_",endyear)),]
  ASPMSumBioSpawn$Year<-seq(startyear, endyear,1)
  #SS_plots(ASPM)
- #png("plots\\ASPMBiomass_Spawn.png",height=8,width=18, units="in",res=300)
+ png(file.path(current.dir,"plots","ASPMBiomass_Spawn.png"),height=8,width=18, units="in",res=300)
  ASPM_Plot<-ggplot()+
    geom_point(aes(x=Year,y=Value), data=SumBioSpawn,size=1)+
    geom_line(aes(x=Year,y=Value), data=SumBioSpawn,size=1)+
-   geom_point(aes(x=Year,y=Value), data=ASPMSumBioSpawn,size=1, shape=17)+
-   geom_line(aes(x=Year,y=Value), data=ASPMSumBioSpawn,size=1, linetype="dashed")+
+   #geom_point(aes(x=Year,y=Value), data=ASPMSumBioSpawn,size=1, shape=17)+
+   #geom_line(aes(x=Year,y=Value), data=ASPMSumBioSpawn,size=1, linetype="dashed")+
    geom_ribbon(aes(x=Year,ymin=Value-1.96*StdDev,ymax=Value+1.96*StdDev),data=SumBioSpawn,alpha=0.2)+
-   geom_ribbon(aes(x=Year,ymin=Value-1.96*StdDev,ymax=Value+1.96*StdDev),data=ASPMSumBioSpawn,alpha=0.2)+
+#   geom_ribbon(aes(x=Year,ymin=Value-1.96*StdDev,ymax=Value+1.96*StdDev),data=ASPMSumBioSpawn,alpha=0.2)+
    ylab("Spawning Biomass (mt)") +
    xlab("Year")+
    theme(axis.text.x=element_text(size=8), axis.title.x=element_text(size=12),
@@ -45,4 +45,6 @@ library(ggplot2,quietly = T, warn.conflicts = F)
          panel.background = element_blank())+
    scale_x_continuous(breaks=seq(startyear,endyear,5))# +
  #scale_y_continuous(label = comma)
- #dev.off()
+ dev.off()
+ 
+ 

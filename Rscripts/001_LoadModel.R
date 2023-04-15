@@ -6,26 +6,49 @@ library(reshape2, quietly=T, warn.conflicts=F)
 library(ggplot2, quietly=T, warn.conflicts=F)
 
 base.dir<-"C://users//michelle.sculley//documents//2023 SWO ASSESS"
-model.list<-c("3_both 1 and 2","4_change Lmin","5_change settlement month","6_increase CV Lmin",
-              "7_lognormal selec", "8_7 2 and 4","9_3 and 7")
+model.list<-c("01_Divide F9 size data",
+              "02_Drop S4 and S8",
+              "03_both 1 and 2",
+              "04_change Lmin",
+              "05_change settlement month",
+              "06_increase CV Lmin",
+              "07_lognormal selec", 
+              "08_2 4 and 7",
+              "09_3 and 7", 
+              "10_3 4 7 and 6",
+              "11_drop F20 decrease Amin",
+              "12_mirrow F9",
+              "13_mirrorF9 decrease Amin",
+              "14_mirrorF9 decrease Amin Fix eqcat")
 
-current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[3])
+#current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[4])
 
-current.dir<-paste0(base.dir, "//ModelDev//Current Best")#//F9 Cubic Spline")
-current.dir<-paste0(base.dir,"//ModelDev//NoSex//TWN block//JPN F1 block//DW Size Comp//Split F9 size")
+#current.dir<-paste0(base.dir, "//ModelDev//Current Best")#//F9 Cubic Spline")
+#current.dir<-paste0(base.dir,"//ModelDev//NoSex//TWN block//JPN F1 block//DW Size Comp//Split F9 size")
 setwd(base.dir)
+### Run all
+# for ( i in 1:length(model.list)){
+#   current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[i])
+#   
+#   base.model<-SS_output(current.dir)#, printstats = FALSE, verbose=FALSE)
+# 
+# 
+
+# 
+# SS_plots(base.model, html = FALSE, png = FALSE, pdf=TRUE, catchasnumbers = TRUE)
+# }
+
+#### RUn just one
+current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[14])
 plotdir<-paste0(current.dir,"//plots")
 
-
-base.model<-SS_output(current.dir)#, printstats = FALSE, verbose=FALSE)
-
+base.model<-SS_output(current.dir, printstats = FALSE, verbose=FALSE)
 
 startyear = 1975
 endyear = 2021
 rnames <- base.model$derived_quants$Label
 
-SS_plots(base.model, html = TRUE, png = TRUE, pdf=FALSE, catchasnumbers = TRUE)
-
+#SS_plots(base.model, html = TRUE, png = TRUE, pdf=FALSE, catchasnumbers = TRUE)
 
                                                                           # # For cpue
 # png(paste0(plotdir,"//CPUERunsTest.png"),height=8,width=8, units="in",res=200)

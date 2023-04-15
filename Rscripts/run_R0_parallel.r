@@ -31,9 +31,9 @@ library('foreach')
 #library('doMC') # Comment out for windows
  library('doSNOW') # Uncomment for Windows
 
-parm.min <- 7.0
-parm.max <-13.0
-parm.step <- 0.25
+parm.min <- 6.0
+parm.max <-8.0
+parm.step <- 0.1
 parmstr.parfile <- '# SR_parm\\[1]:' # Note that you need to add double backslash for escape character for grep
 parfile <- 'ss.par'
 ssdir.orig <- 'orig'
