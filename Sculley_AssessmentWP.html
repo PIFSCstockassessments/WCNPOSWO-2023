@@ -292,19 +292,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Estimated selectivity for each fleet are in . Fits to the length composition data were also relatively good (<a href="#fig-17">Figure&nbsp;17</a> - <a href="#fig-20">Figure&nbsp;20</a>), although there are still problems fitting the US deep-set longline data (F9). &nbsp;The fit to the US size data is challenging because size distribution changes substantially seasonally, with a sharp peak of small fish entering the fishery in quarters 3 and 4 which are not observed in such large numbers in quarters 1 and 2. Attempts to separate the fleet into a quarterly fleets to estimate selectivity are ongoing but not yet successful. In addition, F1 JPN LL area 1 late and F4 IATTC both fail the runs test (<a href="#fig-21">Figure&nbsp;21</a>).</p>
-<div id="fig-14" class="quarto-figure quarto-figure-center anchored">
+<p><img src="ModelDev/Current%20Best/plots/comp_lenfit__aggregated_across_time.png" class="img-fluid" alt="Aggregated Size comp data (grey) and model fit (green)">{<strong>?@fig-14</strong>}</p>
+<div id="fig-15" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt1sex1.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;14: Time-varying selectivity estimated for F01 Japan LL area 1 late.</figcaption><p></p>
 </figure>
 </div>
-<div id="fig-15" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-16" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt2sex1.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;15: Time-varying selectivity estimated for F02 Chinese Taipei LL late.</figcaption><p></p>
 </figure>
 </div>
-<div id="fig-16" class="quarto-layout-panel">
+<div id="fig-17" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
@@ -523,212 +524,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Results from the ASPM model showed the same population trend as the full model during 1975-1993, which is the time period without any size composition data. After 1994, the ASPM biomass increases drastically and deviates completely from the base-case model (Figures 29 and 30). Further investigation running an ASPM with a single early and late index at a time indicates a similar pattern for all CPUE indices (Figure 31). The most likely explanation for this is that the population dynamics prior to 1994 are being driven by the two CPUE indices available (Figure 32). After 1994 catch decreases and CPUE for all fleets flattens out which would indicate that a stock is recovering. However, the size composition data indicate that the majority of the catch is juvenile fish. Continued removals of individuals before they have a chance to reproduce would continue to cause the stock to decline below MSY levels. This indicates that the size composition data are an integral component of the model, without which we would not have a full picture of the fishing effect on the stock.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div id="fig-29" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Sculley_AssessmentWP_files/figure-html/fig-29-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;29: Spawning stock biomass trend for the ASPM model run (dashed line, triangles) and the base-case model (solid line, circles). Grey shading indicates 95% confidence intervals for each model.</figcaption><p></p>
-</figure>
-</div>
-</div>
+
 </div>
 <p>The retrospective analysis indicates that a significant retrospective pattern exists for both biomass and fishing mortality (Mohn’s rho = 0.2 and -0.14, respectively, Figure 33). Generally, biomass is overestimated and fishing mortality is underestimated. Results of the hindcast with cross-validation indicate that of the four CPUE indices at the end of the assessment horizon, only Chinese Taipei had reasonable predictive ability (MASE = 0.9), with all other fleets MASE &gt; 1 (Figure 34). Comparing the predictive ability of the size composition data, two fleets had very good predictive ability (MASE &lt;0.5, F2 and F18), five had good predictive ability (MASE &lt;1 and &gt;0.5, F1, F4, F5, F6, F16) and one had poor predictive ability (MASE &lt;1, F14, Figure 35). F14 only had one datapoint in the analysis which likely explains why it had poor predictive ability.</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>length(dirvec) as input to SSgetoutput:6</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>reading output fromC://users//michelle.sculley//documents//2023 SWO ASSESS//ModelDev//Current Best/Diagnostics/Retros/Retro_full/retrospectives/retro0/Report.sso</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>added element 'replist1' to list</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>reading output fromC://users//michelle.sculley//documents//2023 SWO ASSESS//ModelDev//Current Best/Diagnostics/Retros/Retro_full/retrospectives/retro-1/Report.sso</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>added element 'replist2' to list</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>reading output fromC://users//michelle.sculley//documents//2023 SWO ASSESS//ModelDev//Current Best/Diagnostics/Retros/Retro_full/retrospectives/retro-2/Report.sso</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>added element 'replist3' to list</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>reading output fromC://users//michelle.sculley//documents//2023 SWO ASSESS//ModelDev//Current Best/Diagnostics/Retros/Retro_full/retrospectives/retro-3/Report.sso</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>added element 'replist4' to list</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>reading output fromC://users//michelle.sculley//documents//2023 SWO ASSESS//ModelDev//Current Best/Diagnostics/Retros/Retro_full/retrospectives/retro-4/Report.sso</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>added element 'replist5' to list</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>reading output fromC://users//michelle.sculley//documents//2023 SWO ASSESS//ModelDev//Current Best/Diagnostics/Retros/Retro_full/retrospectives/retro-5/Report.sso</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>added element 'replist6' to list</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Summarizing 6 models:</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>imodel=1/6</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  N active pars = 94</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>imodel=2/6</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  N active pars = 94</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>imodel=3/6</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  N active pars = 94</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>imodel=4/6</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  N active pars = 94</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>imodel=5/6</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  N active pars = 94</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>imodel=6/6</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  N active pars = 94</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Summary finished. To avoid printing details above, use 'verbose = FALSE'.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in min(x): no non-missing arguments to min; returning Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in max(x): no non-missing arguments to max; returning -Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in min(x): no non-missing arguments to min; returning Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in max(x): no non-missing arguments to max; returning -Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in min(x): no non-missing arguments to min; returning Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in max(x): no non-missing arguments to max; returning -Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                             Index Season      MASE    MAE.PR  MAE.base
-1  S1_JPN_WCNPO_OSDWLL_early_Area1      1        NA        NA        NA
-2 S2_JPN_WCNPO_OSDWCOLL_late_Area1      1 2.2260081 0.4270844 0.1918611
-3  S3_JPN_WCNPO_OSDWLL_early_Area2      1        NA        NA        NA
-4   S4_JPN_WCNPO_OSDWLL_late_Area2      1 0.8542094 0.1507977 0.1765348
-5           S5_TWN_WCNPO_DWLL_late      3 1.8995232 0.4318851 0.2273650
-6              S6_US_WCNPO_LL_deep      2 1.7588687 0.2122219 0.1206582
-7     S7_US_WCNPO_LL_shallow_early      1        NA        NA        NA
-8      S8_US_WCNPO_LL_shallow_late      1 1.7200811 0.1981002 0.1151691
-   MASE.adj n.eval
-1        NA      0
-2 2.2260081      5
-3        NA      0
-4 0.8542094      5
-5 1.8995232      5
-6 1.7588687      5
-7        NA      0
-8 1.7200811      5</code></pre>
-</div>
-<div class="cell-output-display">
-<div id="fig-31" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Sculley_AssessmentWP_files/figure-html/fig-31-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;30: Hind casting cross-validation (HCxval) results for Japanese longline late area 1 (top right), Japanese LL late area 2 (top left), Chinese Taipei deep water longline late (center right), US Hawaii deep-set longline (center left) CPUE, and US Hawaii deep-set longline (bottom left) fits, showing observed (large points with dashed line), fitted (solid lines), and one-year-ahead forecast values (small terminal points) in the old growth model. The observations used for cross-validation are highlighted as color-coded solid circles with associated 95% confidence intervals (light-grey shading). The model reference year refers to the endpoint of each one-year-ahead forecast and the corresponding observation. The mean absolute scaled error (MASE) score associated with each CPUE time series is denoted in each panel.</figcaption><p></p>
-</figure>
-</div>
-</div>
+
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Warning: combining data from multiple seasons
-Warning: combining data from multiple seasons
-Warning: combining data from multiple seasons
-Warning: combining data from multiple seasons
-Warning: combining data from multiple seasons
-Warning: combining data from multiple seasons</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in qlnorm(0.975, meanlog = log(y), sdlog = indexSEvec): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in qlnorm(0.025, meanlog = log(y), sdlog = indexSEvec): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in qlnorm(0.975, meanlog = log(y), sdlog = indexSEvec): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in qlnorm(0.025, meanlog = log(y), sdlog = indexSEvec): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in min(x): no non-missing arguments to min; returning Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in max(x): no non-missing arguments to max; returning -Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in min(x): no non-missing arguments to min; returning Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in max(x): no non-missing arguments to max; returning -Inf</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in qlnorm(0.975, meanlog = log(y), sdlog = indexSEvec): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in qlnorm(0.025, meanlog = log(y), sdlog = indexSEvec): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                             Index Season      MASE     MAE.PR   MAE.base
-1 F1_JPN_WCNPO_OSDWCOLL_late_Area1      1 1.5857805 0.03010630 0.01898516
-2           F2_TWN_WCNPO_DWLL_late      1 0.8512948 0.04041926 0.04747975
-3      F3_US_WCNPO_LL_shallow_late      2 0.4687310 0.03793153 0.08092387
-4                         F4_IATTC      2        NA         NA         NA
-5  F6_JPN_WCNPO_OSDWLL_early_Area1      1        NA         NA         NA
-6                F7_JPN_WCNPO_CODF      2 1.5758234 0.01912729 0.01213796
-7     F8_US_WCNPO_LL_shallow_early      1        NA         NA         NA
-8              F9_US_WCNPO_LL_deep      3 0.6216355 0.08359865 0.13448177
-   MASE.adj n.eval
-1 0.3010630      5
-2 0.4041926      5
-3 0.3793153      4
-4        NA      0
-5        NA      0
-6 0.1912729      1
-7        NA      0
-8 0.6216355      5</code></pre>
-</div>
-<div class="cell-output-display">
-<div id="fig-32" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Sculley_AssessmentWP_files/figure-html/fig-32-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;31: Hind casting cross-validation (HCxval) results for size composition mean lengths, showing observed (large points with dashed line), fitted (solid lines), and one-year-ahead forecast values (small terminal points) in the old growth model. The observations used for cross-validation are highlighted as color-coded solid circles with associated 95% confidence intervals (light-grey shading). The model reference year refers to the endpoint of each one-year-ahead forecast and the corresponding observation. The mean absolute scaled error (MASE) score associated with each size composition time series is denoted in each panel.</figcaption><p></p>
-</figure>
-</div>
-</div>
+
 </div>
 <p>The likelihood profile indicated that the US data componenets (CPUE and size composition data) are majority contributors to the likelihood. Attempts to downweight the US LL size composition data results in a model that fails to converge (due to a Hessian that is not positive definite). However, the ASPM models indicate that the US CPUE data suggest a similar trend as the other CPUE indices. To further explore the effect of the US data, models were run removing all US data except catch and fitting the parameters. While the models including the Japanese size data also failed to converge, the results for all the models indicated an estimated ln(Ro) between 6.2 and 6.4, and SSB<sub>zero</sub> between 12500 and 15500 metric tons (Table 6). This suggests that even though the US data is a significant contributor to the likelihood, the estimated population size would be similar without the data.</p>
 </section>

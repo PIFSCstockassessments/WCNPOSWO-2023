@@ -541,4 +541,3 @@
  # -1 # list of ages for growth std (-1 in first bin to self-generate)
  # -1 # list of ages for NatAge std (-1 in first bin to self-generate)
 999
-

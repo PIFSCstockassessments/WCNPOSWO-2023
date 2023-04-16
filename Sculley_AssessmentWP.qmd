@@ -2,7 +2,7 @@
 title: "A Preliminary Base-case model in SS3.30 for the 2023 North Pacific Swordfish Assessment"
 date: "April 2023"
 author: "Michelle L Sculley"
-format: pptx
+format: html
 editor: visual
 ---
 
@@ -191,11 +191,13 @@ Fit to the S8 US shallow-set LL early CPUE index. Left is the input CPUE with CV
 
 Estimated selectivity for each fleet are in . Fits to the length composition data were also relatively good (@fig-17 - @fig-20), although there are still problems fitting the US deep-set longline data (F9).  The fit to the US size data is challenging because size distribution changes substantially seasonally, with a sharp peak of small fish entering the fishery in quarters 3 and 4 which are not observed in such large numbers in quarters 1 and 2. Attempts to separate the fleet into a quarterly fleets to estimate selectivity are ongoing but not yet successful. In addition, F1 JPN LL area 1 late and F4 IATTC both fail the runs test (@fig-21).
 
-![Time-varying selectivity estimated for F01 Japan LL area 1 late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt1sex1.png){#fig-14}
+![Aggregated Size comp data (grey) and model fit (green)](ModelDev/Current%20Best/plots/comp_lenfit__aggregated_across_time.png){@fig-14}
 
-![Time-varying selectivity estimated for F02 Chinese Taipei LL late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt2sex1.png){#fig-15}
+![Time-varying selectivity estimated for F01 Japan LL area 1 late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt1sex1.png){#fig-15}
 
-::: {#fig-16 layout-nrow="2"}
+![Time-varying selectivity estimated for F02 Chinese Taipei LL late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt2sex1.png){#fig-16}
+
+::: {#fig-17 layout-nrow="2"}
 ![F03_US_WCNPO_LL_shallow_late](ModelDev/Current%20Best/plots/sel09_len_flt3sex1.png)
 
 ![F04_IATTC](ModelDev/Current%20Best/plots/sel09_len_flt4sex1.png)
@@ -269,7 +271,6 @@ sspar(mfrow=c(4,2),plot.cex = 0.8)
 LenRuns<-SSplotRunstest(base.model,subplots="len",add=T,cex.main = 0.8,verbose = FALSE) # use add=T to maintain plot set up
 ```
 
-
 Model estimates of age 1+ biomass show a general increase in biomass from through the entire assessment time horizon, with some periodic dips in abundance (@fig-22). Initial spawning stock biomass was estimated to be approximately 4,200 mt and virgin SSB was around 25,000 mt (@fig-23). Annual fishing mortality is reported as the average for fish ages 1-10 (@fig-24). Fishing mortality was above MSY for all except 6 years and excepting 2015, has been below F~MSY~ since 2014. Recruitment deviations suggested three periods of recruitment: high recruitment from 1975 to 1993, a period with little data and large variability around the estimates, average recruitment from 1994 to 2003 where recruitment varied around equilibrium recruitment, and low recruitment from 2004 to 2020. The log of the deviations were generally between 0.6 and -0.6 (@fig-25). Current depletion, as estimated as the age 1+ biomass in 2020 compared to the virgin age 1+ biomass was estimated to be 0.09.
 
 ```{r}
@@ -307,7 +308,7 @@ Rec_Fig
 
 ## Diagnostics
 
-Profiling on R~0~ showed that the recruitment estimates were highly influential in the model results, but there was relative agreement between the CPUE indices and the length composition data on the lower bound of R0 (@fig-26 - @fig28). The US data (CPUE and length comp) drive the model dynamics suggesting an ln(R~0~) below 6.0, and Chinese Taipei data and Japanese size composition data suggesting an ln(R~0~) around 7. Japanese CPUE data suggest an ln(R~0~) around 6.1` (Tables 4-5).
+Profiling on R~0~ showed that the recruitment estimates were highly influential in the model results, but there was relative agreement between the CPUE indices and the length composition data on the lower bound of R0 (@fig-26 - @fig28). The US data (CPUE and length comp) drive the model dynamics suggesting an ln(R~0~) below 6.0, and Chinese Taipei data and Japanese size composition data suggesting an ln(R~0~) around 7. Japanese CPUE data suggest an ln(R~0~) around 6.1\` (Tables 4-5).
 
 ![Likelihood profile over R0 for the base-case model: total likelihood (black circles), recruitment (blue triangles), length composition data (light blue crosses), and survey/CPUE indices (yellow x).](ModelDev/Current%20Best/plots/Overall_Likelihood.png){#fig-26}
 
@@ -322,23 +323,22 @@ Results from the ASPM model showed the same population trend as the full model d
 #| label: fig-29
 #| fig-cap: "Spawning stock biomass trend for the ASPM model run (dashed line, triangles) and the base-case model (solid line, circles). Grey shading indicates 95% confidence intervals for each model."
 
-source(file.path(base.dir,"Rscripts","005_DiagnosticPlots.R"))
-ASPM_Plot
-
+# source(file.path(base.dir,"Rscripts","005_DiagnosticPlots.R"))
+# ASPM_Plot
+# 
 
 ```
 
 The retrospective analysis indicates that a significant retrospective pattern exists for both biomass and fishing mortality (Mohn's rho = 0.2 and -0.14, respectively, Figure 33). Generally, biomass is overestimated and fishing mortality is underestimated. Results of the hindcast with cross-validation indicate that of the four CPUE indices at the end of the assessment horizon, only Chinese Taipei had reasonable predictive ability (MASE = 0.9), with all other fleets MASE \> 1 (Figure 34). Comparing the predictive ability of the size composition data, two fleets had very good predictive ability (MASE \<0.5, F2 and F18), five had good predictive ability (MASE \<1 and \>0.5, F1, F4, F5, F6, F16) and one had poor predictive ability (MASE \<1, F14, Figure 35). F14 only had one datapoint in the analysis which likely explains why it had poor predictive ability.
 
-
 ```{r}
 #| echo: false
 #| label: fig-31
 #| fig-cap: Hind casting cross-validation (HCxval) results for Japanese longline late area 1 (top right), Japanese LL late area 2 (top left), Chinese Taipei deep water longline late (center right), US Hawaii deep-set longline (center left) CPUE, and US Hawaii deep-set longline (bottom left) fits, showing observed (large points with dashed line), fitted (solid lines), and one-year-ahead forecast values (small terminal points) in the old growth model. The observations used for cross-validation are highlighted as color-coded solid circles with associated 95% confidence intervals (light-grey shading). The model reference year refers to the endpoint of each one-year-ahead forecast and the corresponding observation. The mean absolute scaled error (MASE) score associated with each CPUE time series is denoted in each panel.
-source(file.path(base.dir,"Rscripts","006_Run_Retrospective.R"))
-
-sspar(mfrow=c(3,2))
-SSplotHCxval(retroSummary,add=T, cex.main=0.5,legendloc="bottomright",legendcex=0.8, verbose=FALSE) # CPUE
+# source(file.path(base.dir,"Rscripts","006_Run_Retrospective.R"))
+# 
+# sspar(mfrow=c(3,2))
+# SSplotHCxval(retroSummary,add=T, cex.main=0.5,legendloc="bottomright",legendcex=0.8, verbose=FALSE) # CPUE
 
 ```
 
@@ -347,17 +347,12 @@ SSplotHCxval(retroSummary,add=T, cex.main=0.5,legendloc="bottomright",legendcex=
 #| label: fig-32
 #| fig-cap: Hind casting cross-validation (HCxval) results for size composition mean lengths, showing observed (large points with dashed line), fitted (solid lines), and one-year-ahead forecast values (small terminal points) in the old growth model. The observations used for cross-validation are highlighted as color-coded solid circles with associated 95% confidence intervals (light-grey shading). The model reference year refers to the endpoint of each one-year-ahead forecast and the corresponding observation. The mean absolute scaled error (MASE) score associated with each size composition time series is denoted in each panel.
 
-sspar(mfrow=c(3,2))
-# Use new converter fuction SSretroComps() for size comps
-hccomps = SSretroComps(retroModels)
-# Plot
-SSplotHCxval(hccomps,add=T,subplots = "len",legendloc="bottomright",legendcex=0.8, verbose=FALSE)
+# sspar(mfrow=c(3,2))
+# # Use new converter fuction SSretroComps() for size comps
+# hccomps = SSretroComps(retroModels)
+# # Plot
+# SSplotHCxval(hccomps,add=T,subplots = "len",legendloc="bottomright",legendcex=0.8, verbose=FALSE)
 
 ```
 
-
 The likelihood profile indicated that the US data componenets (CPUE and size composition data) are majority contributors to the likelihood. Attempts to downweight the US LL size composition data results in a model that fails to converge (due to a Hessian that is not positive definite). However, the ASPM models indicate that the US CPUE data suggest a similar trend as the other CPUE indices. To further explore the effect of the US data, models were run removing all US data except catch and fitting the parameters. While the models including the Japanese size data also failed to converge, the results for all the models indicated an estimated ln(Ro) between 6.2 and 6.4, and SSB~zero~ between 12500 and 15500 metric tons (Table 6). This suggests that even though the US data is a significant contributor to the likelihood, the estimated population size would be similar without the data.
-
-
-
-
