@@ -19,7 +19,8 @@ model.list<-c("01_Divide F9 size data",
               "11_drop F20 decrease Amin",
               "12_mirrow F9",
               "13_mirrorF9 decrease Amin",
-              "14_mirrorF9 decrease Amin Fix eqcat")
+              "14_mirrorF9 decrease Amin Fix eqcat",
+              "15_TWN selec")
 
 #current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[4])
 
@@ -39,10 +40,10 @@ setwd(base.dir)
 # }
 
 #### RUn just one
-current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[7])
+current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[15])
 plotdir<-paste0(current.dir,"//plots")
 
-base.model<-SS_output(current.dir, printstats = FALSE, verbose=FALSE)
+base.model<-SS_output(current.dir)#, printstats = FALSE, verbose=FALSE)
 
 startyear = 1975
 endyear = 2021
