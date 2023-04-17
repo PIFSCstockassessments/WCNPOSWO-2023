@@ -1,5 +1,5 @@
 ##ignore all ss.exe files
-#*.exe
+*.exe
 
 ## ignore all .Rdata files
 *.Rdata
@@ -26,12 +26,13 @@
 *.r02
 *.r03
 *.r04
+*.rep
 *.ss_new
 runnumber.ss
 CompReport.sso
 derived_posteriors.sso
 echoinput.sso
-ParamTrace.sso
+ParmTrace.sso
 posterior_obj_func.sso
 posterior_vectors.sso
 posteriors.sso

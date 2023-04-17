@@ -40,7 +40,7 @@ setwd(base.dir)
 # }
 
 #### RUn just one
-current.dir<-paste0(base.dir,"//SA Meeting Runs//",model.list[15])
+current.dir<-paste0(base.dir,"//Final Base-case")
 plotdir<-paste0(current.dir,"//plots")
 
 base.model<-SS_output(current.dir)#, printstats = FALSE, verbose=FALSE)

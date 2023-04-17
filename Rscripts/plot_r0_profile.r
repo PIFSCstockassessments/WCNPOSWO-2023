@@ -37,7 +37,7 @@ profile.label <- expression(log(italic(R)[0]))
 
 setwd(mainfolder)
 dirvec <- dir(pattern=ssdirpattern)
-SSreps <- SSgetoutput(dirvec=dirvec[c(1,3:18)],getcovar=F, forecast=FALSE)
+SSreps <- SSgetoutput(dirvec=dirvec,getcovar=F, forecast=FALSE)
 summaryoutput <- SSsummarize(SSreps)
 lbf  <- summaryoutput$likelihoods_by_fleet
 FleetNames <- summaryoutput$FleetNames[[1]]
