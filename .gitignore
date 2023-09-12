@@ -43,9 +43,10 @@ warning.sso
 *.log
 *.jpg
 *.png
-
+*.rds
 
 ##ignore all confidential files
 HI CPUE prep/Confidential Data/
 ERRDAP/
 plots*/
+.Rproj.user
