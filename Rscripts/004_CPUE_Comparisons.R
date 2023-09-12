@@ -47,6 +47,7 @@ library(diags, quietly = TRUE)
 ##### Run the Analysis #######
 
 ##  flts is the names of all the fleets in your datafile
+CPUE.mean<-aggregate(base.model$cpue$Obs, by=list(base.model$cpue$Fleet_name),mean)
 flts <- CPUE.mean$Group.1
 
 ## u is your datafile, it should have a column for year, fleet name and CPUE value
@@ -132,7 +133,7 @@ cpue1 <-  smooth[smooth$Fleet %in% flts[1:4],] %>%
   ylab("Scaled CPUE") +
   facet_grid(Fleet~., scales = "free_y") +
   theme(legend.position="bottom", panel.grid.major = element_blank(),
-        strip.text.y = element_text(size = 6),
+        strip.text.y = element_text(size = 4),
         strip.background = element_rect(fill="burlywood1"))
 
 cpue2 <-smooth[smooth$Fleet %in% flts[5:8],] %>%
@@ -144,7 +145,7 @@ cpue2 <-smooth[smooth$Fleet %in% flts[5:8],] %>%
   ylab("Scaled CPUE") +
   facet_grid(Fleet~., scales="free_y") +  
   theme(legend.position="bottom", panel.grid.major = element_blank(),
-        strip.text.y = element_text(size = 6),
+        strip.text.y = element_text(size = 4),
         strip.background = element_rect(fill="burlywood1"))
 
 #Rmisc::multiplot(cpue1,cpue2, cols = 2)
@@ -169,7 +170,7 @@ CPUE_Residuals<-smooth %>% mutate(residual = CPUE - hat) %>%
 
 
 ##  Pairwise scatterplots to illustrate correlations among all indices.
-mat=dcast(u,year~Fleet,value.var="CPUE")
+mat=reshape2::dcast(u,year~Fleet,value.var="CPUE")
 names(mat)=gsub(" ", "_",names(mat))
 #mat<-as.data.frame(mat)
 CPUE_Pairs<-ggpairs(mat[,-1],
@@ -183,11 +184,11 @@ CPUE_Pairs<-ggpairs(mat[,-1],
 ## Plot of the correlation matrix for CPUE indices. Blue indicates a positive correlation, and red negative. 
 ## The order of the indices and the rectanglur boxes are chosen based on a hierarchical cluster analysis using 
 ##a set of dissimilarities for the indices being clustered.
-cr=cor(mat[,-1],use="pairwise.complete.obs")
-dimnames(cr)=list(gsub("_"," ",names(mat)[-1]),gsub("_"," ",names(mat)[-1]))
-cr[is.na(cr)]=0
-CPUE_Corr<-corrplot(cr,diag=F,order="hclust",addrect=2,  method = "ellipse",  tl.col = 'black', tl.cex = 0.75)  +          
-  theme(legend.position="bottom", panel.grid = element_blank())  
+# cr=cor(mat[,-1],use="pairwise.complete.obs")
+# dimnames(cr)=list(gsub("_"," ",names(mat)[-1]),gsub("_"," ",names(mat)[-1]))
+# cr[is.na(cr)]=0
+# CPUE_Corr<-corrplot(cr,diag=F,order="hclust",addrect=2,  method = "ellipse",  tl.col = 'black', tl.cex = 0.75)  +          
+#   theme(legend.position="bottom", panel.grid = element_blank())  
 
 ##  Cross correlations between indices to identify potential lags due to year-class effects.
 cpue=FLQuants(dlply(u,.(Fleet), with,

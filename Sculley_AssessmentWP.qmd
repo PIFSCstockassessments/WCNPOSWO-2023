@@ -2,7 +2,7 @@
 title: "A Preliminary Base-case model in SS3.30 for the 2023 North Pacific Swordfish Assessment"
 date: "April 2023"
 author: "Michelle L Sculley"
-format: html
+format: docx
 editor: visual
 ---
 
@@ -22,7 +22,7 @@ michelle.sculley\@noaa.gov
 
 A preliminary base-case model in Stock Synthesis 3.30 for North Pacific (NP) swordfish (*Xiphias gladius*) is described for consideration as the 2023 base-case model. The base-case model covers the Western and Central North Pacific north of the Equator and the Eastern Pacific Ocean north of 10°N from 1975 to 2021. It includes data from three International Scientific Committee for the Conservation of Tuna and Tuna-like Species (ISC) countries and other countries in aggregate from the Western and Central Pacific Fisheries Commission (WCPFC) and the Inter-American Tropical Tuna Commission (IATTC). This paper describes the data available for inclusion and the proposed base-case model. The model converges and appears to fit the data well. Initial diagnostics do not indicate major problems. Preliminary results suggest the North Pacific swordfish stock is being not fished above F~MSY~ and spawning stock biomass is above SSB~MSY~.
 
-# 5Introduction
+# Introduction
 
 The International Scientific Committee for the Conservation of Tuna and Tuna-like Species (ISC) Billfish Working Group (BILLWG) has proposed to run a benchmark assessment on North Pacific swordfish (*Xiphias gladius,* SWO). Data were compiled from the International Scientific Committee for North Pacific Tuna and Tuna-like Species (ISC) member countries and other Western and Central Pacific Fisheries Commission (WCPFC) and Inter-American Tropical Tuna Commission (IATTC) countries. Countries were asked to contribute catch, CPUE, and size-frequency data. It was decided to run the assessment using a sex-specific model in Stock Synthesis version 3.30.20 (Methot and Wetzel, 2013) with fleets-as-areas spearating the Eastern Pacific Ocean (EPO) region from the Western and Central North Pacific (WCNPO) region, as defined in the December 2022 BILLWG meeting. The available data and the preliminary model results and diagnostics for a base-case model will be presented in this document for consideration at the ISC BILLWG SWO stock assessment meeting.
 
@@ -30,20 +30,21 @@ The International Scientific Committee for the Conservation of Tuna and Tuna-lik
 
 ## Spatial Temporal Structure
 
-Data were compiled by region assuming a two region model of the North Pacific Ocean with boundaries based upon those detailed in Ichinokawa and Brodziak (2008) with the modification that the Eastern Pacific Ocean (EPO) region ends at 10°N (@fig-1). Countries were asked to contribute catch, CPUE, and length frequency data partitioned by these two regions so that the North Pacific could be modeled with two implicit areas using fleets as areas. The working group agreed to start model in 1975.
+Data were compiled by region assuming a two region model of the North Pacific Ocean with boundaries based upon those detailed in Ichinokawa and Brodziak (2008) with the modification that the Eastern Pacific Ocean (EPO) region ends at 10°N (@fig-stockareas). Countries were asked to contribute catch, CPUE, and length frequency data partitioned by these two regions so that the North Pacific could be modeled with two implicit areas using fleets as areas. The working group agreed to start model in 1975.
 
-![Western and Central North Pacific Ocean and North Eastern Pacific Ocean swordfish stock boundaries for the 2023 North Pacific swordfish assessment. Spatial structure is treated implicitly using fleets as areas.](2023_SWO_stock_boundary.png){#fig-1}
+![Western and Central North Pacific Ocean and North Eastern Pacific Ocean swordfish stock boundaries for the 2023 North Pacific swordfish assessment. Spatial structure is treated implicitly using fleets as areas.](2023_SWO_stock_boundary.png){#fig-stockareas fig-alt="Map of the three stock areas for Pacific Swordfish"}
 
 ## Definition of Fisheries
 
-Data are available for fourteen different fleets in the WCNPO: 14 catch time series, with some fleets split into early and late periods and 8 CPUE indices of which one is a recruitment index. The fleet names and numbers are detailed in Table 1. The data available for each fleet is in @fig-2. The acronyms in the fleet names are defined as follows: WCNPO is Western and Central North Pacific Ocean; EPO is Eastern Pacific Ocean; OSDWLL is offshore distant water longline; OSDWCOLL is offshore distant water and coastal longline; early is the early time period; late is the late time period, Area1 and 2 are the Japanese fishery areas in the WCNPO as defined in Ijima 2022; OSDF is offshore driftnet gear; CODF is coastal driftnet gear, JPN_WCNPO_Other is Japanese small-scale coastal longline vessels which are not under obligation to submit logbook data, bait, and net fishing gear; DWLL is distant water longline gear, TWN_WCNPO_Other is Taiwanese offshore longline, coastal longline, gillnet, harpoon and other gears; LL is longline gear; shallow is the Hawaii shallow-set sector; deep is the Hawaii deep-set sector; GN is gillnet gear; US_WCNPO_Other is harpoon and other gears; WCPFC is other WCPFC and IATTC longline gear in the WCNPO; IATTC is longline gear in the EPO north of 10ºN.
+Data are available for fourteen different fleets in the WCNPO: 14 catch time series, with some fleets split into early and late periods and 8 CPUE indices of which one is a recruitment index. The fleet names and numbers are detailed in Table 1. The data available for each fleet is in @fig-dataplot. The acronyms in the fleet names are defined as follows: WCNPO is Western and Central North Pacific Ocean; EPO is Eastern Pacific Ocean; OSDWLL is offshore distant water longline; OSDWCOLL is offshore distant water and coastal longline; early is the early time period; late is the late time period, Area1 and 2 are the Japanese fishery areas in the WCNPO as defined in Ijima 2022; OSDF is offshore driftnet gear; CODF is coastal driftnet gear, JPN_WCNPO_Other is Japanese small-scale coastal longline vessels which are not under obligation to submit logbook data, bait, and net fishing gear; DWLL is distant water longline gear, TWN_WCNPO_Other is Taiwanese offshore longline, coastal longline, gillnet, harpoon and other gears; LL is longline gear; shallow is the Hawaii shallow-set sector; deep is the Hawaii deep-set sector; GN is gillnet gear; US_WCNPO_Other is harpoon and other gears; WCPFC is other WCPFC and IATTC longline gear in the WCNPO; IATTC is longline gear in the EPO north of 10ºN.
 
 ```{r }
 #| echo: false
-#| label: fig-2
+#| label: fig-dataplot
 #| fig-cap: "Catch, CPUE index, and size composition data included in the 2023 NP swordfish stock assessment. The size of the bubble indicates the relative number of observations available." 
 #| fig-width: 16
 #| fig-height: 10
+#| fig-alt: "Plot of the available data for the 2023 North Pacific Swordfish assessment by year."
 base.dir<-"C://users//michelle.sculley//documents//2023 SWO ASSESS"
 source(file.path(base.dir,"Rscripts","001_LoadModel.R"))
 SSplotData(base.model,plot=TRUE, print=FALSE, subplots = 2, pheight=8,pwidth=10, margins = c(5.1,2.1,2.1,18.1), ptsize=6)#, 
@@ -52,14 +53,15 @@ SSplotData(base.model,plot=TRUE, print=FALSE, subplots = 2, pheight=8,pwidth=10,
 
 ## Catch
 
-Some of the time series of catch were divided into early and late periods to coincide with divisions of the CPUE indices (Table 1, @fig-3). Three ISC countries contributed catch time series: Japan, Taiwan, and the US. In addition, catch from countries reporting to the WCPFC and IATTC were obtained from each RFMO, respectively. The CV for catch was set to 0.05 for all fleets. Catch for fleets with only annual data were divided equally into each quarter.
+Some of the time series of catch were divided into early and late periods to coincide with divisions of the CPUE indices (Table 1, @fig-catchplot). Three ISC countries contributed catch time series: Japan, Taiwan, and the US. In addition, catch from countries reporting to the WCPFC and IATTC were obtained from each RFMO, respectively. The CV for catch was set to 0.05 for all fleets. Catch for fleets with only annual data were divided equally into each quarter.
 
 ```{r}
 #| echo: false
-#| label: fig-3
+#| label: fig-catchplot
 #| fig-cap: "Annual catch of NP swordfish by country or commission and area."
 #| fig.height: 8
 #| fig.width: 12
+#| fig-alt: "Catch by year and country estimated from the 2023 North Pacific swordfish assessment."
 
 
 source(file.path(base.dir,"Rscripts","003_DataSummaryFigs.R"))
@@ -79,9 +81,9 @@ where *Y*~t~ is the observed CPUE in year *t* on the log scale, $\hat{Y}$ is the
 
 ## Length Composition
 
-Length composition data were available for six WCNPO fleets and two EPO fleets (@fig-4). Length composition data were available in quarterly time steps. Quarters with fewer than 15 total samples were removed from the time series due to limited sample size, as agreed upon by the modeling sub-group. In addition, the length composition data for F5 were excluded as they were sparse. Data were fit using a multinomial error structure. Length composition data were weighted based upon the Francis (2011) method. Input effective sample size was estimated as the total number of fish measured in each year-quarter divided by 10, with any year-quarter over fifty set to fifty to reduce the influence of large sampling events. Then, weighting was attempted based upon the T.A1.8 equation (Francis 2011) as calculated by the model using r4ss, an R package for plotting SS results (R version 3.4.0, R Core Team, 2017, r4ss version 1.28.0, Taylor et al., 2017). Length composition data were only down-weighted if the model suggested it, otherwise the fleets were not adjusted. The only fleet to be down-weighted using the Francis methods was F9, the US deep-set LL data.
+Length composition data were available for six WCNPO fleets and two EPO fleets (@fig-lengthdataplot). Length composition data were available in quarterly time steps. Quarters with fewer than 15 total samples were removed from the time series due to limited sample size, as agreed upon by the modeling sub-group. In addition, the length composition data for F5 were excluded as they were sparse. Data were fit using a multinomial error structure. Length composition data were weighted based upon the Francis (2011) method. Input effective sample size was estimated as the total number of fish measured in each year-quarter divided by 10, with any year-quarter over fifty set to fifty to reduce the influence of large sampling events. Then, weighting was attempted based upon the T.A1.8 equation (Francis 2011) as calculated by the model using r4ss, an R package for plotting SS results (R version 3.4.0, R Core Team, 2017, r4ss version 1.28.0, Taylor et al., 2017). Length composition data were only down-weighted if the model suggested it, otherwise the fleets were not adjusted. The only fleet to be down-weighted using the Francis methods was F9, the US deep-set LL data.
 
-::: {#fig-4 layout-nrow="2"}
+::: {#fig-lengthdataplot layout-nrow="2" fig-alt="Size composition data by year, quarter, and fleet from the 2023 North Pacific swordfish assessment."}
 ![](ModelDev/Current%20Best/plots/comp_lendat__page1_multi-fleet_comparison.png)
 
 ![](ModelDev/Current%20Best/plots/comp_lendat__page2_multi-fleet_comparison.png){width="674"}
@@ -113,9 +115,9 @@ Several diagnostics were run to evaluate the fit of the model to the data. An Ag
 
 The base-case model ran in about 10 minutes, estimated 89 parameters, and had a total likelihood of 1338.75 The inverse Hessian was positive definite, which allowed for the estimation of parameter standard deviations and suggests that the model converged, and the maximum gradient component was less than 0.001. None of the parameter estimates hit a bound, two selectivity parameters had a correlation above 0.95 and no parameters had correlations below 0.01. All twenty early recruitment deviations (1965-1984) and 30 of the 37 main recruitment deviations had CVs \> 50%. Five of the 34 selectivity parameters had CVs \>50%, most of which were for the estimated width of the peak (i.e. a very small number).
 
-Fits to the abundance indices were relatively good (@fig-5 - @fig-12). The expected CPUE trend for S5 TWN LL was relatively flat and did not fit the data well, and the observed CPUE in the last 3-5 years for S4 JPN LL area 1 declined but the expected CPUE increased. Three indices failed the runs test, S5, S6, and S8 (Figure 11). S6 is the US deep set LL fleet which is a recruitment index and not fitted as a survey index, so its fit can be ignored. S8 is the US shallow-set LL fleet in the late time period, and indicates a long term decline. Additional investigation into the CPUE indices indicate that there does appear to be some conflict between the trends for each fleet, which could be driving some of the mis-fit within the model.
+Fits to the abundance indices were relatively good (@fig-S1CPUEfits - @fig-CPUErunstest). The expected CPUE trend for S5 TWN LL was relatively flat and did not fit the data well, and the observed CPUE in the last 3-5 years for S4 JPN LL area 1 declined but the expected CPUE increased. Three indices failed the runs test, S5, S6, and S8 (Figure 11). S6 is the US deep set LL fleet which is a recruitment index and not fitted as a survey index, so its fit can be ignored. S8 is the US shallow-set LL fleet in the late time period, and indicates a long term decline. Additional investigation into the CPUE indices indicate that there does appear to be some conflict between the trends for each fleet, which could be driving some of the mis-fit within the model.
 
-::: {#fig-5 layout-ncol="2"}
+::: {#fig-S1CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S1."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S1_JPN_WCNPO_OSDWLL_early_Area1.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S1_JPN_WCNPO_OSDWLL_early_Area1.png)
@@ -123,7 +125,7 @@ Fits to the abundance indices were relatively good (@fig-5 - @fig-12). The expec
 Fit to the S1 Japanese early area 1 LL CPUE index. Left is the input CPUE with CV and the model fit CPUE (blue line). Right is the annual residuals of that fit.
 :::
 
-::: {#fig-6 layout-ncol="2"}
+::: {#fig-S2CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S2."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S2_JPN_WCNPO_OSDWCOLL_late_Area1.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S2_JPN_WCNPO_OSDWCOLL_late_Area1.png)
@@ -131,7 +133,7 @@ Fit to the S1 Japanese early area 1 LL CPUE index. Left is the input CPUE with C
 Fit to the S2 Japanese late area 1 LL CPUE index. Left is the input CPUE with CV and the model fit CPUE (blue line). Right is the annual residuals of that fit.
 :::
 
-::: {#fig-7 layout-ncol="2"}
+::: {#fig-S3CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S3."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S3_JPN_WCNPO_OSDWLL_early_Area2.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S3_JPN_WCNPO_OSDWLL_early_Area2.png)
@@ -139,7 +141,7 @@ Fit to the S2 Japanese late area 1 LL CPUE index. Left is the input CPUE with CV
 Fit to the S3 Japanese early area 2 LL CPUE index. Left is the input CPUE with CV and the model fit CPUE (blue line). Right is the annual residuals of that fit.
 :::
 
-::: {#fig-8 layout-ncol="2"}
+::: {#fig-S4CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S4."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S4_JPN_WCNPO_OSDWLL_late_Area2.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S4_JPN_WCNPO_OSDWLL_late_Area2.png)
@@ -147,7 +149,7 @@ Fit to the S3 Japanese early area 2 LL CPUE index. Left is the input CPUE with C
 Fit to the S4 Japanese late area 2 LL CPUE index. Left is the input CPUE with CV and the model fit CPUE (blue line). Right is the annual residuals of that fit.
 :::
 
-::: {#fig-9 layout-ncol="2"}
+::: {#fig-S5CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S5."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S5_TWN_WCNPO_DWLL_late.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S5_TWN_WCNPO_DWLL_late.png)
@@ -155,7 +157,7 @@ Fit to the S4 Japanese late area 2 LL CPUE index. Left is the input CPUE with CV
 Fit to the S5 Chinese Taipei late LL CPUE index. Left is the input CPUE with CV and the model fit CPUE (blue line). Right is the annual residuals of that fit.
 :::
 
-::: {#fig-10 layout-ncol="2"}
+::: {#fig-S6CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S6."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S6_US_WCNPO_LL_deep.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S6_US_WCNPO_LL_deep.png)
@@ -163,7 +165,7 @@ Fit to the S5 Chinese Taipei late LL CPUE index. Left is the input CPUE with CV 
 Fit to the S6 US deep-set LL CPUE recruitment index. Left is the input CPUE with CV and the model fit CPUE (blue line). Right is the annual residuals of that fit.
 :::
 
-::: {#fig-11 layout-ncol="2"}
+::: {#fig-S7CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S7."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S7_US_WCNPO_LL_shallow_early.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S7_US_WCNPO_LL_shallow_early.png)
@@ -171,7 +173,7 @@ Fit to the S6 US deep-set LL CPUE recruitment index. Left is the input CPUE with
 Fit to the S7 US shallow-set LL early CPUE index. Left is the input CPUE with CV and the model fit CPUE (blue line). Right is the annual residuals of that fit.
 :::
 
-::: {#fig-12 layout-ncol="2"}
+::: {#fig-S8CPUEfits layout-ncol="2" fig-alt="Fits to the CPUE data and residuals for S8."}
 ![](ModelDev/Current%20Best/plots/index5_logcpuefit_S8_US_WCNPO_LL_shallow_late.png)
 
 ![](ModelDev/Current%20Best/plots/index10_resids_SE_total_S8_US_WCNPO_LL_shallow_late.png)
@@ -181,23 +183,24 @@ Fit to the S8 US shallow-set LL early CPUE index. Left is the input CPUE with CV
 
 ```{r}
 #| echo: false
-#| label: fig-13
+#| label: fig-CPUErunstest
 #| fig-cap: Results from a runs test for each CPUE index. Red indicates the index failed the test (residuals are not random), green indicates the index passed the test.
 #| fig-height: 8
 #| fig-width: 8
+#| fig-alt: "CPUE Runs test results from the 2023 North Pacific swordfish assessment. S5 and S8 both fail the runs test."
  sspar(mfrow=c(4,2),plot.cex = 0.8)
  CPUERuns<-SSplotRunstest(base.model,subplots="cpue",add=T,cex.main = 0.8, verbose = FALSE)
 ```
 
-Estimated selectivity for each fleet are in . Fits to the length composition data were also relatively good (@fig-17 - @fig-20), although there are still problems fitting the US deep-set longline data (F9).  The fit to the US size data is challenging because size distribution changes substantially seasonally, with a sharp peak of small fish entering the fishery in quarters 3 and 4 which are not observed in such large numbers in quarters 1 and 2. Attempts to separate the fleet into a quarterly fleets to estimate selectivity are ongoing but not yet successful. In addition, F1 JPN LL area 1 late and F4 IATTC both fail the runs test (@fig-21).
+Estimated selectivity for each fleet are in (@fig-SizeAggFits - @fig-EOYSelec). Fits to the length composition data were also relatively good (@fig-F1F2SizeFits - @fig-F8F9SizeFits), although there are still problems fitting the US deep-set longline data (F9).  The fit to the US size data is challenging because size distribution changes substantially seasonally, with a sharp peak of small fish entering the fishery in quarters 3 and 4 which are not observed in such large numbers in quarters 1 and 2. Attempts to separate the fleet into a quarterly fleets to estimate selectivity are ongoing but not yet successful. In addition, F1 JPN LL area 1 late and F4 IATTC both fail the runs test (@fig-SizeRunsTest).
 
-![Aggregated Size comp data (grey) and model fit (green)](ModelDev/Current%20Best/plots/comp_lenfit__aggregated_across_time.png){@fig-14}
+![Aggregated Size comp data (grey) and model fit (green)](ModelDev/Current%20Best/plots/comp_lenfit__aggregated_across_time.png){#fig-SizeAggFits fig-alt="Input size data and estimated fist to the data for all years aggregated."}
 
-![Time-varying selectivity estimated for F01 Japan LL area 1 late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt1sex1.png){#fig-15}
+![Time-varying selectivity estimated for F01 Japan LL area 1 late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt1sex1.png){#fig-F1TVSelec fig-alt="Estimated time-varying selectivity for F1."}
 
-![Time-varying selectivity estimated for F02 Chinese Taipei LL late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt2sex1.png){#fig-16}
+![Time-varying selectivity estimated for F02 Chinese Taipei LL late.](ModelDev/Current%20Best/plots/sel03_len_timevary_surf_flt2sex1.png){#fig-F2TVSelec fig-alt="Estimated time-varying selectivity for F2."}
 
-::: {#fig-17 layout-nrow="2"}
+::: {#fig-EOYSelec layout-nrow="3" fig-alt="Estimated selectivity for F3, F4, F6, F7, F8, and F9."}
 ![F03_US_WCNPO_LL_shallow_late](ModelDev/Current%20Best/plots/sel09_len_flt3sex1.png)
 
 ![F04_IATTC](ModelDev/Current%20Best/plots/sel09_len_flt4sex1.png)
@@ -213,7 +216,7 @@ Estimated selectivity for each fleet are in . Fits to the length composition dat
 Selectivity estimates for each of the 6 fleets without time-varying parameters.
 :::
 
-::: {#fig-17 layout-ncol="2"}
+::: {#fig-F1F2SizeFits layout-ncol="2" fig-alt="Fit to the annual mean length and quarterly residual plots for F1 and F2 size composition data."}
 ![](ModelDev/Current%20Best/plots/comp_lenfit_data_weighting_TA1.8_F1_JPN_WCNPO_OSDWCOLL_late_Area1.png)
 
 ![](ModelDev/Current%20Best/plots/comp_lenfit_residsflt1mkt0_page5.png)
@@ -225,7 +228,7 @@ Selectivity estimates for each of the 6 fleets without time-varying parameters.
 Fits to the annual mean length (left panels) and quarterly residuals (right panels) for Japan LL Area 1 late (top) and Chinese Taipei LL late (bottom) length composition data. The blue line indicates the estimated mean length, open dots indicate input mean length with black bars indicating the distribution of the length data with the added variance. Open circles indicate negative residuals and closed circles indicate positive residuals.
 :::
 
-::: {#fig-18 layout-ncol="2"}
+::: {#fig-F3F4SizeFits layout-ncol="2" fig-alt="Fit to the annual mean length and quarterly residual plots for F3 and F4 size composition data."}
 ![](ModelDev/Current%20Best/plots/comp_lenfit_data_weighting_TA1.8_F3_US_WCNPO_LL_shallow_late.png)
 
 ![](ModelDev/Current%20Best/plots/comp_lenfit_residsflt3mkt0_page3.png)
@@ -237,7 +240,7 @@ Fits to the annual mean length (left panels) and quarterly residuals (right pane
 Fits to the annual mean length (left panels) and quarterly residuals (right panels) for US shallow-set LL late (top) and IATTC EPO (bottom) length composition data. The blue line indicates the estimated mean length, open dots indicate input mean length with black bars indicating the distribution of the length data with the added variance. Open circles indicate negative residuals and closed circles indicate positive residuals.
 :::
 
-::: {#fig-19 layout-ncol="2"}
+::: {#fig-F6F7SizeFits layout-ncol="2" fig-alt="Fit to the annual mean length and quarterly residual plots for F6 and F7 size composition data."}
 ![](ModelDev/Current%20Best/plots/comp_lenfit_data_weighting_TA1.8_F6_JPN_WCNPO_OSDWLL_early_Area1.png)
 
 ![](ModelDev/Current%20Best/plots/comp_lenfit_residsflt6mkt0.png)
@@ -249,7 +252,7 @@ Fits to the annual mean length (left panels) and quarterly residuals (right pane
 Fits to the annual mean length (left panels) and quarterly residuals (right panels) for Japan LL Area 1 early (top) and Japan coastal driftnet (bottom) length composition data. The blue line indicates the estimated mean length, open dots indicate input mean length with black bars indicating the distribution of the length data with the added variance. Open circles indicate negative residuals and closed circles indicate positive residuals.
 :::
 
-::: {#fig-20 layout-ncol="2"}
+::: {#fig-F8F9SizeFits layout-ncol="2" fig-alt="Fit to the annual mean length and quarterly residual plots for F8 and F9 size composition data."}
 ![](ModelDev/Current%20Best/plots/comp_lenfit_data_weighting_TA1.8_F8_US_WCNPO_LL_shallow_early.png)
 
 ![](ModelDev/Current%20Best/plots/comp_lenfit_residsflt8mkt0.png)
@@ -263,20 +266,29 @@ Fits to the annual mean length (left panels) and quarterly residuals (right pane
 
 ```{r}
 #| echo: false
-#| label: fig-21
+#| label: fig-SizeRunsTest
 #| fig-cap: Results from a runs test for each size composition time series. Red indicates the time series failed the test (residuals are not random), green indicates the time series passed the test.
 #| fig-height: 8
 #| fig-width: 8
+#| fig-alt: "Size composition runs test results. F1 and F4 both fail the runs test."
+
 sspar(mfrow=c(4,2),plot.cex = 0.8)
 LenRuns<-SSplotRunstest(base.model,subplots="len",add=T,cex.main = 0.8,verbose = FALSE) # use add=T to maintain plot set up
+
 ```
 
-Model estimates of age 1+ biomass show a general increase in biomass from through the entire assessment time horizon, with some periodic dips in abundance (@fig-22). Initial spawning stock biomass was estimated to be approximately 4,200 mt and virgin SSB was around 25,000 mt (@fig-23). Annual fishing mortality is reported as the average for fish ages 1-10 (@fig-24). Fishing mortality was above MSY for all except 6 years and excepting 2015, has been below F~MSY~ since 2014. Recruitment deviations suggested three periods of recruitment: high recruitment from 1975 to 1993, a period with little data and large variability around the estimates, average recruitment from 1994 to 2003 where recruitment varied around equilibrium recruitment, and low recruitment from 2004 to 2020. The log of the deviations were generally between 0.6 and -0.6 (@fig-25). Current depletion, as estimated as the age 1+ biomass in 2020 compared to the virgin age 1+ biomass was estimated to be 0.09.
 
 ```{r}
 #| echo: false
-#| label: fig-22
+source(file.path(base.dir,"Rscripts","010_ExecSummaryData.R"))
+```
+Model estimates of age 1+ biomass show a general increase in biomass from through the entire assessment time horizon, with some periodic dips in abundance (@fig-TotalBiomass). Initial spawning stock biomass was estimated to be approximately `r round(base.model$derived_quants[which(rnames=="SSB_Initial"),2],digits=-3)` mt and virgin SSB was around `r round(base.model$derived_quants[which(rnames=="SSB_Virgin"),2],digits=-3)` mt (@fig-SSB). Annual fishing mortality is reported as the average for fish ages 1-10 (@fig-Fmort). Fishing mortality was below MSY for all years and has been decreasing generally since 1998. Recruitment deviations relatively random around the equilibrium value, with occasional strong year classes (@fig-Recruit). Current depletion, as estimated as the age 1+ biomass in 2020 compared to the virgin age 1+ biomass was estimated to be `r ExecSumInfo[[19]][which(ExecSumInfo[[19]][,2]==2021),1]`.
+
+```{r}
+#| echo: false
+#| label: fig-TotalBiomass
 #| fig-cap: Estimated biomass (mt) of NP swordfish 1+ from the base-case model.
+#| fig-alt: "Total biomass estimated from the 2023 North Pacific swordfish assessment model. Trend suggests biomass has remained relatively steady over time."
 source(file.path(base.dir,"Rscripts","002_SummaryFigs.R"))
 BioSumFig
 
@@ -284,75 +296,89 @@ BioSumFig
 
 ```{r}
 #| echo: false
-#| label: fig-23
+#| label: fig-SSB
 #| fig-cap: Estimated NP swordfish Spawning Stock Biomass (SSB) from the with 95% confidence intervals. SSB~MSY~ is indicated by the dashed green line.
+#| fig-alt: "Female spawning stock biomass estimated from the 2023 North Pacific swordfish assessment model. Trend suggests biomass has remained relatively steady over time."
 SSB_Fig
 
 ```
 
 ```{r}
 #| echo: false
-#| label: fig-24
+#| label: fig-Fmort
 #| fig-cap: Estimated annual fishing mortality (average ages 1-10) the with 95% confidence intervals. F~MSY~ is indicated by the dashed green line.
+#| fig-alt: "Total fishing mortality (average of ages 1-10) estimated from the 2023 North Pacific swordfish assessment model. Trend suggests biomass has been decreasing over time, with a sharp peak in 1998."
 F_Fig
 
 ```
 
 ```{r}
 #| echo: false
-#| label: fig-25
+#| label: fig-Recruit
 #| fig-cap: Estimated annual recruitment (thouseands of age-0 fish) with 95% confidence intervals.
+#| fig-alt: "Estimated annual recuritment from the 2023 swordfish stock assessment. Trend is relatively random and flat."
 Rec_Fig
 
 ```
 
 ## Diagnostics
 
-Profiling on R~0~ showed that the recruitment estimates were highly influential in the model results, but there was relative agreement between the CPUE indices and the length composition data on the lower bound of R0 (@fig-26 - @fig28). The US data (CPUE and length comp) drive the model dynamics suggesting an ln(R~0~) below 6.0, and Chinese Taipei data and Japanese size composition data suggesting an ln(R~0~) around 7. Japanese CPUE data suggest an ln(R~0~) around 6.1\` (Tables 4-5).
+Profiling on R~0~ showed that the recruitment estimates were highly influential in the model results, but there was relative agreement between the CPUE indices and the length composition data on the lower bound of R0 (@fig-OverallLikelihood - @fig-SizeLikelihood). The US data (CPUE and length comp) drive the model dynamics suggesting an ln(R~0~) below 6.0, and Chinese Taipei data and Japanese size composition data suggesting an ln(R~0~) around 7. Japanese CPUE data suggest an ln(R~0~) around 6.1 (Tables 4-5).
 
-![Likelihood profile over R0 for the base-case model: total likelihood (black circles), recruitment (blue triangles), length composition data (light blue crosses), and survey/CPUE indices (yellow x).](ModelDev/Current%20Best/plots/Overall_Likelihood.png){#fig-26}
+![Likelihood profile over R0 for the base-case model: total likelihood (black circles), recruitment (blue triangles), length composition data (light blue crosses), and survey/CPUE indices (yellow x).](ModelDev/Current%20Best/plots/Overall_Likelihood.png){#fig-OverallLikelihood fig-alt="Overall likelihood on R0 indicates good information on the lower bound of R0 and a flat likelihood surface above the MLE estimate."}
 
-![Likelihood profile over R0 by CPUE index for the base-case model.](ModelDev/Current%20Best/plots/CPUE_Likelihood.png){#fig-27}
+![Likelihood profile over R0 by CPUE index for the base-case model.](ModelDev/Current%20Best/plots/CPUE_Likelihood.png){#fig-CPUELikelihood fig-alt="Contribution to the likelihood on R0 by CPUE fleet. S8 indicates significant conflict with the rest of the indices."}
 
-![Likelihood profile over R0 for each length composition time series for the base-case model.](ModelDev/Current%20Best/plots/Size_Likelihood.png){#fig-28}
+![Likelihood profile over R0 for each length composition time series for the base-case model.](ModelDev/Current%20Best/plots/Size_Likelihood.png){#fig-SizeLikelihood fig-alt="Contribution to the likelihood on R0 by CPUE fleet. Most fleets agree on the MLE estimate of R0."}
 
-Results from the ASPM model showed the same population trend as the full model during 1975-1993, which is the time period without any size composition data. After 1994, the ASPM biomass increases drastically and deviates completely from the base-case model (Figures 29 and 30). Further investigation running an ASPM with a single early and late index at a time indicates a similar pattern for all CPUE indices (Figure 31). The most likely explanation for this is that the population dynamics prior to 1994 are being driven by the two CPUE indices available (Figure 32). After 1994 catch decreases and CPUE for all fleets flattens out which would indicate that a stock is recovering. However, the size composition data indicate that the majority of the catch is juvenile fish. Continued removals of individuals before they have a chance to reproduce would continue to cause the stock to decline below MSY levels. This indicates that the size composition data are an integral component of the model, without which we would not have a full picture of the fishing effect on the stock.
+Results from the ASPM model showed a similar population trend as the full model although the scale of the ASPM is larger than the base-case model (@fig-ASPM). This suggests that while the Catch and CPUE data do provide information for the production function, the size composition data provide information about the overall scale of the population.
 
 ```{r}
 #| echo: false
-#| label: fig-29
+#| label: fig-ASPM
 #| fig-cap: "Spawning stock biomass trend for the ASPM model run (dashed line, triangles) and the base-case model (solid line, circles). Grey shading indicates 95% confidence intervals for each model."
+#| fig-alt: "ASPM model trend is similar to the base-case model but larger in overall scale."
 
-# source(file.path(base.dir,"Rscripts","005_DiagnosticPlots.R"))
-# ASPM_Plot
-# 
+ source(file.path(base.dir,"Rscripts","005_DiagnosticPlots.R"))
+ ASPM_Plot
+ 
 
 ```
 
-The retrospective analysis indicates that a significant retrospective pattern exists for both biomass and fishing mortality (Mohn's rho = 0.2 and -0.14, respectively, Figure 33). Generally, biomass is overestimated and fishing mortality is underestimated. Results of the hindcast with cross-validation indicate that of the four CPUE indices at the end of the assessment horizon, only Chinese Taipei had reasonable predictive ability (MASE = 0.9), with all other fleets MASE \> 1 (Figure 34). Comparing the predictive ability of the size composition data, two fleets had very good predictive ability (MASE \<0.5, F2 and F18), five had good predictive ability (MASE \<1 and \>0.5, F1, F4, F5, F6, F16) and one had poor predictive ability (MASE \<1, F14, Figure 35). F14 only had one datapoint in the analysis which likely explains why it had poor predictive ability.
+
+Results of the hindcast with cross-validation indicate that of the five CPUE indices at the end of the assessment horizon, only the Japanese LL area 2 fleet had reasonable predictive ability (MASE = 0.85), with all other fleets MASE \> 1 (@fig-CPUEHCxval). Comparing the predictive ability of the size composition data, two fleets had good predictive ability (MASE \<0.5, F3 and F9), one had good predictive ability (MASE \<1 and \>0.5, F2) and two had poor predictive ability (MASE \<1, F1 and F7, @fig-LenHCxval).
+
 
 ```{r}
 #| echo: false
-#| label: fig-31
+#| label: fig-CPUEHCxval
 #| fig-cap: Hind casting cross-validation (HCxval) results for Japanese longline late area 1 (top right), Japanese LL late area 2 (top left), Chinese Taipei deep water longline late (center right), US Hawaii deep-set longline (center left) CPUE, and US Hawaii deep-set longline (bottom left) fits, showing observed (large points with dashed line), fitted (solid lines), and one-year-ahead forecast values (small terminal points) in the old growth model. The observations used for cross-validation are highlighted as color-coded solid circles with associated 95% confidence intervals (light-grey shading). The model reference year refers to the endpoint of each one-year-ahead forecast and the corresponding observation. The mean absolute scaled error (MASE) score associated with each CPUE time series is denoted in each panel.
-# source(file.path(base.dir,"Rscripts","006_Run_Retrospective.R"))
-# 
-# sspar(mfrow=c(3,2))
-# SSplotHCxval(retroSummary,add=T, cex.main=0.5,legendloc="bottomright",legendcex=0.8, verbose=FALSE) # CPUE
+#| fig-alt: "hind-cast cross validation shows that only S4 has moderate predictive power."
+ source(file.path(base.dir,"Rscripts","006_Run_Retrospective.R"))
+ 
+ sspar(mfrow=c(3,2))
+ SSplotHCxval(retroSummary,add=T, cex.main=0.5,legendloc="bottomright",legendcex=0.8, verbose=FALSE) # CPUE
 
 ```
 
 ```{r}
 #| echo: false
-#| label: fig-32
+#| label: fig-LenHCxval
 #| fig-cap: Hind casting cross-validation (HCxval) results for size composition mean lengths, showing observed (large points with dashed line), fitted (solid lines), and one-year-ahead forecast values (small terminal points) in the old growth model. The observations used for cross-validation are highlighted as color-coded solid circles with associated 95% confidence intervals (light-grey shading). The model reference year refers to the endpoint of each one-year-ahead forecast and the corresponding observation. The mean absolute scaled error (MASE) score associated with each size composition time series is denoted in each panel.
+#| fig-alt: "Hind-cast cross validation for size data shows that F3 has good predictive power and F2 and F9 have moderate predictive power."
 
-# sspar(mfrow=c(3,2))
-# # Use new converter fuction SSretroComps() for size comps
-# hccomps = SSretroComps(retroModels)
-# # Plot
-# SSplotHCxval(hccomps,add=T,subplots = "len",legendloc="bottomright",legendcex=0.8, verbose=FALSE)
+ sspar(mfrow=c(3,2))
+ # Use new converter fuction SSretroComps() for size comps
+ hccomps = SSretroComps(retroModels)
+ # Plot
+ SSplotHCxval(hccomps,add=T,subplots = "len",legendloc="bottomright",legendcex=0.8, verbose=FALSE)
 
 ```
 
-The likelihood profile indicated that the US data componenets (CPUE and size composition data) are majority contributors to the likelihood. Attempts to downweight the US LL size composition data results in a model that fails to converge (due to a Hessian that is not positive definite). However, the ASPM models indicate that the US CPUE data suggest a similar trend as the other CPUE indices. To further explore the effect of the US data, models were run removing all US data except catch and fitting the parameters. While the models including the Japanese size data also failed to converge, the results for all the models indicated an estimated ln(Ro) between 6.2 and 6.4, and SSB~zero~ between 12500 and 15500 metric tons (Table 6). This suggests that even though the US data is a significant contributor to the likelihood, the estimated population size would be similar without the data.
+## Conclusions
+
+Overall, the model diagnostics do not indicate substantial misfit of the model to the data. While there remains some room for improvement in the fits to the US deep-set LL size data, this fleet is a very minor contributor to the total catch and likely would not be influential to the overall stock biomass trends. The results of the preliminary model indicate that the stock is not overfished and that overfishing is not occuring. Inclusion of the North EPO area to the model results in an increase in total biomass in the North Pacific compared to the 2018 WCNPO SWO assessment, but the results are generally consistent.
+
+## References
+
+## Tables

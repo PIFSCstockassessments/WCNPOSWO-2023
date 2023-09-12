@@ -1,0 +1,11 @@
+Warning 1 : Forecast=0 or -1, so rest of forecast file will not be read and can be omitted;
+Warning 2 : A one year forecast using recent F will be done automatically
+Warning 3 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2010 1 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 4 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2010 2 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 5 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2010 3 24; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 6 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2010 3 2; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 7 : 1st iteration warning: ssb(endyr)/ssb(styr)= 4.94016e-05; suggest start with larger R0 to get near 0.4; or use depletion fleet option
+Warning 8 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
+Warning 9 : Main recdev biasadj is >2 times ratio of rmse to sigmaR
+Warning 10 : Reminder: Number of lamdas !=0.0 and !=1.0:  8
+ 10 warnings 

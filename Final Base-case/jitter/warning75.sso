@@ -1,0 +1,27 @@
+Warning 1 : Forecast=0 or -1, so rest of forecast file will not be read and can be omitted;
+Warning 2 : A one year forecast using recent F will be done automatically
+Warning 3 : 1 1warn in first call: Nil selected fish for year, seas, fleet 1996 4 1; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 4 : 1 1warn in first call: Nil selected fish for year, seas, fleet 1997 2 1; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 5 : 1 1warn in first call: Nil selected fish for year, seas, fleet 1997 4 1; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 6 : 1 1warn in first call: Nil selected fish for year, seas, fleet 1998 2 1; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 7 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2001 2 1; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 8 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2004 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 9 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2005 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 10 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2007 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 11 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2008 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 12 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2009 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 13 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2010 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 14 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2011 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 15 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2012 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 16 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2013 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 17 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2014 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 18 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2015 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 19 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2016 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 20 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2017 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 21 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2020 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 22 : 1 1warn in first call: Nil selected fish for year, seas, fleet 2021 3 3; SS may recover; suggest check initial parm. values for selectivity and growth
+Warning 23 : 1st iteration warning: ssb(endyr)/ssb(styr)= 1.97356e-18; suggest start with larger R0 to get near 0.4; or use depletion fleet option
+Warning 24 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
+Warning 25 : Main recdev biasadj is >2 times ratio of rmse to sigmaR
+Warning 26 : Reminder: Number of lamdas !=0.0 and !=1.0:  8
+ 26 warnings 

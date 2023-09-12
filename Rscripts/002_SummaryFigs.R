@@ -84,3 +84,9 @@ Rec_Fig<-ggplot()+
         panel.border = element_rect(color="black",fill=NA,size=1),
         panel.background = element_blank())+
   scale_x_continuous(breaks=seq(startyear,endyear,5))
+
+## kobe plot
+
+
+
+#SSplotKobe(mvn$kb,fill=F,posterior = "kernel",xlab=expression(SSB/SSB[MSY]),ylab=expression(F/F[MSY]),ylim=c(0,1.25),xlim=c(0.75,2.5))

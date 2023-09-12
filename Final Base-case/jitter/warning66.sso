@@ -1,0 +1,6 @@
+Warning 1 : Forecast=0 or -1, so rest of forecast file will not be read and can be omitted;
+Warning 2 : A one year forecast using recent F will be done automatically
+Warning 3 : Main recdev biasadj is >2 times ratio of rmse to sigmaR
+Warning 4 : Final gradient: 0.000115309 is larger than final_conv: 0.0001
+Warning 5 : Reminder: Number of lamdas !=0.0 and !=1.0:  8
+ 5 warnings 

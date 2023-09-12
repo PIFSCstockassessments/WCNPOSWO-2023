@@ -1,0 +1,19 @@
+project:
+  type: book
+
+book:
+ title: "Stock Assessment Report for Swordfish (Xiphias gladius) in the North Pacific through 2021" 
+author: "ISC Billfish Working Group" 
+date: "June 1, 2023" 
+chapters:
+    - index.qmd
+format: html
+editor: visual
+execute: 
+  echo: false
+  warning: false
+params: 
+  species: "North Pacific swordfish (Xiphias gladius)"
+  speciesabbr: "NP SWO"
+crossref: 
+  chapters: false

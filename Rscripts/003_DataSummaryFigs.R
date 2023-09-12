@@ -6,6 +6,9 @@ Catch<-base.model$catch[,c("Fleet","Fleet_Name","Yr","Seas","sel_bio")]
 CatchAgg<-aggregate(Catch$sel_bio,by=list(Catch$Yr,Catch$Fleet_Name,Catch$Fleet),sum)
 names(CatchAgg)<-c("Yr","Name","Fleet","Obs")
 CatchTotal<-aggregate(CatchAgg$Obs,by=list(CatchAgg$Yr),sum)
+InputCatch<-base.model$catch[,c("Fleet","Yr","Seas","Obs")]
+InputCatch<-reshape2::dcast(InputCatch,Yr+Seas~Fleet)
+InputCatch<-subset(InputCatch,InputCatch$Yr>1974)
 
 
 CatchAgg[which(CatchAgg[,"Fleet"]==1|CatchAgg[,"Fleet"]==6|CatchAgg[, "Fleet"]==7|CatchAgg[,"Fleet"]==10|CatchAgg[,"Fleet"]==11|CatchAgg[,"Fleet"]==12|CatchAgg[,"Fleet"]==17|CatchAgg[,"Fleet"]==18),"Country"]<-"Japan WCNPO"
@@ -37,10 +40,13 @@ CatchByCountry_GS<-ggplot()+
   theme_bw()+
   theme(legend.title=element_blank(), legend.text=element_text(size=8))
 
+
+
+
 colourCount = length(unique(CatchAgg$Country))
 getPalette =colorRampPalette(brewer.pal(4, "Spectral"))
 Fill<-getPalette(colourCount)
-#png("plots\\Summarycatch.png",height=4, width=8, units="in",res=300)
+#png(file.path(plotdir,"Summarycatch_Color.png"),height=4, width=8, units="in",res=300)
 CatchByCountry_Col<-ggplot()+
   geom_bar(aes(x=Yr,y=Obs,fill=forcats::fct_rev(Country)),data=CatchCountry,stat="identity",color="black") +
   scale_fill_manual(values = Fill, name="")+
@@ -48,6 +54,7 @@ CatchByCountry_Col<-ggplot()+
   ylab("Catch (mt)") +
   theme_bw()+
   theme(legend.title=element_blank())
+#CatchByCountry_Col
 #dev.off()
 
 
@@ -69,9 +76,9 @@ ObservedCPUE<-ggplot()+
 
 
 ExpectedCPUE<-ggplot()+
-  geom_point(aes(x=Yr,y=Obs),data=subset(CPUE,Fleet<=29)) +
-  geom_errorbar(aes(x=Yr,ymin=Obs-1.96*SE,ymax=Obs+1.96*SE),data=subset(CPUE,Fleet<=29),width=0) +
-  geom_line(aes(x=Yr,y=Exp),data=subset(CPUE, Fleet<=29)) +
+  geom_point(aes(x=Yr,y=Obs),data=CPUE) +
+  geom_errorbar(aes(x=Yr,ymin=Obs-1.96*SE,ymax=Obs+1.96*SE),data=CPUE,width=0) +
+  geom_line(aes(x=Yr,y=Exp),data=CPUE) +
   facet_wrap(~Fleet_name, ncol=1, scales="free_y") +
   theme_bw() +
   theme(panel.border = element_rect(color="black",fill=NA,size=1),
