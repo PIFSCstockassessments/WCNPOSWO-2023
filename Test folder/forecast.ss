@@ -1,31 +1,31 @@
 #C forecast file written by R function SS_writeforecast
 #C rerun model to get more complete formatting in forecast.ss_new
 #C should work with SS version: 3.3
-#C file write time: 2023-06-29 21:31:42
+#C file write time: 2023-09-20 15:23:49.997861
 #
 1 #_benchmarks
 2 #_MSY
 0.4 #_SPRtarget
 0.4 #_Btarget
 #_Bmark_years: beg_bio, end_bio, beg_selex, end_selex, beg_relF, end_relF,  beg_recr_dist, end_recr_dist, beg_SRparm, end_SRparm (enter actual year, or values of 0 or -integer to be rel. endyr)
--1 -1 -1 -1 -1 -1 -999 -1 -999 -1
+0 0 0 0 0 0 -999 0 -999 0
 1 #_Bmark_relF_Basis
-0 #_Forecast
-1 #_Nforecastyrs
+2 #_Forecast
+10 #_Nforecastyrs
 1 #_F_scalar
 #_Fcast_years:  beg_selex, end_selex, beg_relF, end_relF, beg_recruits, end_recruits (enter actual year, or values of 0 or -integer to be rel. endyr)
 0 0 0 0 0 0
 0 #_Fcast_selex
 0 #_ControlRuleMethod
 0.001 #_BforconstantF
-0.0001 #_BfornoF
+1e-04 #_BfornoF
 1 #_Flimitfraction
 2 #_N_forecast_loops
 1 #_First_forecast_loop_with_stochastic_recruitment
 0 #_fcast_rec_option
 1 #_fcast_rec_val
 0 #_Fcast_MGparm_averaging
-2023 #_FirstYear_for_caps_and_allocations
+2032 #_FirstYear_for_caps_and_allocations
 0 #_stddev_of_log_catch_ratio
 0 #_Do_West_Coast_gfish_rebuilder_output
 2021 #_Ydecl

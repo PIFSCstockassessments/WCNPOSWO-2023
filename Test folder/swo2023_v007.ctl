@@ -1,6 +1,6 @@
 #V3.30
 #C file created using the SS_writectl function in the R package r4ss
-#C file write time: 2023-06-21 15:44:01
+#C file write time: 2023-09-20 15:23:51.800873
 #
 0 # 0 means do not read wtatage.ss; 1 means read and usewtatage.ss and also read and use growth parameters
 1 #_N_Growth_Patterns
@@ -271,21 +271,21 @@
 1 #_sd_offset; must be 1 if any growthCV, sigmaR, or survey extraSD is an estimated parameter
 # read 14 changes to default Lambdas (default value is 1.0)
 #_likecomp	fleet	phase	value	sizefreq
-    1	25	1	  1	  1	#_1         
-    4	 1	1	0.5	  1	#_2         
-    4	 2	1	0.5	  1	#_3         
-    4	 3	1	0.5	  1	#_4         
-    4	 4	1	0.5	  1	#_5         
-    4	 5	1	  0	  0	#_6         
-    4	 6	1	0.5	  1	#_7         
-    4	 7	1	0.5	  0 #_8         
-    1	 4	8	0.5	  1	#_9         
-    4	 9	1	0.5	  1	#_10        
-    9	 6	1	  0	  0	#_11        
-   10	 1	1	  1	  1	#_12        
-    1	24	1	  0	  0	#_13        
-    1	27	1	  0	  0	#_14        
--9999	 0	0	  0	  0	#_terminator
+    1	25	1	  1	1	#_1         
+    4	 1	1	0.5	1	#_2         
+    4	 2	1	0.5	1	#_3         
+    4	 3	1	0.5	1	#_4         
+    4	 4	1	0.5	1	#_5         
+    4	 5	1	  0	0	#_6         
+    4	 6	1	0.5	1	#_7         
+    4	 7	1	0.5	0	#_8         
+    1	 4	8	0.5	1	#_9         
+    4	 9	1	0.5	1	#_10        
+    9	 6	1	  0	0	#_11        
+   10	 1	1	  1	1	#_12        
+    1	24	1	  0	0	#_13        
+    1	27	1	  0	0	#_14        
+-9999	 0	0	  0	0	#_terminator
 #
 0 # 0/1 read specs for more stddev reporting
 #

@@ -55,11 +55,8 @@
 
 
 
-Build_All_SS <- function(species = "SWO",
+Build_All_SS <- function(model.info=model.info,
                          scenario = "base",
-                         startyr = 1967,
-                         endyr = 2021,
-                         fleets = 1,
                          M_option = "Option1",
                          GROWTH_option = "Option1",
                          LW_option = "Option1",
@@ -67,7 +64,6 @@ Build_All_SS <- function(species = "SWO",
                          SR_option = "Option1",
                          EST_option = "Option1",
                          initF = FALSE,
-                         lambdas = NULL,
                          includeCPUE = TRUE,
                          superyear = FALSE,
                          superyear_blocks = NULL,
@@ -75,8 +71,6 @@ Build_All_SS <- function(species = "SWO",
                          init_values = 0, 
                          parmtrace = 0,
                          last_est_phs = 10,
-                         seed = 0123,
-                         F_report_basis = 2, 
                          benchmarks = 1,
                          MSY = 2,
                          SPR.target = 0.4,
@@ -84,17 +78,13 @@ Build_All_SS <- function(species = "SWO",
                          Bmark_years = c(0,0,0,0,0,0,0,0,0,0),
                          Bmark_relF_Basis = 1,
                          Forecast = 2,
-                         Nforeyrs = 1, 
                          Fcast_years = c(0,0,0,0,-999,0),
+                         Fixed_forecatch=1,
                          ControlRule = 0,
-                         root_dir = NA,
                          file_dir = scenario,
-                         template_dir = file.path(root_dir, 
-                                                  "SS3 models", "TEMPLATE_FILES"), 
-                         out_dir = file.path(root_dir, "SS3 models"),
                          write_files = TRUE,
                          runmodels = TRUE,
-                         ext_args = "-stopph 3 -nohess",
+                         ext_args = "-nohess",
                          do_retro = TRUE,
                          retro_years = 0:-5,
                          do_profile = TRUE,
@@ -108,6 +98,21 @@ Build_All_SS <- function(species = "SWO",
                          readGoogle = TRUE
                          ){
   
+  startyr=model.info$startyear
+  endyr=model.info$endyear
+  species=model.info$Species
+  scenario=model.info$scenario
+  lambdas=model.info$lambdas
+  init_values=model.info$init_values
+  seed=model.info$seed
+  F_report_basis=model.info$F_report_basis
+  Nforeyrs=model.info$N_foreyrs
+  file_dir = model.info$scenario
+  root_dir=model.info$base.dir
+  template_dir=model.info$template_dir
+  out_dir=model.info$out_dir
+ 
+  
   if(write_files){
     
   ## Step 1. Read in all data components ###-------------------------------------------
@@ -115,7 +120,29 @@ Build_All_SS <- function(species = "SWO",
   # Catch data
   catch <- data.table::data.table(  read.csv(file.path(root_dir, "Data", "Catch", model.info$catch.file))  )
   #catch <- catch %>% mutate(MT = ifelse(MT == 0, 0.001, MT))
-  # Length comp data
+
+    # CPUE data
+  cpue<-data.table::data.table(  read.csv(file.path(root_dir, "Data", "CPUE", model.info$CPUE.file),header=T)  )
+  cpue<-c("year","month","fleet","CPUE","Input.SE")  
+  
+  # cpue info table
+  cpueinfo <- as.data.frame(matrix(data = c(1:model.info$Nfleets), nrow = model.info$Nfleets, ncol = 4))
+  colnames(cpueinfo) <- c("Fleet", "Units", "Errtype", "SD_Report")
+  cpueinfo$Fleet <- c(1:model.info$Nfleets)
+  cpueinfo$Units <- 1
+  cpueinfo$Errtype <- 0 #lognormal
+  cpueinfo$SD_Report <- 0
+  cpueinfo[c(model.info$fleetinfo.special$fleet),"Units"]=model.info$fleetinfo.special$unit
+  cpueinfo[c(model.info$catch.num),"Units"]=0 #changes these to numbers
+  
+  # Length Bins
+  
+  BIN.LIST <- list("BINWIDTH"=model.info$binwidth,
+                   "min" = model.info$bin.min,
+                   "max" = model.info$bin.max)
+  
+  
+    # Length comp data
   lencomp <- read.csv(file.path(root_dir, "Data", "Length", model.info$length.file),header=T)  
 
    # Control and data file inputs
@@ -133,19 +160,19 @@ Build_All_SS <- function(species = "SWO",
   
   ## Step 2. Source scripts with each function ###-------------------------------------
   ### Call the functions to build the SS3 files ####
-  source(file.path(root_dir, "Scripts", "02_SS scripts", "02_Build_Starter_SS.R"))
-  source(file.path(root_dir, "Scripts", "02_SS scripts", "03_Build_Data_SS.R"))
-  source(file.path(root_dir, "Scripts", "02_SS scripts", "04_Build_Control_SS.R"))
-  source(file.path(root_dir, "Scripts", "02_SS scripts", "05_Build_Forecast_SS.R"))
+  source(file.path(root_dir, "Rscripts", "SS Runs", "02_Build_Starter_SS.R"))
+  source(file.path(root_dir, "Rscripts", "SS Runs", "03_Build_Data_SS.R"))
+  source(file.path(root_dir, "Rscripts", "SS Runs", "04_Build_Control_SS.R"))
+  source(file.path(root_dir, "Rscripts", "SS Runs", "05_Build_Forecast_SS.R"))
  
   ## Step 3. Create other inputs ###---------------------------------------------------
   ### Create subdirectory
-  if(!dir.exists(file.path(root_dir, "SS3 models", species, file_dir))){
-    dir.create(file.path(root_dir, "SS3 models", species, file_dir), showWarnings = F)
+  if(!dir.exists(file.path(root_dir, file_dir))){
+    dir.create(file.path(root_dir, file_dir), showWarnings = F)
   }
   
   ## Create text file with notes from CTL_params sheet for reference
-  sink(file.path(root_dir, "SS3 models", species, file_dir,"model_options.txt"))
+  sink(file.path(root_dir, file_dir,"model_options.txt"))
   
   cat(paste0("M: ", M_option, ", ", ctl.params$Notes[which(ctl.params$category == "MG" & 
                                                              ctl.params$OPTION == M_option &
@@ -190,59 +217,6 @@ Build_All_SS <- function(species = "SWO",
   #FminAge <- if(Nages>=15){5} else {3}
   #FmaxAge <- Nages-2
   
-  # CPUE data
-  
-  
-  
-  if(model.info$Species=="SWO"|model.info$Species=="BUM"|model.info$Species=="MLS"){
-    cpue<-data.table::data.table(  read.csv(file.path(root_dir, "Data", "CPUE", model.info$CPUE.file),header=T)  )
-  cpue<-c("year","month","fleet","CPUE","Input.SE")  
-  }else{
-  if(includeCPUE){
-    cpue_files <- list.files(path = paste0(root_dir,"/Outputs/SS3_Inputs/CPUE"),
-                             pattern = species,
-                             full.names = TRUE)
-    if(Nfleets == 1){
-      cpue_files <- cpue_files[str_detect(cpue_files, "2016_2021")]
-    }
-    cpue.list <- lapply(cpue_files, function(i){read.csv(i)})
-    time.period <- unlist(str_extract_all(cpue_files, 
-                                   pattern = "\\d+\\d+\\d+\\d+([_])+\\d+\\d+\\d+\\d"))
-    
-    cpue <- map(cpue.list, set_names, c("year", "obs", "se_log")) %>% 
-      mapply(cbind, ., "index"= time.period, SIMPLIFY=F)  %>% 
-      rbindlist() %>% 
-      mutate(seas = 7,
-             index = as.numeric(factor(index, levels = time.period))) %>% 
-      select(year, seas, index, obs, se_log) %>% 
-      filter(index %in% fleets) %>% 
-      filter(year >= startyr & year <= endyr) %>% 
-      as.data.frame()
-    
-    if(Nfleets > 1){
-      cpue$index <- cpue$index + 1
-    }
-    
-  }else{
-    cpue <- NULL
-  }
-  }
-  # Length Bins
-     
-     BIN.LIST <- list("BINWIDTH"=model.info$binwidth,
-                      "min" = model.info$bin.min,
-                      "max" = model.info$bin.max)
-  
-  
-  
-    # Species.List <- unique(lencomp$SPECIES)
-  # BIN.LIST     <- data.table(SPECIES=Species.List,min=0,max=0,BINWIDTH=0)
-  # for(i in 1:length(Species.List)){
-  #   BinWidth             <- diff(unique(lencomp[SPECIES==Species.List[i]]$LENGTH_BIN_START))
-  #   BIN.LIST[i]$BINWIDTH <- as.integer(names(which.max(table(BinWidth))))
-  #   BIN.LIST[i]$min      <- min(lencomp[SPECIES==Species.List[i]]$LENGTH_BIN_START)
-  #   BIN.LIST[i]$max      <- max(lencomp[SPECIES==Species.List[i]]$LENGTH_BIN_START)
-  # }
   
  # Selectivity types
   size_selex_types <- ctl.inputs %>% 
@@ -288,15 +262,6 @@ Build_All_SS <- function(species = "SWO",
   }
 
   # Fleet and CPUE info
-  cpueinfo <- as.data.frame(matrix(data = c(1:model.info$Nfleets), nrow = model.info$Nfleets, ncol = 4))
-  colnames(cpueinfo) <- c("Fleet", "Units", "Errtype", "SD_Report")
-  cpueinfo$Fleet <- c(1:model.info$Nfleets)
-  cpueinfo$Units <- 1
-  cpueinfo$Errtype <- 0 #lognormal
-  cpueinfo$SD_Report <- 0
-  cpueinfo[c(model.info$fleetinfo.special$fleet),"Units"]=model.info$fleetinfo.special$unit
-  cpueinfo[c(model.info$catch.num),"Units"]=0 #changes these to numbers
-  
   
   need_catch_mult <- ctl.inputs %>% 
     select(Parameter, paste0(model.info$Species)) %>% 
@@ -322,154 +287,142 @@ Build_All_SS <- function(species = "SWO",
    fleetinfo[c(model.info$catch.num),"units"]=2 ##change catch units to numbers for these fleets
  
   
+   
   ## Step 4. Create SS3 input files
-  Build_Data(
-    species = species,
-    scenario = scenario,
-    startyr = startyr,
-    endyr = endyr,
-    catch = catch,
-    initF = initF,
-    CPUEinfo = cpueinfo,
-    cpue = cpue,
-    Nages = Nages,
-    Nsexes = Nsexes,
-    CompError = CompError,
-    lencomp = lencomp,
-    bin.list = BIN.LIST,
-    fleets = fleets,
-    fleetinfo = fleetinfo,
-    lbin_method = 2,
-    superyear = superyear,
-    superyear_blocks = superyear_blocks,
-    N_samp = N_samp,
-    file_dir = file_dir,
-    template_dir = template_dir,
-    out_dir = out_dir
-  )
+  Build_Starter(scenario = scenario,
+                template_dir = template_dir, 
+                out_dir = current.dir,
+                model.info = model.info,
+                parmtrace = parmtrace,
+                last_est_phs = last_est_phs)
   
-  Build_Control(
-    species = species,
-    scenario = scenario,
-    Nfleets = Nfleets,
-    Nsexes = Nsexes,
-    CompError = CompError,
-    ctl.inputs = ctl.inputs,
-    ctl.params = ctl.params,
-    includeCPUE = includeCPUE,
-    Q.options = Q.options,
-    M_option = M_option,
-    GROWTH_option = GROWTH_option,
-    LW_option = LW_option,
-    MAT_option = MAT_option,
-    SR_option = SR_option,
-    EST_option = EST_option,
-    size_selex_types = size_selex_types,
-    age_selex_types = age_selex_types,
-    initF = initF,
-    lambdas = lambdas,
-    file_dir = file_dir,
-    template_dir = template_dir,
-    out_dir = out_dir
-  )
+  ## write a new forecast file
+  Build_Forecast(scenario = scenario,
+                 template_dir = template_dir,
+                 out_dir = current.dir,
+                 benchmarks = benchmarks,
+                 MSY = MSY,
+                 endyr = endyr,
+                 SPR.target = SPR.target,
+                 Btarget = Btarget,
+                 Bmark_years = Bmark_years, #c(-1,-1,-1,-1,-1,-1,-999,-1,-999,-1), ## <0 = endyear, -999 = startyear
+                 Bmark_relF_Basis = Bmark_relF_Basis,
+                 Forecast = Forecast,
+                 Nforeyrs = Nforeyrs, 
+                 Fcast_years = Fcast_years,#c(0,0,0,0,0,0),
+                 ControlRule = ControlRule,
+                 Fixed_forecatch = Fixed_forecatch)
   
-  Build_Starter(
-    species = species,
-    scenario = scenario,
-    file_dir = file_dir,
-    F_age_range = c(FminAge,FmaxAge),
-    template_dir = template_dir, 
-    out_dir = out_dir,
-    init_values = init_values,
-    parmtrace = parmtrace,
-    last_est_phs = last_est_phs,
-    seed = seed,
-    F_report_basis = F_report_basis
-  )
   
-  Build_Forecast(
-    species = species,
-    scenario = scenario,
-    file_dir = file_dir,
-    template_dir = template_dir, 
-    out_dir = out_dir,
-    benchmarks = benchmarks,
-    MSY = MSY,
-    endyr = endyr,
-    SPR.target = SPR.target,
-    Btarget = Btarget,
-    Bmark_years = Bmark_years,
-    Bmark_relF_Basis = Bmark_relF_Basis,
-    Forecast = Forecast,
-    Nforeyrs = Nforeyrs, 
-    Fcast_years = Fcast_years,
-    ControlRule = ControlRule,
-    )
+  Build_Control(species=species, 
+                scenario = scenario,
+                Nfleets = model.info$Nfleets,
+                Nsexes = model.info$Nsexes,
+                CompError = CompError,
+                ctl.inputs = ctl.inputs,
+                ctl.params = ctl.params,
+                includeCPUE = includeCPUE,
+                Q.options = Q.options,
+                M_option = M_option,
+                GROWTH_option = GROWTH_option,
+                LW_option = LW_option,
+                MAT_option = MAT_option,
+                SR_option = SR_option,
+                EST_option = EST_option,
+                size_selex_types = size_selex_types,
+                age_selex_types = age_selex_types,
+                initF = initF,
+                lambdas = lambdas,
+                file_dir = scenario,
+                template_dir = template_dir,
+                out_dir = out_dir,
+                model.info=model.info)
+  
+  
+  
+   Build_Data(catch = catch, 
+              initF = initF, 
+              CPUEinfo = cpueinfo, 
+              cpue = cpue, 
+              Narea = Narea, 
+              CompError = CompError, 
+              lencomp = lencomp, 
+              startyr = startyr, 
+              endyr = endyr, 
+              bin.list = BIN.LIST, 
+              fleets = fleets, 
+              fleetinfo = fleetinfo, 
+              lbin_method = model.info$lbin_method, 
+              file_dir = scenario,
+              template_dir = template_dir, 
+              out_dir = out_dir,
+              model.info=model.info)
+   
+  return(cpueinfo)
   }
-  
-  model_dir <- file.path(root_dir, "SS3 models", species, file_dir)
-  
-  if(runmodels){
-    ### Run Stock Synthesis ####
-    file.copy(file.path(root_dir, "SS3 models", "TEMPLATE_FILES", "ss_opt_win.exe"), 
-              model_dir)
-    r4ss::run(dir = model_dir, 
-                  exe = "ss_opt_win", extras = ext_args,  skipfinished = FALSE, show_in_console = TRUE)
-  }
-
-  
-  if(r4ssplots){
-    report <- r4ss::SS_output(file.path(root_dir, "SS3 models", species, file_dir), 
-                              verbose = FALSE, printstats = FALSE)
-    r4ss::SS_plots(report, dir = file.path(root_dir, "SS3 models", species, file_dir))
-    r4ss::SS_plots(report, dir = file.path(root_dir, "SS3 models", species, file_dir), pdf=TRUE, png=FALSE)
-    
-  }
-  
-  source(file.path(root_dir, "Scripts","02_SS scripts" ,"06_Run_Diags.R"))
-  
-  Run_Diags(root_dir = root_dir,
-            species = species,
-            file_dir = file_dir,
-            do_retro = do_retro,
-            retro_years = retro_years,
-            do_profile = do_profile,
-            profile = profile,
-            profile.vec = profile.vec,
-            do_jitter = do_jitter,
-            Njitter = Njitter,
-            jitterFraction = jitterFraction
-  )
-  
-  if(printreport){
-    ### Create Summary Report ####
-      file.copy(from = file.path(root_dir,"Scripts","02_SS scripts","model_diags_report.qmd"), 
-                to = file.path(root_dir, "SS3 models", species, file_dir, 
-                               paste0(species, "_", file_dir, "_model_diags_report.qmd")), 
-                overwrite = TRUE)
-  
-    quarto::quarto_render(input = file.path(root_dir, "SS3 models", species, file_dir,
-                                            paste0(species, "_", file_dir, 
-                                                   "_model_diags_report.qmd")),
-                          output_format = c("pdf", "html"),
-                          execute_params = list(
-                            species = paste0(species),
-                            scenario = scenario,
-                            profile = profile,
-                            profile_vec = profile.vec,
-                            Njitter = Njitter
-                          ),
-                          execute_dir = file.path(root_dir, "SS3 models", species, file_dir))
-    
-    file.rename(from = file.path(root_dir, "SS3 models", species, file_dir,
-                                 paste0(species, "_", file_dir, 
-                                        "_model_diags_report.pdf")),
-                to = file.path(root_dir, "SS3 models", species, file_dir,
-                               paste0("0_", species, "_", file_dir, 
-                                      "_model_diags_report.pdf")))
-        
-
-  }
-
+  # model_dir <- file.path(root_dir, "SS3 models", species, file_dir)
+  # 
+  # if(runmodels){
+  #   ### Run Stock Synthesis ####
+  #   file.copy(file.path(root_dir, "SS3 models", "TEMPLATE_FILES", "ss_opt_win.exe"), 
+  #             model_dir)
+  #   r4ss::run(dir = model_dir, 
+  #                 exe = "ss_opt_win", extras = ext_args,  skipfinished = FALSE, show_in_console = TRUE)
+  # }
+  # 
+  # 
+  # if(r4ssplots){
+  #   report <- r4ss::SS_output(file.path(root_dir, "SS3 models", species, file_dir), 
+  #                             verbose = FALSE, printstats = FALSE)
+  #   r4ss::SS_plots(report, dir = file.path(root_dir, "SS3 models", species, file_dir))
+  #   r4ss::SS_plots(report, dir = file.path(root_dir, "SS3 models", species, file_dir), pdf=TRUE, png=FALSE)
+  #   
+  # }
+  # 
+  # source(file.path(root_dir, "Scripts","02_SS scripts" ,"06_Run_Diags.R"))
+  # 
+  # Run_Diags(root_dir = root_dir,
+  #           species = species,
+  #           file_dir = file_dir,
+  #           do_retro = do_retro,
+  #           retro_years = retro_years,
+  #           do_profile = do_profile,
+  #           profile = profile,
+  #           profile.vec = profile.vec,
+  #           do_jitter = do_jitter,
+  #           Njitter = Njitter,
+  #           jitterFraction = jitterFraction
+  # )
+  # 
+  # if(printreport){
+  #   ### Create Summary Report ####
+  #     file.copy(from = file.path(root_dir,"Scripts","02_SS scripts","model_diags_report.qmd"), 
+  #               to = file.path(root_dir, "SS3 models", species, file_dir, 
+  #                              paste0(species, "_", file_dir, "_model_diags_report.qmd")), 
+  #               overwrite = TRUE)
+  # 
+  #   quarto::quarto_render(input = file.path(root_dir, "SS3 models", species, file_dir,
+  #                                           paste0(species, "_", file_dir, 
+  #                                                  "_model_diags_report.qmd")),
+  #                         output_format = c("pdf", "html"),
+  #                         execute_params = list(
+  #                           species = paste0(species),
+  #                           scenario = scenario,
+  #                           profile = profile,
+  #                           profile_vec = profile.vec,
+  #                           Njitter = Njitter
+  #                         ),
+  #                         execute_dir = file.path(root_dir, "SS3 models", species, file_dir))
+  #   
+  #   file.rename(from = file.path(root_dir, "SS3 models", species, file_dir,
+  #                                paste0(species, "_", file_dir, 
+  #                                       "_model_diags_report.pdf")),
+  #               to = file.path(root_dir, "SS3 models", species, file_dir,
+  #                              paste0("0_", species, "_", file_dir, 
+  #                                     "_model_diags_report.pdf")))
+  #       
+  # 
+  # }
+  # 
   
 } 
