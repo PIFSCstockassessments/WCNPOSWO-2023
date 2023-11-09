@@ -34,7 +34,7 @@ Build_Data <- function(catch = NULL,
   ## STEP 3. Get data in correct format and subset
   if(is.null(catch)){ stop("Timeseries of catch is missing")
   
-  catch <- catch
+  DAT$catch <- as.data.frame(catch)
 }
   if (model.info$Species=="SWO"|model.info$Species=="BUM"|model.info$Species=="MLS"){
     DAT$N_lbins     <- length(select(lencomp, starts_with("X")))/2
@@ -69,7 +69,7 @@ Build_Data <- function(catch = NULL,
 #  if(exists("cpue")){
 
     ## ADD CPUE data, column names: year, seas, index, obs, se_log
-    DAT$CPUE <- cpue
+    DAT$CPUE <- as.data.frame(cpue)
 
   # }else{
   #   message("No CPUE to input")
@@ -115,7 +115,7 @@ Build_Data <- function(catch = NULL,
     DAT$lbin_vector<-seq(BIN.LIST$min,BIN.LIST$max,BIN.LIST$BINWIDTH)
     
     ## Add length composition data, column names: Yr, Seas, FltSVy, Gender, Part, Nsamp, length_bin_values...
-    DAT$lencomp     <- lencomp.sp
+    DAT$lencomp     <- as.data.frame(lencomp.sp)
     
   }else{
     

@@ -55,6 +55,22 @@
 
 
 
+# cpue info table
+cpueinfo <- as.data.frame(matrix(data = c(1:model.info$Nfleets), nrow = model.info$Nfleets, ncol = 4))
+colnames(cpueinfo) <- c("Fleet", "Units", "Errtype", "SD_Report")
+cpueinfo$Fleet <- c(1:model.info$Nfleets)
+cpueinfo$Units <- 1
+cpueinfo$Errtype <- 0 #lognormal
+cpueinfo$SD_Report <- 0
+cpueinfo[c(model.info$fleetinfo.special$fleet),"Units"]=model.info$fleetinfo.special$unit
+cpueinfo[c(model.info$catch.num),"Units"]=0 #changes these to numbers
+
+# Length Bins
+
+BIN.LIST <- list("BINWIDTH"=model.info$binwidth,
+                 "min" = model.info$bin.min,
+                 "max" = model.info$bin.max)
+
 Build_All_SS <- function(model.info=model.info,
                          scenario = "base",
                          M_option = "Option1",
@@ -121,25 +137,9 @@ Build_All_SS <- function(model.info=model.info,
   catch <- data.table::data.table(  read.csv(file.path(root_dir, "Data", "Catch", model.info$catch.file))  )
   #catch <- catch %>% mutate(MT = ifelse(MT == 0, 0.001, MT))
 
-    # CPUE data
-  cpue<-data.table::data.table(  read.csv(file.path(root_dir, "Data", "CPUE", model.info$CPUE.file),header=T)  )
-  cpue<-c("year","month","fleet","CPUE","Input.SE")  
-  
-  # cpue info table
-  cpueinfo <- as.data.frame(matrix(data = c(1:model.info$Nfleets), nrow = model.info$Nfleets, ncol = 4))
-  colnames(cpueinfo) <- c("Fleet", "Units", "Errtype", "SD_Report")
-  cpueinfo$Fleet <- c(1:model.info$Nfleets)
-  cpueinfo$Units <- 1
-  cpueinfo$Errtype <- 0 #lognormal
-  cpueinfo$SD_Report <- 0
-  cpueinfo[c(model.info$fleetinfo.special$fleet),"Units"]=model.info$fleetinfo.special$unit
-  cpueinfo[c(model.info$catch.num),"Units"]=0 #changes these to numbers
-  
-  # Length Bins
-  
-  BIN.LIST <- list("BINWIDTH"=model.info$binwidth,
-                   "min" = model.info$bin.min,
-                   "max" = model.info$bin.max)
+  # CPUE data
+  cpue<-data.table::data.table(  read.csv(file.path(root_dir, "Data", "CPUE", model.info$CPUE.file),header=T)  )[,1:5]
+  names(cpue)<-c("year","seas","index","obs","se_log")  
   
   
     # Length comp data
