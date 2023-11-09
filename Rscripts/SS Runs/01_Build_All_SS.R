@@ -58,12 +58,12 @@
 # cpue info table
 cpueinfo <- as.data.frame(matrix(data = c(1:model.info$Nfleets), nrow = model.info$Nfleets, ncol = 4))
 colnames(cpueinfo) <- c("Fleet", "Units", "Errtype", "SD_Report")
-cpueinfo$Fleet <- c(1:model.info$Nfleets)
+cpueinfo$Fleet <- as.character(c(1:model.info$Nfleets))
 cpueinfo$Units <- 1
 cpueinfo$Errtype <- 0 #lognormal
 cpueinfo$SD_Report <- 0
-cpueinfo[c(model.info$fleetinfo.special$fleet),"Units"]=model.info$fleetinfo.special$unit
 cpueinfo[c(model.info$catch.num),"Units"]=0 #changes these to numbers
+cpueinfo[c(model.info$fleetinfo.special$fleet),"Units"]=model.info$fleetinfo.special$unit
 
 # Length Bins
 
@@ -135,6 +135,7 @@ Build_All_SS <- function(model.info=model.info,
   
   # Catch data
   catch <- data.table::data.table(  read.csv(file.path(root_dir, "Data", "Catch", model.info$catch.file))  )
+  names(catch)<-c("year","seas","fleet","catch","catch_se")
   #catch <- catch %>% mutate(MT = ifelse(MT == 0, 0.001, MT))
 
   # CPUE data
@@ -143,7 +144,7 @@ Build_All_SS <- function(model.info=model.info,
   
   
     # Length comp data
-  lencomp <- read.csv(file.path(root_dir, "Data", "Length", model.info$length.file),header=T)  
+  lencomp <- read.csv(file.path(base.dir, "Data", "Length", model.info$length.file),header=T)  
 
    # Control and data file inputs
   if(readGoogle == T){
@@ -193,10 +194,10 @@ Build_All_SS <- function(model.info=model.info,
   
   Nfleets <- length(model.info$fleets)
   
-  # Nages <- ctl.params %>%
-  #      dplyr::filter(str_detect(OPTION, M_option)) %>%
-  #      dplyr::filter(str_detect(X1, "Nages")) %>%
-  #      pull(INIT) 
+   Nages <- ctl.inputs %>%
+     select(Parameter, paste0(model.info$Species)) %>% 
+     filter(str_detect(Parameter, "Nages")) %>%
+        pull() 
   
   Narea <- ctl.inputs %>% 
     select(Parameter, paste0(model.info$Species)) %>% 
@@ -252,7 +253,9 @@ Build_All_SS <- function(model.info=model.info,
              Parameter = str_remove_all(Parameter, "_[0-9]*$")) %>% 
       filter(Fleet %in% c(1:model.info$Nfleets)) %>% 
       pivot_wider(names_from = Parameter, values_from = paste0(model.info$Species)) %>% 
-      setNames(c("fleet", "link", "link_info", "extra_se", "biasadj", "float"))
+      setNames(c("fleet", "link", "link_info", "extra_se", "biasadj", "float")) %>%
+      na.omit()
+    Q.options$fleet<-c((model.info$Nfleets-model.info$Nsurvey+1):model.info$Nfleets)
     if(model.info$Nfleets > 1){
       Q.options <- Q.options %>% 
         filter(fleet > 1)
@@ -271,18 +274,16 @@ Build_All_SS <- function(model.info=model.info,
     filter(Fleet %in% c(1:model.info$Nfleets)) %>% 
     pull(paste0(model.info$Species))
   
-   #fleetid <- seq(1, model.info$Nfleets)
-   #fleetid<- "FISHERY"
-   #fleetid[-1] <- paste0("SURVEY", fleetid[-1])
+
    fleetname <- model.info$fleets
   
    fleetinfo <- data.frame(
-     type = c(rep(1,model.info$Nfleets-model.info$Nsurvey),rep(3, model.info$Nsurvey)), 
-     surveytiming = c(rep(-1, (model.info$Nfleets-model.info$Nsurvey)),rep(1,model.info$Nsurvey)), 
-     units = rep(1, model.info$Nfleets),
-     area = rep(1, model.info$Nfleets),
-     need_catch_mult = ifelse(!is.na(need_catch_mult),need_catch_mult,0),
-     fleetname = fleetname
+     "type" = c(rep(1,model.info$Nfleets-model.info$Nsurvey),rep(3, model.info$Nsurvey)), 
+     "surveytiming" = c(rep(-1, (model.info$Nfleets-model.info$Nsurvey)),rep(1,model.info$Nsurvey)), 
+     "area" = rep(1, model.info$Nfleets),
+    "units" = rep(1, model.info$Nfleets),
+     "need_catch_mult" = ifelse(!is.na(need_catch_mult),need_catch_mult,0),
+     "fleetname" = fleetname
    )
    fleetinfo[c(model.info$catch.num),"units"]=2 ##change catch units to numbers for these fleets
  
@@ -291,7 +292,7 @@ Build_All_SS <- function(model.info=model.info,
   ## Step 4. Create SS3 input files
   Build_Starter(scenario = scenario,
                 template_dir = template_dir, 
-                out_dir = current.dir,
+                out_dir = out_dir,
                 model.info = model.info,
                 parmtrace = parmtrace,
                 last_est_phs = last_est_phs)
@@ -299,7 +300,7 @@ Build_All_SS <- function(model.info=model.info,
   ## write a new forecast file
   Build_Forecast(scenario = scenario,
                  template_dir = template_dir,
-                 out_dir = current.dir,
+                 out_dir = out_dir,
                  benchmarks = benchmarks,
                  MSY = MSY,
                  endyr = endyr,
@@ -345,6 +346,7 @@ Build_All_SS <- function(model.info=model.info,
               CPUEinfo = cpueinfo, 
               cpue = cpue, 
               Narea = Narea, 
+              Nages = Nages,
               CompError = CompError, 
               lencomp = lencomp, 
               startyr = startyr, 
@@ -358,18 +360,18 @@ Build_All_SS <- function(model.info=model.info,
               out_dir = out_dir,
               model.info=model.info)
    
-  return(cpueinfo)
-  }
-  # model_dir <- file.path(root_dir, "SS3 models", species, file_dir)
-  # 
-  # if(runmodels){
+ 
+  
+   model_dir <- out_dir
+   
+   if(runmodels){
   #   ### Run Stock Synthesis ####
-  #   file.copy(file.path(root_dir, "SS3 models", "TEMPLATE_FILES", "ss_opt_win.exe"), 
-  #             model_dir)
-  #   r4ss::run(dir = model_dir, 
-  #                 exe = "ss_opt_win", extras = ext_args,  skipfinished = FALSE, show_in_console = TRUE)
-  # }
-  # 
+     file.copy(file.path(template_dir, "ss.exe"), 
+               model_dir)
+     r4ss::run(dir = model_dir, 
+                   exe = "ss", extras = ext_args,  skipfinished = FALSE, show_in_console = TRUE)
+   }
+}
   # 
   # if(r4ssplots){
   #   report <- r4ss::SS_output(file.path(root_dir, "SS3 models", species, file_dir), 

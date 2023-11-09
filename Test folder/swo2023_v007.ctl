@@ -1,6 +1,6 @@
 #V3.30
 #C file created using the SS_writectl function in the R package r4ss
-#C file write time: 2023-09-20 15:54:35.620551
+#C file write time: 2023-09-27 15:52:20.566391
 #
 0 # 0 means do not read wtatage.ss; 1 means read and usewtatage.ss and also read and use growth parameters
 1 #_N_Growth_Patterns
@@ -53,26 +53,26 @@
 #
 #_growth_parms
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE	env_var&link	dev_link	dev_minyr	dev_maxyr	dev_PH	Block	Block_Fxn
-   50	     200	   80.1	   97.7	 99	0	 -4	0	0	0	0	0	0	0	#_L_at_Amin_Fem_GP_1       
-  100	     300	  226.3	  226.3	 99	0	 -2	0	0	0	0	0	0	0	#_L_at_Amax_Fem_GP_1       
- 0.05	     0.3	  0.246	   0.25	 99	0	 -4	0	0	0	0	0	0	0	#_VonBert_K_Fem_GP_1       
- 0.01	     0.5	    0.1	    0.1	 99	0	 -3	0	0	0	0	0	0	0	#_CV_young_Fem_GP_1        
- 0.01	     0.5	    0.1	   0.15	 99	0	 -3	0	0	0	0	0	0	0	#_CV_old_Fem_GP_1          
-    0	       3	1.3e-05	1.3e-05	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_1_Fem_GP_1         
-    0	       4	   3.07	   3.07	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_2_Fem_GP_1         
-    1	     200	 143.68	 143.68	 99	0	 -3	0	0	0	0	0	0	0	#_Mat50%_Fem_GP_2          
-   -3	       3	-0.1034	-0.1034	 99	0	 -3	0	0	0	0	0	0	0	#_Mat_slope_Fem_GP_1       
-    0	       3	      1	      1	 99	0	 -3	0	0	0	0	0	0	0	#_Eggs/kg_inter_Fem_GP_1   
-    0	       3	      0	      0	 99	0	 -3	0	0	0	0	0	0	0	#_Eggs/kg_slope_wt_Fem_GP_1
-   50	     200	   83.4	     99	 99	0	 -4	0	0	0	0	0	0	0	#_L_at_Amin_Mal_GP_1       
-  100	     250	  206.4	  206.4	 99	0	 -2	0	0	0	0	0	0	0	#_L_at_Amax_Mal_GP_1       
- 0.05	     0.3	  0.271	  0.271	 99	0	 -4	0	0	0	0	0	0	0	#_VonBert_K_Mal_GP_1       
- 0.01	     0.5	    0.1	    0.1	 99	0	 -3	0	0	0	0	0	0	0	#_CV_young_Mal_GP_1        
- 0.01	     0.5	    0.1	   0.15	 99	0	 -3	0	0	0	0	0	0	0	#_CV_old_Mal_GP_1          
-    0	       3	1.3e-05	1.3e-05	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_1_Mal_GP_1         
-    0	       4	   3.07	   3.07	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_2_Mal_GP_1         
-  0.1	      10	      1	      1	  1	0	 -1	0	0	0	0	0	0	0	#_CohortGrowDev            
-1e-06	0.999999	    0.5	    0.5	0.5	0	-99	0	0	0	0	0	0	0	#_FracFemale_GP_1          
+   50	     200	   80.1	   97.7	 99	0	 -4	0	0	0	0	0	0	0	#_L_at_Amin_Fem_GP_1 
+  100	     300	  226.3	  226.3	 99	0	 -2	0	0	0	0	0	0	0	#_L_at_Amax_Fem_GP_1 
+ 0.05	     0.3	  0.246	   0.25	 99	0	 -4	0	0	0	0	0	0	0	#_VonBert_K_Fem_GP_1 
+ 0.01	     0.5	    0.1	    0.1	 99	0	 -3	0	0	0	0	0	0	0	#_CV_young_Fem_GP_1  
+ 0.01	     0.5	    0.1	   0.15	 99	0	 -3	0	0	0	0	0	0	0	#_CV_old_Fem_GP_1    
+    0	       3	1.3e-05	1.3e-05	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_1_Fem_GP_1   
+    0	       4	   3.07	   3.07	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_2_Fem_GP_1   
+    1	     200	 143.68	 143.68	 99	0	 -3	0	0	0	0	0	0	0	#_Mat50%_Fem_GP_1    
+   -3	       3	-0.1034	-0.1034	 99	0	 -3	0	0	0	0	0	0	0	#_Mat_slope_Fem_GP_1 
+    0	       3	      1	      1	 99	0	 -3	0	0	0	0	0	0	0	#_Eggs_alpha_Fem_GP_1
+    0	       3	      0	      0	 99	0	 -3	0	0	0	0	0	0	0	#_Eggs_beta_Fem_GP_1 
+   50	     200	   83.4	     99	 99	0	 -4	0	0	0	0	0	0	0	#_L_at_Amin_Mal_GP_1 
+  100	     250	  206.4	  206.4	 99	0	 -2	0	0	0	0	0	0	0	#_L_at_Amax_Mal_GP_1 
+ 0.05	     0.3	  0.271	  0.271	 99	0	 -4	0	0	0	0	0	0	0	#_VonBert_K_Mal_GP_1 
+ 0.01	     0.5	    0.1	    0.1	 99	0	 -3	0	0	0	0	0	0	0	#_CV_young_Mal_GP_1  
+ 0.01	     0.5	    0.1	   0.15	 99	0	 -3	0	0	0	0	0	0	0	#_CV_old_Mal_GP_1    
+    0	       3	1.3e-05	1.3e-05	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_1_Mal_GP_1   
+    0	       4	   3.07	   3.07	 99	0	 -3	0	0	0	0	0	0	0	#_Wtlen_2_Mal_GP_1   
+  0.1	      10	      1	      1	  1	0	 -1	0	0	0	0	0	0	0	#_CohortGrowDev      
+1e-06	0.999999	    0.5	    0.5	0.5	0	-99	0	0	0	0	0	0	0	#_FracFemale_GP_1    
 #_no timevary MG parameters
 #
 #_seasonal_effects_on_biology_parms
@@ -118,142 +118,142 @@
 0.5 # F ballpark
 -1960 # F ballpark year (neg value to disable)
 3 # F_Method:  1=Pope; 2=instan. F; 3=hybrid (hybrid is recommended)
-6 # max F or harvest rate, depends on F_Method
+4 # max F or harvest rate, depends on F_Method
 5 # N iterations for tuning F in hybrid method (recommend 3 to 7)
 #
 #_initial_F_parms
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE
-0	3	0.985	1	99	0	2	#_1
+0	3	0.985089	1	99	0	2	#_InitF_seas_1_flt_6F6_JPN_WCNPO_OSDWLL_early_Area1
 #
 #_Q_setup for fleets with cpue or survey data
 #_fleet	link	link_info	extra_se	biasadj	float  #  fleetname
-   20	1	0	0	0	1	#_1         
-   21	1	0	0	0	1	#_2         
-   22	1	0	0	0	1	#_3         
-   23	1	0	0	0	1	#_4         
-   24	1	0	0	0	1	#_5         
-   25	1	0	0	0	1	#_6         
-   26	1	0	0	0	1	#_7         
-   27	1	0	0	0	1	#_8         
--9999	0	0	0	0	0	#_terminator
+   20	1	0	0	0	1	#_S1_JPN_WCNPO_OSDWLL_early_Area1 
+   21	1	0	0	0	1	#_S2_JPN_WCNPO_OSDWCOLL_late_Area1
+   22	1	0	0	0	1	#_S3_JPN_WCNPO_OSDWLL_early_Area2 
+   23	1	0	0	0	1	#_S4_JPN_WCNPO_OSDWLL_late_Area2  
+   24	1	0	0	0	1	#_S5_TWN_WCNPO_DWLL_late          
+   25	1	0	0	0	1	#_S6_US_WCNPO_LL_deep             
+   26	1	0	0	0	1	#_S7_US_WCNPO_LL_shallow_early    
+   27	1	0	0	0	1	#_S8_US_WCNPO_LL_shallow_late     
+-9999	0	0	0	0	0	#_terminator                      
 #_Q_parms(if_any);Qunits_are_ln(q)
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE	env-var	use_dev	dev_mnyr	dev_mxyr	dev_PH	Block	Blk_Fxn  #  parm_name
--15	0	-7.81075	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_1
--15	0	-7.76702	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_2
--15	0	-7.77464	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_3
--15	0	-7.98878	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_4
--15	0	 -6.2852	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_5
--15	0	-8.79193	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_6
--15	0	 -4.7185	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_7
--15	0	-4.33733	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_8
+-15	0	-7.81075	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S1_JPN_WCNPO_OSDWLL_early_Area1(20) 
+-15	0	-7.76702	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S2_JPN_WCNPO_OSDWCOLL_late_Area1(21)
+-15	0	-7.77464	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S3_JPN_WCNPO_OSDWLL_early_Area2(22) 
+-15	0	-7.98878	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S4_JPN_WCNPO_OSDWLL_late_Area2(23)  
+-15	0	 -6.2852	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S5_TWN_WCNPO_DWLL_late(24)          
+-15	0	-8.79193	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S6_US_WCNPO_LL_deep(25)             
+-15	0	 -4.7185	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S7_US_WCNPO_LL_shallow_early(26)    
+-15	0	-4.33733	-1	99	0	-1	0	0	0	0	0	0	0	#_LnQ_base_S8_US_WCNPO_LL_shallow_late(27)     
 #_no timevary Q parameters
 #
 #_size_selex_patterns
 #_Pattern	Discard	Male	Special
-24	0	0	0	#_1 1  
- 1	0	0	0	#_2 2  
-24	0	0	0	#_3 3  
- 1	0	0	0	#_4 4  
-15	0	0	4	#_5 5  
-24	0	0	0	#_6 6  
-24	0	0	0	#_7 7  
-24	0	0	0	#_8 8  
-15	0	0	8	#_9 9  
-15	0	0	6	#_10 10
-15	0	0	6	#_11 11
-15	0	0	1	#_12 12
-15	0	0	2	#_13 13
-15	0	0	1	#_14 14
-15	0	0	2	#_15 15
-15	0	0	2	#_16 16
-15	0	0	3	#_17 17
-15	0	0	3	#_18 18
-15	0	0	2	#_19 19
-15	0	0	6	#_20 20
-15	0	0	1	#_21 21
-15	0	0	3	#_22 22
-15	0	0	3	#_23 23
-15	0	0	2	#_24 24
- 0	0	0	0	#_25 25
-15	0	0	8	#_26 26
-15	0	0	3	#_27 27
+24	0	0	0	#_1 F1_JPN_WCNPO_OSDWCOLL_late_Area1 
+ 1	0	0	0	#_2 F2_TWN_WCNPO_DWLL_late           
+24	0	0	0	#_3 F3_US_WCNPO_LL_shallow_late      
+ 1	0	0	0	#_4 F4_IATTC                         
+15	0	0	4	#_5 F5_JPN_EPO_OSDWLL                
+24	0	0	0	#_6 F6_JPN_WCNPO_OSDWLL_early_Area1  
+24	0	0	0	#_7 F7_JPN_WCNPO_CODF                
+24	0	0	0	#_8 F8_US_WCNPO_LL_shallow_early     
+15	0	0	8	#_9 F9_US_WCNPO_LL_deep              
+15	0	0	6	#_10 F10_JPN_WCNPO_OSDF              
+15	0	0	6	#_11 F11_JPN_WCNPO_Other_early       
+15	0	0	1	#_12 F12_JPN_WCNPO_Other_late        
+15	0	0	2	#_13 F13_TWN_WCNPO_DWLL_early        
+15	0	0	1	#_14 F14_TWN_WCNPO_Other             
+15	0	0	2	#_15 F15_US_WCNPO_GN                 
+15	0	0	2	#_16 F16_US_WCNPO_Other              
+15	0	0	3	#_17 F17_JPN_WCNPO_OSDWLL_early_Area2
+15	0	0	3	#_18 F18_JPN_WCNPO_OSDWLL_late_Area2 
+15	0	0	2	#_19 F19_WCPFC                       
+15	0	0	6	#_20 S1_JPN_WCNPO_OSDWLL_early_Area1 
+15	0	0	1	#_21 S2_JPN_WCNPO_OSDWCOLL_late_Area1
+15	0	0	3	#_22 S3_JPN_WCNPO_OSDWLL_early_Area2 
+15	0	0	3	#_23 S4_JPN_WCNPO_OSDWLL_late_Area2  
+15	0	0	2	#_24 S5_TWN_WCNPO_DWLL_late          
+ 0	0	0	0	#_25 S6_US_WCNPO_LL_deep             
+15	0	0	8	#_26 S7_US_WCNPO_LL_shallow_early    
+15	0	0	3	#_27 S8_US_WCNPO_LL_shallow_late     
 #
 #_age_selex_patterns
 #_Pattern	Discard	Male	Special
-0	0	0	0	#_1 1  
-0	0	0	0	#_2 2  
-0	0	0	0	#_3 3  
-0	0	0	0	#_4 4  
-0	0	0	0	#_5 5  
-0	0	0	0	#_6 6  
-0	0	0	0	#_7 7  
-0	0	0	0	#_8 8  
-0	0	0	0	#_9 9  
-0	0	0	0	#_10 10
-0	0	0	0	#_11 11
-0	0	0	0	#_12 12
-0	0	0	0	#_13 13
-0	0	0	0	#_14 14
-0	0	0	0	#_15 15
-0	0	0	0	#_16 16
-0	0	0	0	#_17 17
-0	0	0	0	#_18 18
-0	0	0	0	#_19 19
-0	0	0	0	#_20 20
-0	0	0	0	#_21 21
-0	0	0	0	#_22 22
-0	0	0	0	#_23 23
-0	0	0	0	#_24 24
-0	0	0	0	#_25 25
-0	0	0	0	#_26 26
-0	0	0	0	#_27 27
+0	0	0	0	#_1 F1_JPN_WCNPO_OSDWCOLL_late_Area1 
+0	0	0	0	#_2 F2_TWN_WCNPO_DWLL_late           
+0	0	0	0	#_3 F3_US_WCNPO_LL_shallow_late      
+0	0	0	0	#_4 F4_IATTC                         
+0	0	0	0	#_5 F5_JPN_EPO_OSDWLL                
+0	0	0	0	#_6 F6_JPN_WCNPO_OSDWLL_early_Area1  
+0	0	0	0	#_7 F7_JPN_WCNPO_CODF                
+0	0	0	0	#_8 F8_US_WCNPO_LL_shallow_early     
+0	0	0	0	#_9 F9_US_WCNPO_LL_deep              
+0	0	0	0	#_10 F10_JPN_WCNPO_OSDF              
+0	0	0	0	#_11 F11_JPN_WCNPO_Other_early       
+0	0	0	0	#_12 F12_JPN_WCNPO_Other_late        
+0	0	0	0	#_13 F13_TWN_WCNPO_DWLL_early        
+0	0	0	0	#_14 F14_TWN_WCNPO_Other             
+0	0	0	0	#_15 F15_US_WCNPO_GN                 
+0	0	0	0	#_16 F16_US_WCNPO_Other              
+0	0	0	0	#_17 F17_JPN_WCNPO_OSDWLL_early_Area2
+0	0	0	0	#_18 F18_JPN_WCNPO_OSDWLL_late_Area2 
+0	0	0	0	#_19 F19_WCPFC                       
+0	0	0	0	#_20 S1_JPN_WCNPO_OSDWLL_early_Area1 
+0	0	0	0	#_21 S2_JPN_WCNPO_OSDWCOLL_late_Area1
+0	0	0	0	#_22 S3_JPN_WCNPO_OSDWLL_early_Area2 
+0	0	0	0	#_23 S4_JPN_WCNPO_OSDWLL_late_Area2  
+0	0	0	0	#_24 S5_TWN_WCNPO_DWLL_late          
+0	0	0	0	#_25 S6_US_WCNPO_LL_deep             
+0	0	0	0	#_26 S7_US_WCNPO_LL_shallow_early    
+0	0	0	0	#_27 S8_US_WCNPO_LL_shallow_late     
 #
 #_SizeSelex
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE	env-var	use_dev	dev_mnyr	dev_mxyr	dev_PH	Block	Blk_Fxn  #  parm_name
-  53	257	 157.406	  90	0.05	0	 2	0	0	0	0	0	2	2	#_1 
- -10	  3	-9.68831	 0.1	0.05	0	-4	0	0	0	0	0	2	2	#_2 
-  -4	 12	 7.49366	   6	0.05	0	 3	0	0	0	0	0	2	2	#_3 
-  -2	 20	  8.2735	 0.1	0.05	0	 3	0	0	0	0	0	2	2	#_4 
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_5 
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_6 
-  10	150	 146.639	  70	0.01	0	 3	0	0	0	0	0	1	2	#_7 
-0.01	150	 28.9371	  15	0.01	0	 3	0	0	0	0	0	1	2	#_8 
-  53	250	 168.907	  90	0.05	0	 2	0	0	0	0	0	0	0	#_9 
- -10	  3	 -9.5107	 0.1	0.05	0	-4	0	0	0	0	0	0	0	#_10
-  -4	 12	 7.92504	   6	0.05	0	 3	0	0	0	0	0	0	0	#_11
-  -6	 10	 8.20937	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_12
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_13
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_14
-  10	150	 148.336	  70	0.01	0	 3	0	0	0	0	0	0	0	#_15
-0.01	150	 91.3916	  15	0.01	0	 3	0	0	0	0	0	0	0	#_16
-  53	257	 140.586	  90	0.05	0	 2	0	0	0	0	0	0	0	#_17
- -10	  3	-8.46536	 0.1	0.05	0	-4	0	0	0	0	0	0	0	#_18
-  -4	 12	 7.28621	   6	0.05	0	 3	0	0	0	0	0	0	0	#_19
-  -2	 10	 9.17424	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_20
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_21
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_22
-  50	257	 237.032	  90	0.05	0	 2	0	0	0	0	0	0	0	#_23
- -10	  3	 1.84357	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_24
-  -4	 12	 8.42919	   6	0.05	0	 3	0	0	0	0	0	0	0	#_25
-  -2	 15	  4.0106	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_26
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_27
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_28
-  53	250	 158.219	  90	0.05	0	 2	0	0	0	0	0	0	0	#_29
- -10	  3	-7.68772	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_30
-  -4	 12	 7.65485	   6	0.05	0	 3	0	0	0	0	0	0	0	#_31
-  -6	 10	 7.97471	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_32
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_33
--999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_34
+  53	257	 157.406	  90	0.05	0	 2	0	0	0	0	0	2	2	#_SizeSel_P_1_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)
+ -10	  3	-9.68831	 0.1	0.05	0	-4	0	0	0	0	0	2	2	#_SizeSel_P_2_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)
+  -4	 12	 7.49366	   6	0.05	0	 3	0	0	0	0	0	2	2	#_SizeSel_P_3_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)
+  -2	 20	  8.2735	 0.1	0.05	0	 3	0	0	0	0	0	2	2	#_SizeSel_P_4_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_5_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_6_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)
+  10	150	 146.639	  70	0.01	0	 3	0	0	0	0	0	1	2	#_SizeSel_P_1_F2_TWN_WCNPO_DWLL_late(2)          
+0.01	150	 28.9371	  15	0.01	0	 3	0	0	0	0	0	1	2	#_SizeSel_P_2_F2_TWN_WCNPO_DWLL_late(2)          
+  53	250	 168.907	  90	0.05	0	 2	0	0	0	0	0	0	0	#_SizeSel_P_1_F3_US_WCNPO_LL_shallow_late(3)     
+ -10	  3	 -9.5107	 0.1	0.05	0	-4	0	0	0	0	0	0	0	#_SizeSel_P_2_F3_US_WCNPO_LL_shallow_late(3)     
+  -4	 12	 7.92504	   6	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_3_F3_US_WCNPO_LL_shallow_late(3)     
+  -6	 10	 8.20937	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_4_F3_US_WCNPO_LL_shallow_late(3)     
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_5_F3_US_WCNPO_LL_shallow_late(3)     
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_6_F3_US_WCNPO_LL_shallow_late(3)     
+  10	150	 148.336	  70	0.01	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_1_F4_IATTC(4)                        
+0.01	150	 91.3916	  15	0.01	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_2_F4_IATTC(4)                        
+  53	257	 140.586	  90	0.05	0	 2	0	0	0	0	0	0	0	#_SizeSel_P_1_F6_JPN_WCNPO_OSDWLL_early_Area1(6) 
+ -10	  3	-8.46536	 0.1	0.05	0	-4	0	0	0	0	0	0	0	#_SizeSel_P_2_F6_JPN_WCNPO_OSDWLL_early_Area1(6) 
+  -4	 12	 7.28621	   6	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_3_F6_JPN_WCNPO_OSDWLL_early_Area1(6) 
+  -2	 10	 9.17424	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_4_F6_JPN_WCNPO_OSDWLL_early_Area1(6) 
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_5_F6_JPN_WCNPO_OSDWLL_early_Area1(6) 
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_6_F6_JPN_WCNPO_OSDWLL_early_Area1(6) 
+  50	257	 237.032	  90	0.05	0	 2	0	0	0	0	0	0	0	#_SizeSel_P_1_F7_JPN_WCNPO_CODF(7)               
+ -10	  3	 1.84357	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_2_F7_JPN_WCNPO_CODF(7)               
+  -4	 12	 8.42919	   6	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_3_F7_JPN_WCNPO_CODF(7)               
+  -2	 15	  4.0106	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_4_F7_JPN_WCNPO_CODF(7)               
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_5_F7_JPN_WCNPO_CODF(7)               
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_6_F7_JPN_WCNPO_CODF(7)               
+  53	250	 158.219	  90	0.05	0	 2	0	0	0	0	0	0	0	#_SizeSel_P_1_F8_US_WCNPO_LL_shallow_early(8)    
+ -10	  3	-7.68772	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_2_F8_US_WCNPO_LL_shallow_early(8)    
+  -4	 12	 7.65485	   6	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_3_F8_US_WCNPO_LL_shallow_early(8)    
+  -6	 10	 7.97471	 0.1	0.05	0	 3	0	0	0	0	0	0	0	#_SizeSel_P_4_F8_US_WCNPO_LL_shallow_early(8)    
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_5_F8_US_WCNPO_LL_shallow_early(8)    
+-999	999	    -999	-999	  99	0	-2	0	0	0	0	0	0	0	#_SizeSel_P_6_F8_US_WCNPO_LL_shallow_early(8)    
 #_AgeSelex
 #_No age_selex_parm
 # timevary selex parameters 
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE
-  53	257	 134.994	 90	0.05	0	 2	#_1
- -10	  3	-9.33759	0.1	0.05	0	-4	#_2
-  -4	 12	  6.5657	  6	0.05	0	 3	#_3
-  -2	 20	 17.4491	0.1	0.05	0	 3	#_4
-  10	150	 142.076	 70	0.01	0	 3	#_5
-0.01	150	  27.619	 15	0.01	0	 3	#_6
+  53	257	 134.994	 90	0.05	0	 2	#_SizeSel_P_1_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)_BLK2repl_1994
+ -10	  3	-9.33759	0.1	0.05	0	-4	#_SizeSel_P_2_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)_BLK2repl_1994
+  -4	 12	  6.5657	  6	0.05	0	 3	#_SizeSel_P_3_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)_BLK2repl_1994
+  -2	 20	 17.4491	0.1	0.05	0	 3	#_SizeSel_P_4_F1_JPN_WCNPO_OSDWCOLL_late_Area1(1)_BLK2repl_1994
+  10	150	 142.076	 70	0.01	0	 3	#_SizeSel_P_1_F2_TWN_WCNPO_DWLL_late(2)_BLK1repl_2004          
+0.01	150	  27.619	 15	0.01	0	 3	#_SizeSel_P_2_F2_TWN_WCNPO_DWLL_late(2)_BLK1repl_2004          
 # info on dev vectors created for selex parms are reported with other devs after tag parameter section
 #
 0 #  use 2D_AR1 selectivity(0/1):  experimental feature
@@ -263,29 +263,29 @@
 #_Cond -6 6 1 1 2 0.01 -4 0 0 0 0 0 0 0  #_placeholder if no parameters
 #
 # Input variance adjustments factors: 
-#_factor	fleet	Value
-1    	24	0.11	#_1         
--9999	0 	   0	#_terminator
+#_Data_type	Fleet	Value
+    1	24	0.11	#_Variance_adjustment_list1
+-9999	 0	   0	#_terminator               
 #
 3 #_maxlambdaphase
 1 #_sd_offset; must be 1 if any growthCV, sigmaR, or survey extraSD is an estimated parameter
 # read 14 changes to default Lambdas (default value is 1.0)
-#_likecomp	fleet	phase	value	sizefreq
-    1	25	1	  1	1	#_1         
-    4	 1	1	0.5	1	#_2         
-    4	 2	1	0.5	1	#_3         
-    4	 3	1	0.5	1	#_4         
-    4	 4	1	0.5	1	#_5         
-    4	 5	1	  0	0	#_6         
-    4	 6	1	0.5	1	#_7         
-    4	 7	1	0.5	0	#_8         
-    1	 4	8	0.5	1	#_9         
-    4	 9	1	0.5	1	#_10        
-    9	 6	1	  0	0	#_11        
-   10	 1	1	  1	1	#_12        
-    1	24	1	  0	0	#_13        
-    1	27	1	  0	0	#_14        
--9999	 0	0	  0	0	#_terminator
+#_like_comp	fleet	phase	value	sizefreq_method
+    1	25	1	  1	1	#_Surv_S6_US_WCNPO_LL_deep_Phz1                                 
+    4	 1	1	0.5	1	#_length_F1_JPN_WCNPO_OSDWCOLL_late_Area1_sizefreq_method_1_Phz1
+    4	 2	1	0.5	1	#_length_F2_TWN_WCNPO_DWLL_late_sizefreq_method_1_Phz1          
+    4	 3	1	0.5	1	#_length_F3_US_WCNPO_LL_shallow_late_sizefreq_method_1_Phz1     
+    4	 4	1	0.5	1	#_length_F4_IATTC_sizefreq_method_1_Phz1                        
+    4	 5	1	  0	0	#_length_F5_JPN_EPO_OSDWLL_sizefreq_method_0_Phz1               
+    4	 6	1	0.5	1	#_length_F6_JPN_WCNPO_OSDWLL_early_Area1_sizefreq_method_1_Phz1 
+    4	 7	1	0.5	1	#_length_F7_JPN_WCNPO_CODF_sizefreq_method_1_Phz1               
+    4	 8	1	0.5	1	#_length_F8_US_WCNPO_LL_shallow_early_sizefreq_method_1_Phz1    
+    4	 9	1	0.5	1	#_length_F9_US_WCNPO_LL_deep_sizefreq_method_1_Phz1             
+    9	 6	1	  0	0	#_init_equ_catch_F6_JPN_WCNPO_OSDWLL_early_Area1_Phz1           
+   10	 1	1	  1	1	#_recrdev_Phz1                                                  
+    1	24	1	  0	0	#_Surv_S5_TWN_WCNPO_DWLL_late_Phz1                              
+    1	27	1	  0	0	#_Surv_S8_US_WCNPO_LL_shallow_late_Phz1                         
+-9999	 0	0	  0	0	#_terminator                                                    
 #
 0 # 0/1 read specs for more stddev reporting
 #

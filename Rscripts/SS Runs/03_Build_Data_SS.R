@@ -12,7 +12,8 @@ Build_Data <- function(catch = NULL,
                        CPUEinfo = NULL, 
                        cpue = NULL, 
                      Narea = 1, 
-                     CompError = NULL, 
+                     CompError = NULL,
+                     Nages = 15,
                      lencomp = NULL, 
                      startyr = 1967, 
                      endyr = 2021, 
@@ -24,21 +25,21 @@ Build_Data <- function(catch = NULL,
                       superyear_blocks = NULL, 
                      file_dir = "base",
                       template_dir = file.path(root_dir, "SS3 models", "TEMPLATE_FILES"), 
-                      out_dir = file.path(root_dir, "SS3 models"),model.info=model.info){
+                      out_dir = file.path(root_dir, "SS3 models"),
+                     model.info=model.info){
   
   nfleet <- length(model.info$fleets)
   
   ## STEP 2. Read in SS dat file
-  DAT <- r4ss::SS_readdat_3.30(file = file.path(template_dir, model.info$templatefiles$data))
+  DAT <- r4ss::SS_readdat_3.30(file = file.path(model.info$template_dir, model.info$templatefiles$data))
   
   ## STEP 3. Get data in correct format and subset
   if(is.null(catch)){ stop("Timeseries of catch is missing")
-  
+} 
   DAT$catch <- as.data.frame(catch)
-}
   if (model.info$Species=="SWO"|model.info$Species=="BUM"|model.info$Species=="MLS"){
     DAT$N_lbins     <- length(select(lencomp, starts_with("X")))/2
-    lencomp$Year<-as.integer(lencomp$Yr)
+    lencomp$Yr<-as.integer(lencomp$Yr)
     names(lencomp)[c(1:6)]<-c("Yr","Seas","FltSvy","Gender","Part","Nsamp")
     names(lencomp)<-gsub("X","f",names(lencomp))
     names(lencomp)[grep(".1$",names(lencomp))]<-gsub("f","m",names(lencomp)[grep(".1$",names(lencomp))])
@@ -52,19 +53,19 @@ Build_Data <- function(catch = NULL,
   DAT$styr            <- startyr
   DAT$endyr           <- endyr
   DAT$nseas           <- model.info$nseas
+  DAT$Nages           <- Nages
   DAT$months_per_seas <- rep(12/model.info$nseas,model.info$nseas)
   DAT$Nsubseasons     <- 2 #minimum number is 2
   DAT$spawn_month     <- model.info$spawn_month
   DAT$Nsexes          <- model.info$Nsexes #1 ignore fraction female in ctl file, 2 use frac female in ctl file, -1 one sex and multiply spawning biomass by frac female
   DAT$Ngenders        <- NULL
-  DAT$Nages           <- model.info$Nages
   DAT$N_areas         <- Narea #if want to explore fleets as areas, change this 
   DAT$Nfleets         <- nfleet  #include fishing fleets and surveys
   ## specify the fleet types, timing, area, units, any catch multiplier and fleet name in fleetinfo
   DAT$fleetinfo <- fleetinfo
 
   ## Add CPUE info, column names: Fleet, Units, Errtype, SD_Report
-  DAT$CPUEinfo <- cpueinfo
+  DAT$CPUEinfo <- as.data.frame(cpueinfo)
   
 #  if(exists("cpue")){
 
@@ -93,21 +94,21 @@ Build_Data <- function(catch = NULL,
     
     ## Length Composition 
     if(CompError==0){
-    DAT$len_info    <- data.frame(mintailcomp = rep(-1, DAT$Nfleets),
+    DAT$len_info    <- data.frame(mintailcomp = rep(-0.005, DAT$Nfleets),
                                addtocomp      = rep(0.001, DAT$Nfleets),
                                combine_M_F    = rep(0, DAT$Nfleets),
                                CompressBins   = rep(0, DAT$Nfleets),
                                CompError      = rep(0, DAT$Nfleets),
                                ParmSelect     = rep(0, DAT$Nfleets),
-                               minsamplesize  = rep(0.001, DAT$Nfleets))
+                               minsamplesize  = rep(0.1, DAT$Nfleets))
     } else if (CompError==1){
-    DAT$len_info    <- data.frame(mintailcomp = rep(-1, DAT$Nfleets),
+    DAT$len_info    <- data.frame(mintailcomp = rep(-0.005, DAT$Nfleets),
                                addtocomp      = rep(0.001, DAT$Nfleets),
                                combine_M_F    = rep(0, DAT$Nfleets),
                                CompressBins   = rep(0, DAT$Nfleets),
                                CompError      = rep(1, DAT$Nfleets),
                                ParmSelect     = rep(1, DAT$Nfleets),
-                               minsamplesize  = rep(0.001, DAT$Nfleets))  
+                               minsamplesize  = rep(0.1, DAT$Nfleets))  
     }
     
     
@@ -116,6 +117,7 @@ Build_Data <- function(catch = NULL,
     
     ## Add length composition data, column names: Yr, Seas, FltSVy, Gender, Part, Nsamp, length_bin_values...
     DAT$lencomp     <- as.data.frame(lencomp.sp)
+    DAT$N_lbins <- length(DAT$lbin_vector)
     
   }else{
     
@@ -194,7 +196,7 @@ Build_Data <- function(catch = NULL,
   DAT$use_selectivity_priors <- 0
   
   ## STEP 5. Save new dat file
-  r4ss::SS_writedat_3.30(DAT, outfile = file.path(current.dir,model.info$data.file.name), 
+  r4ss::SS_writedat_3.30(DAT, outfile = file.path(out_dir,model.info$data.file.name), 
                          overwrite = TRUE, verbose = FALSE)
   
 }

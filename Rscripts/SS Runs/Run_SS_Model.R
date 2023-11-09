@@ -1,5 +1,7 @@
 ### Set up the SS model to run
-
+### Notes about the template input files: you need separate control 
+### and data files for single sex models and two-sex models. Otherwise 
+### the starter and forecast files can be the same.
 
 
 ## 1. Input needed information
@@ -15,12 +17,7 @@ library(stringr)
 ## base working directory where all files are stored
 
 base.dir<-"C://users//michelle.sculley//documents//2023 SWO ASSESS"
-
-
-#### Current working directory for model run
-current.dir<-paste0(base.dir,"//Test Folder")
-plotdir<-paste0(current.dir,"//plots")
-
+plotdir<-paste0(base.dir,"//plots")
 
 
 fleetnames<-c("F01_JPN_WCNPO_OSDWCOLL_late_Area1",
@@ -63,12 +60,12 @@ model.info<-list(
   "seed"=123, ##set seed value
   "data.file.name"="swo2023_v004.dat",
   "ctl.file.name"="swo2023_v007.ctl",
-  "templatefiles"=list("data"="SWOdata.dat",
-                       "control"="SWOctl.ctl"),
-  "template_dir" = file.path(base.dir, "TEMPLATE_FILES"), 
-  "out_dir" = file.path(base.dir, "Test folder"),
+  "templatefiles"=list("data"="data.dat",
+                       "control"="control.ctl"),
+  "template_dir" = file.path(base.dir, "Template_files"), 
+  "out_dir" = file.path(base.dir, "Base"),
   "N_foreyrs"=10,
-  "init_values" = 1, #read from par = 1, read from ctl file = 0
+  "init_values" = 0, #read from par = 1, read from ctl file = 0
   "F_age_range"=c(1,10),
   "F_report_basis" = 0, #0=raw_annual_F; 1=F/Fspr; 2=F/Fmsy; 3=F/Fbtgt; where F means annual_F; values >=11 invoke N multiyr (up to 9!) with 10's digit; >100 invokes log(ratio)
   "Min_age_biomass"=1,
@@ -95,42 +92,42 @@ model.info<-list(
 ## Run models
 source(file.path(base.dir,"Rscripts","SS Runs","01_Build_All_SS.R"))
 Build_All_SS(model.info=model.info,
-                         M_option = "Base",
-                         GROWTH_option = "Base",
-                         LW_option = "Base",
-                         MAT_option = "Base",
-                         SR_option = "Base",
-                         EST_option = "Base",
-                         initF = TRUE,
-                         includeCPUE = TRUE,
-                         superyear = FALSE,
-                         superyear_blocks = NULL,
-                         N_samp = 40,
-                         init_values = 0, 
-                         parmtrace = 0,
-                         last_est_phs = 10,
-                         benchmarks = 1,
-                         MSY = 2,
-                         SPR.target = 0.4,
-                         Btarget = 0.4,
-                         Bmark_years = c(0,0,0,0,0,0,-999,0,-999,0),
-                         Bmark_relF_Basis = 1,
-                         Forecast = 2,
-                         Fcast_years = c(0,0,0,0,0,0),
-                         Fixed_forecatch=1,
-                         ControlRule = 0,
-                         write_files = TRUE,
-                         runmodels = TRUE,
-                         ext_args = "-nohess",
-                         do_retro = FALSE,
-                         retro_years = 0:-5,
-                         do_profile = FALSE,
-                         profile = "SR_LN(R0)",
-                         profile.vec = seq(8.2, 8.4, .1),
-                         do_jitter = FALSE,
-                         Njitter = 200,
-                         jitterFraction = 0.1,
-                         printreport = TRUE,
-                         r4ssplots = TRUE,
-                         readGoogle = TRUE
+             M_option = "Base",
+             GROWTH_option = "Base",
+             LW_option = "Base",
+             MAT_option = "Base",
+             SR_option = "Base",
+             EST_option = "Base",
+             initF = TRUE,
+             includeCPUE = TRUE,
+             superyear = FALSE,
+             superyear_blocks = NULL,
+             N_samp = 40,
+             init_values = 0, 
+             parmtrace = 0,
+             last_est_phs = 10,
+             benchmarks = 1,
+             MSY = 2,
+             SPR.target = 0.4,
+             Btarget = 0.4,
+             Bmark_years = c(0,0,0,0,0,0,-999,0,-999,0),
+             Bmark_relF_Basis = 1,
+             Forecast = 2,
+             Fcast_years = c(0,0,0,0,0,0),
+             Fixed_forecatch=1,
+             ControlRule = 0,
+             write_files = TRUE,
+             runmodels = TRUE,
+             ext_args = "-nohess",
+             do_retro = FALSE,
+             retro_years = 0:-5,
+             do_profile = FALSE,
+             profile = "SR_LN(R0)",
+             profile.vec = seq(8.2, 8.4, .1),
+             do_jitter = FALSE,
+             Njitter = 200,
+             jitterFraction = 0.1,
+             printreport = TRUE,
+             r4ssplots = TRUE,
+             readGoogle = TRUE
 )
